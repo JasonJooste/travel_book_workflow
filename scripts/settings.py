@@ -10,18 +10,33 @@ isn't a field here is an error, as is a value of the wrong type.
 Where each value comes from, highest first:
   1. an environment variable SETTINGS_<FIELD>, e.g. SETTINGS_REVIEW__PORT=8100 make review
      (nested fields join with __), for a one-off run
-  2. ~/.secrets/<field>, for the SecretStr fields, so secrets stay out of the repo:
-     komoot_email, komoot_password, anthropic_api_key, deepgram_api_key, openai_api_key,
-     elevenlabs_api_key. Each file holds just the value.
-  3. settings.yaml, the defaults
+  2. secrets only: the system keyring (GNOME Keyring, KWallet...), service "secrets", the
+     field name as the username. Set one with `make secret NAME=<field>`, which prompts for it.
+  3. secrets only: the file ~/.secrets/<field>, for when there's no keyring (SSH, cron,
+     containers). Keep it chmod 600.
+  4. settings.yaml, the defaults
+
+The secrets: komoot_email, komoot_password (make fetch-komoot), anthropic_api_key (make events
+with the api backend), deepgram_api_key, openai_api_key, elevenlabs_api_key (make transcripts
+with those providers).
 
 To add a setting, add the field here and its default to settings.yaml, with a comment there
-saying what it's for. Don't give fields defaults here: settings.yaml holds them all (secrets
-excepted: they default to None, as not every target needs every one).
+saying what it's for. Don't give fields defaults here: settings.yaml holds them all. Secrets
+are the exception: a secret is a `SecretStr | None = None` field and never goes in
+settings.yaml. Not every target needs every secret, so a missing one is None rather than an
+error, until settings.secret() is asked for it.
 """
+import types
+import typing
 from datetime import date
 from pathlib import Path
 from typing import Literal
+
+try:
+    import keyring
+    from keyring.errors import KeyringError
+except ImportError:  # not installed yet (make venv): secrets come from the files only
+    keyring = None
 
 from pydantic import BaseModel, ConfigDict, SecretStr
 from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict, YamlConfigSettingsSource
@@ -30,6 +45,46 @@ from repo import BASE_DIR
 
 SETTINGS_YAML = BASE_DIR / "settings.yaml"
 SECRETS = Path.home() / ".secrets"
+KEYRING_SERVICE = "secrets"
+
+
+def is_secret(annotation):
+    """Whether a field's type is SecretStr, or SecretStr | None."""
+    if annotation is SecretStr:
+        return True
+    if typing.get_origin(annotation) in (typing.Union, types.UnionType):
+        return SecretStr in typing.get_args(annotation)
+    return False
+
+
+def read_secret(name):
+    """A secret from the keyring, else from the secrets file of that name, else None.
+    No keyring, or a locked one, falls through to the file."""
+    value = None
+    if keyring is not None:
+        try:
+            value = keyring.get_password(KEYRING_SERVICE, name)
+        except KeyringError:
+            value = None
+    if value is None and (SECRETS / name).is_file():
+        value = (SECRETS / name).read_text(encoding="utf-8").strip()
+    return value
+
+
+class SecretsSource(PydanticBaseSettingsSource):
+    """Secret fields, from read_secret()."""
+
+    def get_field_value(self, field, field_name):
+        value = read_secret(field_name) if is_secret(field.annotation) else None
+        return value, field_name, False
+
+    def __call__(self):
+        values = {}
+        for name, field in self.settings_cls.model_fields.items():
+            value, _, _ = self.get_field_value(field, name)
+            if value is not None:
+                values[name] = value
+        return values
 
 
 class Section(BaseModel):
@@ -172,8 +227,8 @@ class Review(Section):
 
 class Writing(Section):
     target_words: int
-    pom_minutes: float
-    poms_per_day: float
+    pom_minutes: int
+    poms_per_day: int
     min_edit_sessions: int
     min_notes_resolved: int
     session_gap_min: float
@@ -186,7 +241,6 @@ class Settings(BaseSettings):
         yaml_file=SETTINGS_YAML,
         env_prefix="SETTINGS_",
         env_nested_delimiter="__",
-        secrets_dir=SECRETS if SECRETS.is_dir() else None,
         extra="forbid",
         frozen=True,
     )
@@ -227,10 +281,11 @@ class Settings(BaseSettings):
                 **{m: v.colour for m, v in self.modes.items()}}
 
     def secret(self, name):
-        """A secret's value, or exit saying where to put it."""
+        """A secret's value, or exit saying how to set it."""
         value = getattr(self, name)
         if value is None:
-            raise SystemExit(f"missing secret {name}: put it in {SECRETS / name} (just the value, mode 600)")
+            raise SystemExit(f"missing secret {name}: run make secret NAME={name}, which stores it in the "
+                             f"system keyring (or put it in {SECRETS / name}, mode 600)")
         return value.get_secret_value().strip()
 
     @classmethod
@@ -242,7 +297,7 @@ class Settings(BaseSettings):
         dotenv_settings: PydanticBaseSettingsSource,
         file_secret_settings: PydanticBaseSettingsSource,
     ) -> tuple[PydanticBaseSettingsSource, ...]:
-        return init_settings, env_settings, file_secret_settings, YamlConfigSettingsSource(settings_cls)
+        return init_settings, env_settings, SecretsSource(settings_cls), YamlConfigSettingsSource(settings_cls)
 
 
 settings = Settings()

@@ -2,7 +2,8 @@
 # Every setting has its default here, with a comment saying what it's for and which target uses it.
 # Override one for a single run with an environment variable: SETTINGS_<NAME>=<value> make <target>,
 # nested ones joined with __, e.g. SETTINGS_REVIEW__PORT=8100 make review.
-# Secrets don't go here: they're read from ~/.secrets/<name> (see scripts/settings.py).
+# Secrets never go here: they're read from the system keyring (make secret NAME=<name>),
+# or from ~/.secrets/<name> where there's no keyring (see scripts/settings.py).
 # Paths aren't settings: they're the project's layout, in scripts/repo.py.
 
 # The trip: rides, photos and entries outside these local days are left out (every target)
