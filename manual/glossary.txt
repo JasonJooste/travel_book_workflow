@@ -1,0 +1,69 @@
+# Names and words the transcription should get right, one per line.
+# Drafted from notes/contact_people.txt, notes/helpers.csv, story_plans/ and the
+# written diaries: capitalised words that aren't in the English dictionary.
+# Prune freely. Keep it short: long lists make transcription invent words.
+# Towns come from the GPX track, so they don't need to be here.
+# Friends
+Valik
+Sophia
+Gen
+Genevieve
+Alex
+Hunter
+Pranav
+# Drafted
+Arthur
+Enosh
+Munich
+Songlin
+Pignot
+Switzerland
+Ashlyn
+Australia
+Barnard
+Berlin
+Boldering
+France
+Fred
+Ghana
+Hofbräuhaus
+Johan
+Kassim
+Lamin
+Leone
+Nigeria
+Pyranees
+Ralph
+Ruth
+Tsumeb
+U-Bahn
+Abidjan
+Abuja
+Benguela
+Cameroon
+Jesus
+Jordi
+Monrovia
+Nouakchott
+Swiss
+Andrea
+BAroush
+Bubuak
+Cabinda
+Canadian
+David
+Emmi
+Etosha
+Hugo
+Hungarian
+Joquim
+Kuba
+Limbe
+Luanda
+Mohammed
+Moroccan
+Ndhafa
+Ouidah
+Pointe
+Sainey
+Yaoundé

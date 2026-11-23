@@ -1,0 +1,83 @@
+% The whole book. Build with `make` (or `make book`); the PDF lands in book.pdf.
+% Stories are built into processing/story_tex/<name>.tex; \input them where needed.
+
+\documentclass[11pt,twoside,openright]{memoir}
+
+% --- Page: 6x9in trade paperback --------------------------------------------
+\setstocksize{9in}{6in}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\setlrmarginsandblock{0.8in}{0.6in}{*}   % inner (spine), outer
+\setulmarginsandblock{0.75in}{0.85in}{*} % top, bottom
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{1.5\onelineskip}{*}
+\checkandfixthelayout
+
+% --- Fonts and typography ---------------------------------------------------
+\usepackage{fontspec}
+% By file name, so TeX Live's copy is used rather than whatever fontconfig finds
+\setmainfont{EBGaramond}[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic]
+\usepackage[english]{babel}
+\usepackage{microtype}
+\setlength{\parindent}{1.2em}
+\nonzeroparskip\setlength{\parskip}{0pt}
+\raggedbottom
+
+% --- Chapters, parts, headers -----------------------------------------------
+\chapterstyle{bringhurst}
+\renewcommand{\partnamefont}{\normalfont\large\scshape}
+\renewcommand{\partnumfont}{\normalfont\large\scshape}
+\renewcommand{\parttitlefont}{\normalfont\Huge}
+\setsecnumdepth{part}     % "Part I", but unnumbered chapters
+\settocdepth{chapter}
+
+\makepagestyle{story}
+\makeevenhead{story}{\thepage}{}{\scshape\small\leftmark}
+\makeoddhead{story}{\scshape\small\rightmark}{}{\thepage}
+\makepsmarks{story}{%
+  \createmark{chapter}{both}{nonumber}{}{}}
+\pagestyle{story}
+\aliaspagestyle{chapter}{empty}
+
+% --- What pandoc's LaTeX output expects -------------------------------------
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[hidelinks]{hyperref}
+
+% --- Front matter -----------------------------------------------------------
+\title{Untitled Travel Book}
+\author{Jason Jooste}
+\date{}
+
+\begin{document}
+
+\frontmatter
+\begin{titlingpage}
+  \centering
+  \vspace*{0.3\textheight}
+  {\Huge\thetitle\par}
+  \vspace{2\onelineskip}
+  {\large\scshape\theauthor\par}
+\end{titlingpage}
+
+\cleardoublepage
+\tableofcontents*
+
+\mainmatter
+
+\chapter{Inauspicious beginnings}
+\input{processing/story_tex/starting}
+
+\chapter{Sick day in france}
+\input{processing/story_tex/sick_day_france}
+
+\chapter{Adrien}
+\input{processing/story_tex/yaounde_adrien}
+
+\backmatter
+
+\end{document}

@@ -1,0 +1,24 @@
+{
+ "file": "clean/diary/audio/Note_20240906_1135_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "",
+ "saved": "2026-11-16T08:55:30",
+ "events": [
+  {
+   "title": "Missing bike part found",
+   "summary": "In Munich I searched through all my gear for a missing bike part and couldn't find it. I was angry at myself and felt unprepared and stupid, so I decided to take the bike to a bike shop to buy a new one. When I went down to the bike, I found the little part in the last place I looked.",
+   "date": "2024-09-06",
+   "place": "Munich",
+   "people": [],
+   "tags": [
+    "anger",
+    "bike_fix",
+    "chaos"
+   ],
+   "quote": "It was the last place that I looked.",
+   "date_guessed": true
+  }
+ ]
+}

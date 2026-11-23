@@ -1,3 +1,12 @@
 # System packages, installed by `make apt`. Say which target needs each one
 bindfs                       # make mount: read-only raw data mounts
 python3-venv                 # make venv
+libimage-exiftool-perl       # make index: photo times and GPS
+ffmpeg                       # make index, transcripts: audio durations and compression
+curl                         # make osm, geonames: downloads
+unzip                        # make geonames
+osmium-tool                  # make osm: merges and filters the OSM extracts
+pandoc                       # make book: stories to LaTeX
+texlive-xetex                # make book: xelatex
+texlive-latex-recommended    # make book: fontspec, microtype, hyperref
+texlive-fonts-extra          # make book: EB Garamond

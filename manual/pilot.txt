@@ -1,0 +1,17 @@
+# Files for the provider bake-off (make transcripts-pilot), one per line.
+# French practice entries (the old local run forced English on these)
+20250805-2214_Entrée_25_08_05.wav
+20260203-1850_Entrée_26_02_03.wav
+# English with French/German words
+20260512-1136_entry_766.wav
+# Name-heavy
+20251205-2318_entry_252.wav
+20260318-2059_entry_570.wav
+Note_20240905_2359_otter.ai.mp3
+# Longest (54 min; openai refuses it until splitting is built) and very short
+20260527-2134_entry_804.wav
+20251025-1803_entry_202.wav
+# Other recorders and formats
+Recording_113.wav
+Laptop_1.flac
+2024_12_21_21_06_56.m4a

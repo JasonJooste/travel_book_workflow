@@ -1,0 +1,115 @@
+{
+ "file": "clean/diary/audio/Recording_91.wav",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "",
+ "saved": "2026-11-16T09:08:15",
+ "events": [
+  {
+   "title": "Roadside nook camp and breakfast",
+   "summary": "Alice and I camped by the side of the road last night in a nice little nook. In the morning we had a good breakfast and coffee and were on the road early.",
+   "date": "2024-11-23",
+   "place": "",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "companion",
+    "lodging",
+    "camping"
+   ],
+   "quote": "we, like, by the side of the road last night and it was really like,  like a nice little spot",
+   "date_guessed": false
+  },
+  {
+   "title": "Cruising the high plateau",
+   "summary": "After a nice downhill and a big climb, Alice and I rode across a high plateau close to a thousand metres up. It was flat, quiet farmland with lots of vineyards, and we ate grapes along the way. It was a lovely day of riding.",
+   "date": "2024-11-23",
+   "place": "",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "companion",
+    "beautiful_landscape",
+    "happy",
+    "roadside_food"
+   ],
+   "quote": "rural, still and agricultural, lots of grapes that we could eat",
+   "date_guessed": false
+  },
+  {
+   "title": "Deciding to enjoy the riding itself",
+   "summary": "I noticed I'd been focused only on the goal of getting places. I'm doing this trip for the travel, not the cycling, but since I'll be riding so much I decided to enjoy the riding for its own sake. I switched off the podcasts and goal-focus, put on music and had a really nice afternoon cruising.",
+   "date": "2024-11-23",
+   "place": "",
+   "people": [],
+   "tags": [
+    "reflection",
+    "happy"
+   ],
+   "quote": "I kind of decided that I was just going to enjoy the biking itself",
+   "date_guessed": false
+  },
+  {
+   "title": "Saturday beers in Valdeganga",
+   "summary": "We got to the little town of Valdeganga, which was buzzing on a Saturday afternoon. We could hear the social life coming from a little bar, so Alice and I had a couple of beers there and took a couple more with us for the road.",
+   "date": "2024-11-23",
+   "place": "Valdeganga",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "companion",
+    "relax",
+    "village_life",
+    "alcohol"
+   ],
+   "quote": "we decided to have a couple of beers there, and then took a couple with us for the road",
+   "date_guessed": false
+  },
+  {
+   "title": "Alice's bus fully booked, 3am start",
+   "summary": "While we were setting up camp about 20 km from Albacete, Alice found out the 11am bus tomorrow is fully booked, so the only option left is the 5:30am bus. The plan is to wake at 3, ride the last 20 km to Albacete in the dark, pack her bike into a bike bag and put her on the bus.",
+   "date": "2024-11-23",
+   "place": "near Valdeganga",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "companion",
+    "planning",
+    "challenge"
+   ],
+   "quote": "the 11 a.m bus tomorrow is fully booked um and that left only the 530 a m bus",
+   "date_guessed": false
+  },
+  {
+   "title": "Sleeping under the stars by almond trees",
+   "summary": "We're camped near some almond trees, far from everything, and the sky is clear, so I'm sleeping out with no tent. I'm on my groundsheet, wrapped in my sleeping bag with rain pants, a jumper and a rain jacket on, feeling toasty and looking at the stars.",
+   "date": "2024-11-23",
+   "place": "near Valdeganga",
+   "people": [],
+   "tags": [
+    "lodging",
+    "happy",
+    "camping"
+   ],
+   "quote": "I'm feeling pretty toasty and I'm looking at the stars right now",
+   "date_guessed": false
+  },
+  {
+   "title": "Route ahead to Morocco",
+   "summary": "After Alice leaves, I have a few days of hard riding down to Granada, then on to Gibraltar and Tarifa, and across to Morocco, where the Africa part of the journey begins.",
+   "date": "2024-11-23",
+   "place": "near Valdeganga",
+   "people": [],
+   "tags": [
+    "planning"
+   ],
+   "quote": "then across to Morocco.  and the Africa journey begins",
+   "date_guessed": false
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "file": "clean/diary/audio/Note_20240904_1402_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "Short",
+ "saved": "2026-11-16T08:45:21",
+ "events": [
+  {
+   "title": "Floating the Eisbach with Arthur",
+   "summary": "I floated down the Eisbach in Munich with Arthur. Afterwards we lay in the sun reading books.",
+   "date": "2024-09-04",
+   "place": "Munich",
+   "people": [
+    "Arthur"
+   ],
+   "tags": [
+    "companion",
+    "relax"
+   ],
+   "quote": "We floated down the icebach today with Arthur",
+   "date_guessed": false
+  }
+ ]
+}

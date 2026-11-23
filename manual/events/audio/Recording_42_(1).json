@@ -1,0 +1,156 @@
+{
+ "file": "clean/diary/audio/Recording_42_(1).wav",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "work is when active work is being done.",
+ "saved": "2026-11-16T09:27:16",
+ "events": [
+  {
+   "title": "Leaning on Alice in Tamraght",
+   "summary": "I've felt like shit for a long time, and my time in Tamraght with Alice was hard. When things were bad I leaned on her for emotional support and it didn't work. She dismissed me with 'oh, you're so sad', and that made me feel worse and set off my fear that I can't trust people. She was great with practical help, like changing my dressings, but our ways of connecting are very different.",
+   "date": "2025-02-02",
+   "place": "Tamraght",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "mental_health",
+    "companion",
+    "sad"
+   ],
+   "quote": "when things were pretty bad  I kind of lent on her a little bit  and it just didn't work",
+   "date_guessed": true
+  },
+  {
+   "title": "Reaching out to friends",
+   "summary": "I reached out a little to Arthur, Gen and Alex back home. It was nice, but we don't have a day-to-day connection, so nobody does daily check-ins. When I feel bad I don't reach out, even though missing warm social contact is the main reason I feel bad. I've noticed that a decent chat about random stuff makes me feel better.",
+   "date": "2025-02-04",
+   "place": "",
+   "people": [
+    "Arthur",
+    "Gen",
+    "Alex"
+   ],
+   "tags": [
+    "back_home",
+    "lonely",
+    "sad"
+   ],
+   "quote": "I reached out a little bit  to  Arthur and Jen  and Alex as well",
+   "date_guessed": true
+  },
+  {
+   "title": "Nick the flaky cyclist",
+   "summary": "Nick, a cyclist, was meant to join Alice and me, rent a place with us and hang out. He kept being flaky. He went to Agadir but wouldn't ride the 20 km to Tamraght because it was an extra 40 km, and once he was there he made no effort to spend time with us. It set off my worry that people don't like hanging out with me.",
+   "date": "2025-01-30",
+   "place": "Tamraght",
+   "people": [
+    "Nick",
+    "Alice"
+   ],
+   "tags": [
+    "lonely",
+    "companion",
+    "sad"
+   ],
+   "quote": "he said he was going to go to Agadir  but then wouldn't come up to Tamracht",
+   "date_guessed": true
+  },
+  {
+   "title": "Social spiral and Amelia dream",
+   "summary": "I fell into my usual spiral of listing all the ways I've messed up socially, until my time at work at CSIRO looked like nobody wanted to hang out with me. Last night I had an intense dream about Amelia, whom I was jealous of for being liked by everyone at work. I see my need to be right and my habit of playing devil's advocate, and I wonder if it's autistic masking and burnout. I also feel that people being nice to me can never come across as genuine.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [
+    "Amelia"
+   ],
+   "tags": [
+    "mental_health",
+    "reflection",
+    "sad"
+   ],
+   "quote": "I had a dream last night  quite intense where who is it Amelia featured",
+   "date_guessed": true
+  },
+  {
+   "title": "Getting vaguely suicidal",
+   "summary": "At my worst I was getting vaguely suicidal, and having no romantic relationships makes me feel worthless and alien. I thought about starting medication and about seeing a therapist, but a session costs about 200 dollars and I'm on a budget. I keep seeing the same pattern: as soon as I stop and have time, my fantasy life collides with what I can actually do.",
+   "date": "2025-02-06",
+   "place": "",
+   "people": [],
+   "tags": [
+    "mental_health",
+    "sad"
+   ],
+   "quote": "I was vaguely getting a bit suicidal.",
+   "date_guessed": true
+  },
+  {
+   "title": "Ego without testing myself",
+   "summary": "I realised I have an ego about being smart and capable, but I avoid situations that would test it, and I go in half-hearted with excuses ready. Examples are Instagram posts about the trip, open source I never did, my unfinished master's and bachelor's theses (which feels like proving Lars right), my career and online dating. I can't blame bad luck here in Morocco, where so many people are struggling just to get by. My answer is to set a low bar, take it seriously, start small and be consistent.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [
+    "Lars"
+   ],
+   "tags": [
+    "reflection",
+    "privilege_guilt",
+    "sad"
+   ],
+   "quote": "it's almost as if I've already got one foot out the door when I start",
+   "date_guessed": false
+  },
+  {
+   "title": "Making friends with solo travellers",
+   "summary": "I thought about how people make friends when they are uprooted and ready for connection, like at uni. While travelling I should look for other solo travellers instead of trying to join groups that already have their own thing going. My dream is a group of people who like me, whom I like, and with whom I can build things and teach.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [],
+   "tags": [
+    "reflection",
+    "sad"
+   ],
+   "quote": "you make friends with the people that are ready for it, basically",
+   "date_guessed": false
+  },
+  {
+   "title": "Nice-to-Jason day and Atlas hike plan",
+   "summary": "I declared today 'nice to Jason day': get some things done, meditate, go for a walk and watch something sad so I can cry. A scene in the third Harry Potter book, where Harry briefly thinks he'll live with Sirius, hit me hard. In a few days I'm heading to Marrakesh to leave gear at a guest house and do a four or five day hike through the snowy mountains with my tent and stove. It reminds me of Nepal.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [],
+   "tags": [
+    "planning",
+    "mental_health"
+   ],
+   "quote": "today is going to be the nice to Jason day",
+   "date_guessed": false
+  },
+  {
+   "title": "Wound not healing",
+   "summary": "I'm worried because my wound doesn't seem to be healing shut any more than before, maybe because I've been moving around. It might scar over in a gash shape. It concerns me because I want to get back on the road.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [],
+   "tags": [
+    "illness"
+   ],
+   "quote": "this wound doesn't seem to be healing  any more than before",
+   "date_guessed": false
+  },
+  {
+   "title": "Diary becoming a mental health diary",
+   "summary": "I noticed my travel diary has turned into a diary about me and my mental health, which is what matters most to me right now. I hope some of this honesty can go into my blog writing and mean something to people. I feel it's time to put myself out there.",
+   "date": "2025-02-09",
+   "place": "Essaouira",
+   "people": [],
+   "tags": [
+    "reflection"
+   ],
+   "quote": "this travel diary has just turned into a me and my mental health issues diary",
+   "date_guessed": false
+  }
+ ]
+}

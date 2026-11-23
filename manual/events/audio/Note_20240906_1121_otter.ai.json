@@ -1,0 +1,26 @@
+{
+ "file": "clean/diary/audio/Note_20240906_1121_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "short",
+ "saved": "2026-11-16T08:54:35",
+ "events": [
+  {
+   "title": "Lost crank bolt found in multi-tool",
+   "summary": "I was finally replacing the crank on my bike at Valik's apartment in Munich. I spent about half an hour hunting for the small bolt that locks the crank in place and got really angry at myself. It turned out I had tucked it in with my multi-tool for safekeeping, so I could finally put everything together.",
+   "date": "2024-09-06",
+   "place": "Munich",
+   "people": [
+    "Valik"
+   ],
+   "tags": [
+    "bike_fix",
+    "chaos",
+    "anger"
+   ],
+   "quote": "I put it, um, uh,  tucked it in with the rest of the stuff in my multi-tool",
+   "date_guessed": false
+  }
+ ]
+}

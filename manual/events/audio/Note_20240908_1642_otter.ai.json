@@ -1,0 +1,38 @@
+{
+ "file": "clean/diary/audio/Note_20240908_1642_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "short",
+ "saved": "2026-11-16T08:59:09",
+ "events": [
+  {
+   "title": "Front brake pops in the rain",
+   "summary": "I was going down a hill near Kempten in the rain, already wet, when my front brake popped. When I looked down I was relieved to see it was only the little mounting screw that had slipped, and I stopped to fix it.",
+   "date": "2024-09-08",
+   "place": "Kempten (Allgäu)",
+   "people": [],
+   "tags": [
+    "bike_break",
+    "bike_fix",
+    "weather"
+   ],
+   "quote": "my front brake popped",
+   "date_guessed": false
+  },
+  {
+   "title": "Tired, wet, thinking of quitting",
+   "summary": "Near Kempten I was exhausted, soaked by rain, with no place to stay and no idea where I was going. For a moment I thought about giving up the whole trip and taking a year off work to build fun little toys instead.",
+   "date": "2024-09-08",
+   "place": "Kempten (Allgäu)",
+   "people": [],
+   "tags": [
+    "trip_doubt",
+    "weather",
+    "challenge"
+   ],
+   "quote": "i was contemplating just not doing this whole thing",
+   "date_guessed": false
+  }
+ ]
+}

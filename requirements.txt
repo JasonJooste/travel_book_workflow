@@ -1,4 +1,11 @@
 # Python dependencies, installed into .venv by `make venv`. Pin each one and say which target needs it
 pydantic-settings[yaml]==2.16.3   # every target: scripts/settings.py reads settings.yaml
 pyyaml==6.0.3                     # for pydantic-settings' yaml support
-keyring==25.7.0                   # every target: scripts/settings.py reads secrets from the system keyring
+matplotlib==3.11.2                # make track, route, progress: the plots
+pyvalhalla==3.9.1                 # make osm, route: routes the gaps locally, from the OSM extracts
+osmium==4.3.2                     # make osm: takes motorroad=yes off the African extracts
+openlocationcode==1.0.1           # make stays, route, review: plus codes for stays
+faster-whisper==1.2.1             # make transcripts with provider whisper
+anthropic==2.8.0                  # make events with backend api
+pillow==13.0.0                    # make review: photo thumbnails, the right way up
+komootgpx==1.6.2                  # make fetch-komoot: download recorded Komoot tours

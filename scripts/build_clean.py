@@ -3,7 +3,7 @@
 
 Usage: build_clean.py
 
-Cleaners are the modules in scripts/clean/ whose names don't start with _
+Cleaners are the modules in scripts/cleaners/ whose names don't start with _
 (those are helpers they can import). Each one has
 
   PATTERNS = ["stories/*.md"]   the raw files it claims, relative to raw/
@@ -20,51 +20,42 @@ cleaner or a helper. Anything in clean/ that raw/ no longer accounts for is
 removed, and clean/.sources.csv records where each file came from, for the index.
 
 Refuses to run while a mount in mounts.toml is down, as clean/ would lose
-everything from it, or while a raw path has whitespace, which make can't
-handle: it says how to rename them with scripts/rename_spaces.py.
+everything from it.
+
+Whitespace in a raw path, which make can't handle, becomes _ in clean/: raw/diary/audio/
+Recording 3.wav is clean/diary/audio/Recording_3.wav. (The template refuses to run instead and
+asks for the originals to be renamed with scripts/rename_spaces.py; this project has 480 such
+names, in recordings that other apps know by name, so it maps them here. It's still an error for
+two raw files to map to one clean name.)
 """
 import csv
 import os
 import re
-import shlex
 import sys
 import traceback
 
-from mounts import load, unmounted
+from mounts import unmounted
 from repo import BASE_DIR, CLEAN, RAW, edited, load_plugins, matches, visible_files
 
-CLEANERS = BASE_DIR / "scripts/clean"
+CLEANERS = BASE_DIR / "scripts/cleaners"
 SOURCES = CLEAN / ".sources.csv"
 
 
-def check_names(files):
-    """Exit with the commands that rename raw paths with whitespace, run on the originals."""
-    spaced = [rel for rel in files if re.search(r"\s", rel)]
-    if not spaced:
-        return
-    mounts = load()
-    dirs = set()
-    for rel in spaced:
-        point = next((p for p in mounts if f"raw/{rel}".startswith(f"{p}/")), None)
-        # Mounts are read-only, so their files are renamed at the source
-        dirs.add(mounts[point] if point else "raw")
-    shown = [f"raw/{rel}" for rel in spaced[:10]] + [f"... and {len(spaced) - 10} more"] * (len(spaced) > 10)
-    command = "python3 scripts/rename_spaces.py " + " ".join(shlex.quote(d) for d in sorted(dirs))
-    sys.exit(f"{len(spaced)} raw path(s) have whitespace, which make can't handle:\n  " + "\n  ".join(shown)
-             + f"\nSee what renaming them would do (nothing changes without --apply):\n  {command}")
+def clean_name(rel):
+    """rel with each run of whitespace replaced by _, so make can handle it."""
+    return re.sub(r"\s+", "_", rel)
 
 
 def check(cleaners):
     for name, m in cleaners.items():
         if not hasattr(m, "PATTERNS") or not (hasattr(m, "clean") or getattr(m, "DROP", False)):
-            sys.exit(f"scripts/clean/{name}.py needs PATTERNS, and clean() or DROP = True")
+            sys.exit(f"scripts/cleaners/{name}.py needs PATTERNS, and clean() or DROP = True")
 
 
 def plan(cleaners):
     """{dest: (rel, cleaner)} for every file clean/ should hold; cleaner is "" for a symlink."""
     planned, problems = {}, []
     files = visible_files(RAW)
-    check_names(files)
     for rel in files:
         claims = [name for name, m in cleaners.items() if matches(rel, m.PATTERNS)]
         if len(claims) > 1:
@@ -74,10 +65,7 @@ def plan(cleaners):
         module = cleaners.get(name)
         if getattr(module, "DROP", False):
             continue
-        dest = module.dest(rel) if hasattr(module, "dest") else rel
-        if re.search(r"\s", dest):
-            problems.append(f"{name}.dest() gives raw/{rel} a name with whitespace: {dest}")
-            continue
+        dest = clean_name(module.dest(rel) if hasattr(module, "dest") else rel)
         if dest in planned:
             problems.append(f"clean/{dest} would come from both raw/{planned[dest][0]} and raw/{rel}")
             continue

@@ -22,3 +22,9 @@
 
 # Python bytecode
 __pycache__/
+
+# Keep the replayvim recordings of the stories (make progress), despite a global ignore
+!*.replay
+
+# Earlier versions of manual/ files, kept by the review app for Undo: git has the history
+/manual/.history/

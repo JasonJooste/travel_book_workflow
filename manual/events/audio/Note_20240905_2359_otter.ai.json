@@ -1,0 +1,110 @@
+{
+ "file": "clean/diary/audio/Note_20240905_2359_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "",
+ "saved": "2026-11-16T08:52:37",
+ "events": [
+  {
+   "title": "European SIM card finally activated",
+   "summary": "In Munich I tried to register a European SIM card using Valik's address, but the online identity check by video call wouldn't work with my British passport because it shows no address. I was very stressed about the address mismatch. A kind Italian lady in the shop entered my passport details herself and trusted me on the address, so I finally have a working SIM that covers Europe at a reasonable price.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Valik"
+   ],
+   "tags": [
+    "bureaucracy_problem",
+    "helper"
+   ],
+   "quote": "this so wonderful Italian lady, just took",
+   "date_guessed": false
+  },
+  {
+   "title": "New crank part doesn't fit",
+   "summary": "In the morning I borrowed one of the bikes to ride to Decathlon and bought the crank part I needed, racing a bit with Gen, Arthur and Songlin. Out on the street I unpacked the bike and took the crank off, then found the new square taper part was rotated 45 degrees from the one my bike uses. I later learned mine is the less common shape, which was really frustrating because I wanted the bike back together.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Gen",
+    "Arthur",
+    "Songlin"
+   ],
+   "tags": [
+    "bike_break",
+    "challenge"
+   ],
+   "quote": "they haven't standardized the angle",
+   "date_guessed": false
+  },
+  {
+   "title": "Walking the bike across Munich, crank for five euros",
+   "summary": "I couldn't legally take the bike on the U-Bahn or trams, so Gen, Arthur, Songlin and I walked for an hour or two across Munich, stopping at bike shops to ask about the crank shape. At the last shop near Valik's place, a friendly man had a second-hand one and only asked for five euros. It's white, so it will look different from the rest of the bike and remind me to be more careful.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Gen",
+    "Arthur",
+    "Songlin",
+    "Valik"
+   ],
+   "tags": [
+    "helper",
+    "bike_fix",
+    "companion"
+   ],
+   "quote": "He happened to have one second hand and just asked for five euros",
+   "date_guessed": false
+  },
+  {
+   "title": "Hofbräuhaus lunch and Gen in the fountain",
+   "summary": "Arthur, Songlin, Gen and I had lunch at the Hofbräuhaus. Before that, Gen ran through the fountain at Karlsplatz and got her white shirt and boots soaking wet. Afterwards Arthur and Songlin left, worn out from lunchtime beer and jet lag, and I was exhausted too.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Gen",
+    "Arthur",
+    "Songlin"
+   ],
+   "tags": [
+    "companion"
+   ],
+   "quote": "Jen ran through the fountain at, um,  Karzplatz",
+   "date_guessed": false
+  },
+  {
+   "title": "Art installation with Valik",
+   "summary": "Gen and I visited Valik at work, meaning to get his keys, but he invited us to an event instead. We went to an art installation that a friend of Alex's is part of: a space with curtains, lights and eerie music where performers moved around reciting pseudo-narrative stories. I found it very interesting.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Valik",
+    "Gen",
+    "Alex"
+   ],
+   "tags": [
+    "companion",
+    "culture"
+   ],
+   "quote": "reciting these like pseudo  stories",
+   "date_guessed": false
+  },
+  {
+   "title": "Evening ride through Munich",
+   "summary": "One of the highlights of the day: Gen and I rented bikes and rode with Valik from his work to the art event and then back to his place. We cruised through Munich in the evening with no helmets, along tree-lined streets among swarms of other cyclists. It felt free and beautiful.",
+   "date": "2024-09-05",
+   "place": "Munich",
+   "people": [
+    "Gen",
+    "Valik"
+   ],
+   "tags": [
+    "happy",
+    "companion"
+   ],
+   "quote": "It's free and it's beautiful and these tree-lined streets",
+   "date_guessed": false
+  }
+ ]
+}

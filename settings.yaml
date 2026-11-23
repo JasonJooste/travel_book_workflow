@@ -1,8 +1,189 @@
 # Default settings, read by scripts/settings.py (pydantic-settings), which declares each one's type.
 # Every setting has its default here, with a comment saying what it's for and which target uses it.
-# Override one for a single run with an environment variable: SETTINGS_<NAME>=<value> make <target>.
-# Secrets never go here: they're read from the system keyring (make secret NAME=<name>),
-# or from ~/.secrets/<name> where there's no keyring.
+# Override one for a single run with an environment variable: SETTINGS_<NAME>=<value> make <target>,
+# nested ones joined with __, e.g. SETTINGS_REVIEW__PORT=8100 make review.
+# Secrets don't go here: they're read from ~/.secrets/<name> (see scripts/settings.py).
+# Paths aren't settings: they're the project's layout, in scripts/repo.py.
 
-# Example: replace with the project's own settings (and remove the field from scripts/settings.py)
-example_threshold: 0.5
+# The trip: rides, photos and entries outside these local days are left out (every target)
+trip:
+  start: 2024-09-01
+  end: 2026-08-24
+
+# How each stretch of the route was travelled: the modes travel_modes.csv can use, in the order the review
+# app's number keys pick them. router: Valhalla's profile for routing a gap leg of this mode (bike, car,
+# foot), or none for a straight line. max_kmh: make check flags legs faster than this (none: never).
+# colour: on the maps and the route plot. vehicle: a short run of it between two others is suspicious
+modes:
+  cycled:    {router: bike, max_kmh: 30,   colour: "#2ca02c", vehicle: false}
+  car:       {router: car,  max_kmh: 130,  colour: "#d62728", vehicle: true}
+  hitchhike: {router: car,  max_kmh: 130,  colour: "#ff7f0e", vehicle: true}
+  train:     {router: none, max_kmh: 250,  colour: "#9467bd", vehicle: true}
+  ferry:     {router: none, max_kmh: 60,   colour: "#1f77b4", vehicle: false}
+  flight:    {router: none, max_kmh: null, colour: "#111111", vehicle: true}
+  hike:      {router: foot, max_kmh: 7,    colour: "#8c564b", vehicle: false}
+# The classes that aren't modes: a gap with no row (taken as cycled), and a stop
+predicted_colour: "#7f7f7f"
+stopped_colour: "#cccccc"
+
+# make clean-data: the GPX cleaner splits a recording left running overnight where a pause of at least
+# this many hours crosses local midnight
+gpx_pause_hours: 3
+
+# make track: coverage.txt lists gaps between rides of at least this many days
+track_gap_days: 3
+
+# Where the trip was at a time, from the track (make locate, stays, places, transcripts)
+lookup:
+  max_hours: 72          # a position further than this in time from any fix is unknown
+  town_radius_km: 50     # towns this close to a position are its nearby towns (transcription vocabulary)
+  towns: 8               # how many nearby towns
+  sample_days: 1         # a UTC offset sample further than this in time may be from another time zone:
+                         # the nearest town's time zone is used instead (Brisbane and Taipei)
+
+# make locate: where each photo and entry was, best first
+locate:
+  gps_hours: 12          # a GPS fix (track or photo) this close in time
+  pass_hours: 3          # a timed known place this close in time
+  predicted_hours: 24    # a point of the route routed through a gap this close in time
+
+# make places: matches of a known place's town closer together than this are one place (a town,
+# its district, its airport); further apart, the Places view asks which was meant
+places_spread_km: 25
+
+# make stays: the stays of several nights, found from rides and photos (local hours)
+stays:
+  ride_morning: 14       # a ride starting before this says where the night before was
+  photo_evening: 16      # the last photo after this, or the first before photo_morning, says where the night was
+  photo_morning: 12
+  day_evening: 12        # failing those, any fix after this, or the first before day_morning
+  day_morning: 15
+  night_ends: 4          # the evening runs on to this hour of the next day
+  support_days: 7        # a night's candidate place is backed by nights this many days either side
+  bridge_km: 30          # nights with nothing recorded join a stay if nothing those days was further
+  max_away: 2            # a stay carries on over this many nights elsewhere, if it's back after them
+  note_km: 3             # other places this close are noted as maybe the real one
+  big_town_km: 20        # a stay is named by its nearest town, and the biggest one this close
+  radius_km: 0.4         # nights this close together are the same place
+  min_nights: 2          # stays shorter than this aren't listed
+
+# make route: the whole trip as one route, gaps routed by Valhalla
+route:
+  gap_km: 2              # anchors further apart than this are a gap leg, routed
+  still_km: 0.05         # a step shorter than this is a stop
+  snap_km: 5             # an end further than this from a road has no route
+  spacing_km: 0.2        # routed points closer together than this are thinned out
+  inside_hours: 1        # places and photos this close to recorded points on both sides are inside a ride
+  photo_km: 1            # photos in a row within this of the first are one stop: its first and last are kept
+  spike_kmh: 150         # a photo this fast from the anchors on both sides has a bad GPS fix
+  fix_min: 10            # a photo further than fix_kmh allows from a recorded fix this close in time
+  fix_kmh: 100           #   has a bad (often stale) fix, as do the photos sharing its position
+  stay_kmh: 30           # a stay's evening or morning point this fast from a photo, ride or known place
+  stay_hours: 2          #   within this time (and over gap_km away) is left out: you came later or left earlier
+  replace_min: 2         # a known place of your own this close in time replaces a photo or looked-up place
+  stay_arrive: "18:00"   # a stay or a known place of several days is reached at this local time...
+  stay_leave: "09:00"    # ...and left at this one, every night
+  midday: "12:00"        # a known place of one day with no time is there at this local time
+  detour_factor: 2       # a routed leg longer than this times the straight line, plus detour_km, is refused:
+  detour_km: 20          #   drawn straight instead
+  bicycle_type: Hybrid   # Valhalla bicycle costing: against 143 recorded stretches, use_roads 1 strays off the
+  use_roads: 1.0         #   road actually ridden on 12% of it, the default 0.25 on 18%
+
+# make check: what looks wrong in the route
+checks:
+  long_row_days: 3       # a travel mode row longer than this...
+  long_row_legs: 2       # ...that labels this many gap legs at once
+  overlap_min: 5         # rows sharing less time than this only touch
+  switch_km: 5           # a run shorter than this between two runs of one other mode...
+  switch_hours: 2        # ...switched into and out of within this time
+  vehicle_km: 3          # a run of a vehicle shorter than this
+  leg_km: 5              # shorter legs' speeds mean little
+  step_kmh: 60           # steps inside a ride faster than this, and longer than step_km: a jump or a vehicle
+  step_km: 1
+  step_join_min: 5       # fast steps this close together are one finding
+  day_km: 160            # more than this cycled in a UTC day
+  short_flight_km: 100   # a flight shorter than this
+  straight_km: 2         # a road leg drawn straight, if at least this long
+  spike_km: 0.5          # the route this far before and after a fixed point...
+  spike_apart_km: 0.15   # ...this close together: it went out and back the same way...
+  spike_hours: 2         # ...within this time
+  spike_join_km: 0.05    # the ways out and back are one road while this close...
+  spike_max_km: 20       # ...looked for up to this far along the route
+  detour: 2.5            # a leg routed over this times the straight line...
+  detour_km: 3           # ...if the straight line is at least this long
+  dismiss_deg: 0.001     # a dismissal covers a finding of the same check this close (about 100 m)
+  # Crossings: rivers ridden over with no bridge in OSM, likely boats
+  bridge_m: 150          # a bridge or ford this close to the crossing was ridden over
+  crossing_min: 5        # a boat takes longer than this, waits included
+  moving_kmh: 8          # a step slower than this isn't riding: waiting for the boat
+  waterways: [river, canal, tidal_channel]
+  # Suggested modes, from speeds over windows of the track
+  window_min: 5
+  window_gap_min: 10     # fixes further apart than this are separate stretches
+  walk_kmh: 8            # faster than this on a Komoot hike was a vehicle
+  vehicle_kmh: 40        # faster than this for vehicle_min anywhere else wasn't a bike
+  vehicle_min: 10
+  lift_join_min: 10      # lifts on a hike this close together are one
+
+# make osm: Geofabrik extracts of the regions the trip passed through, downloaded once
+osm:
+  regions: [
+    africa/angola, africa/benin, africa/cameroon, africa/congo-brazzaville, africa/equatorial-guinea,
+    africa/gabon, africa/ghana, africa/guinea, africa/guinea-bissau, africa/ivory-coast, africa/liberia,
+    africa/mauritania, africa/morocco, africa/namibia, africa/nigeria, africa/senegal-and-gambia,
+    africa/sierra-leone, africa/south-africa, africa/togo,
+    europe/andorra, europe/austria, europe/switzerland,
+    europe/france/alsace, europe/france/auvergne, europe/france/bourgogne, europe/france/franche-comte,
+    europe/france/languedoc-roussillon, europe/france/midi-pyrenees,
+    europe/germany/baden-wuerttemberg/freiburg-regbez, europe/germany/bayern/oberbayern,
+    europe/germany/bayern/schwaben,
+    europe/spain/andalucia, europe/spain/castilla-la-mancha, europe/spain/cataluna, europe/spain/valencia]
+  # Extracts under these prefixes have motorroad=yes taken off, which keeps bikes off trunk roads that are
+  # ridden every day: a mapping habit in Africa, the law in Europe
+  bike_prefixes: [africa/]
+  # Motorways ridden on the trip (name or bridge:name), opened to bikes, with the links onto them
+  ridden_motorways: ["Boulevard Aimé Henri Konan Bedie", "Pont Henri-Konan-Bédié"]
+  # Gaps can be long, so bike and foot routes may be as long as car ones
+  max_route_km: 5000
+
+# make transcripts: speech to text for the diary recordings
+transcribe:
+  provider: deepgram     # deepgram, openai, elevenlabs (paid per minute) or whisper (free, slow, this machine)
+  pilot_providers: [deepgram, openai, elevenlabs]   # make transcripts-pilot compares these on manual/pilot.txt
+  workers: 8             # files at once (a provider may allow fewer)
+  retries: 5
+  max_terms: 50          # vocabulary terms per file: the glossary and towns nearby
+  languages: [en, fr]    # whisper and make events: the languages the diary is in
+  whisper_model: large-v3
+  whisper_threads: 0     # CPU threads for whisper; 0 for all of them
+  remote_host: server    # make transcripts-remote: the ssh host that runs whisper
+  # Audio is compressed for transcription (mono Opus) into processing/audio
+  audio_rate: 16000
+  audio_bitrate: 24k
+
+# make events: what happened in each entry, by Claude
+events:
+  backend: cli           # cli: claude -p, on the subscription; api: paid per token (~/.secrets/anthropic_api_key)
+  workers: 3
+  min_words: 15          # shorter entries have no events
+  retries: 5
+  cli_model: opus
+  api_model: claude-opus-5-5
+  effort: medium
+  timeout_s: 900
+  max_tokens: 16000
+
+# make review: the review app, on this port on localhost
+review:
+  port: 8000
+
+# make progress: words written, and time to finish the book
+writing:
+  target_words: 100000
+  pom_minutes: 25        # one pom of writing...
+  poms_per_day: 2        # ...and how many a day the estimate assumes
+  min_edit_sessions: 3   # time per note stays unknown until this many sessions...
+  min_notes_resolved: 5  # ...have each resolved at least this many notes
+  session_gap_min: 20    # edits further apart than this are separate sessions
+  session_pad_min: 2     # each session counts this much time either side of its edits
+  period: day            # day, week, month or all

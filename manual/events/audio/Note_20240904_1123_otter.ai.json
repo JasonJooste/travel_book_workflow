@@ -1,0 +1,90 @@
+{
+ "file": "clean/diary/audio/Note_20240904_1123_otter.ai.mp3",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "Comprehensive",
+ "saved": "2026-11-16T08:43:20",
+ "events": [
+  {
+   "title": "Mad rush before leaving",
+   "summary": "I finished work on the Wednesday and spent Thursday and Friday frantically selling everything in my room, packing and sorting things into boxes to give away, give to friends, recycle or take to my parents' house. In the end it mostly worked out, but I left the most important job, boxing the bike, until last.",
+   "date": "2024-08-30",
+   "place": "Brisbane",
+   "people": [],
+   "tags": [
+    "planning",
+    "challenge"
+   ],
+   "quote": "I was in a mad rush on the days before I left.",
+   "date_guessed": true
+  },
+  {
+   "title": "Bike box and pedal crisis",
+   "summary": "About half an hour before leaving for the airport I was boxing the bike with Gen and her friend Nat, and realised the pedals had to come off, but I'd already taken all my tools to Mom and Dad's house. Gen and Nat went to Bunnings for roof straps and I couldn't reach them, so I texted the neighbour Murray. His first spanner was the wrong size and the second only just fit. I got the pedals off, showered, and Gen pulled out a bottle of champagne that we drank before setting off.",
+   "date": "2024-08-31",
+   "place": "Brisbane",
+   "people": [
+    "Gen",
+    "Nat",
+    "Murray"
+   ],
+   "tags": [
+    "challenge",
+    "helper",
+    "companion",
+    "chaos"
+   ],
+   "quote": "So I had no tools left and still needed to remove the pedals.",
+   "date_guessed": false
+  },
+  {
+   "title": "Check-in and flight to Taipei",
+   "summary": "I got to the airport worried about the bike box, which I hadn't weighed. It came to 20 kilos against a 23 kilo limit, so the bike with some panniers and tubes was my only checked bag and my backpack went as cabin baggage. The seats were very narrow and I was squeezed between two guys, but I slept through most of the eight-hour flight.",
+   "date": "2024-08-31",
+   "place": "Brisbane Airport",
+   "people": [],
+   "tags": [],
+   "quote": "it turns out it was 20 kilos  and my baggage limit was 23 kilos",
+   "date_guessed": false
+  },
+  {
+   "title": "Meeting Jerry on the Taipei train",
+   "summary": "I landed in Taipei around 5:30 a.m. and took the train from the airport to the main station without much trouble. On the train I started talking to Jerry, a shy, slightly awkward American, and was proud of myself for reaching out. We chatted for a while and then went our separate ways.",
+   "date": "2024-09-01",
+   "place": "Taipei",
+   "people": [
+    "Jerry"
+   ],
+   "tags": [],
+   "quote": "I'm proud of myself because I kind of like  reached out to him",
+   "date_guessed": false
+  },
+  {
+   "title": "Early morning at Taipei Main Station",
+   "summary": "At 6:30 a.m. I wandered the maze of Taipei Main Station and found a 7-Eleven-type shop, where I had a tasty garlic bread cube and a coffee as a snack. Then I explored the underground shopping mall next to the station, which was strangely, creepily deserted: whole halls and aisles with nobody in them.",
+   "date": "2024-09-01",
+   "place": "Taipei",
+   "people": [],
+   "tags": [
+    "food"
+   ],
+   "quote": "weirdly and creepily deserted, like just  like halls and aisles of like nothing",
+   "date_guessed": false
+  },
+  {
+   "title": "Finding the way to the gondola",
+   "summary": "My first stop was a gondola Rod had recommended. Google told me to take the metro and then a bus, even though a metro stop is right at the gondola. The people I asked in the station answered in loud, almost frightened English and sent me somewhere else, and nobody was at the information desk. In the end I bought a day ticket that included the gondola ride and got there by bus.",
+   "date": "2024-09-01",
+   "place": "Taipei",
+   "people": [
+    "Rod"
+   ],
+   "tags": [
+    "language"
+   ],
+   "quote": "they're like really bad and loud and almost like afraid English they yell at me to go to the next place",
+   "date_guessed": false
+  }
+ ]
+}

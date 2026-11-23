@@ -1,0 +1,68 @@
+{
+ "file": "clean/diary/audio/Recording_39_(1).wav",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "sad",
+ "saved": "2026-11-16T09:16:14",
+ "events": [
+  {
+   "title": "A week of depression, swimming helps",
+   "summary": "For about a week in Taghazout I struggled with depression, with ups and downs. I felt a bit better over the last few days after I started swimming. I think my body needed the exercise and to get out.",
+   "date": "2025-01-31",
+   "place": "Taghazout",
+   "people": [],
+   "tags": [
+    "mental_health",
+    "sad"
+   ],
+   "quote": "I've just been struggling with depression for the past week or so.",
+   "date_guessed": false
+  },
+  {
+   "title": "Chocolate versus the man on the bench",
+   "summary": "In Taghazout I wanted to buy a block of chocolate to cheer myself up. I couldn't stop thinking that the money could help someone within 100 metres of me, like the person I saw sleeping on a bench. That led me into anger at how normal it is for tourists to fly to Morocco, stay in resorts, drink beer and tune out the struggle around them, and at how much wealth goes on luxury cars.",
+   "date": "2025-01-31",
+   "place": "Taghazout",
+   "people": [],
+   "tags": [
+    "reflection",
+    "privilege_guilt",
+    "mental_health",
+    "sad"
+   ],
+   "quote": "I saw a person sleeping on a bench last night, this morning.",
+   "date_guessed": false
+  },
+  {
+   "title": "Urge to flee home to Australia",
+   "summary": "Part of me wanted to run away back to Australia. But that felt like an escape into a bubble, an island cut off from this suffering, where I would work on open source, kitesurf, paraglide, build a gaming rig and buy a house without anyone questioning it. I felt isolated and at a loss over how to live a decent, just life.",
+   "date": "2025-01-31",
+   "place": "Taghazout",
+   "people": [],
+   "tags": [
+    "trip_doubt",
+    "reflection",
+    "lonely",
+    "sad"
+   ],
+   "quote": "I just want to go back to Australia. But that feels like an escape.",
+   "date_guessed": false
+  },
+  {
+   "title": "Perfectionism, human nature and a charity budget",
+   "summary": "I thought about human nature as a mix of selfish and selfless, with religion and culture spreading ideals of generosity that have taken hold of me so strongly that they are hurting me. I saw that my perfectionism makes anything short of total selflessness feel wrong, and that travelling through poor places without acting feels obscene and exploitative. Then I wondered whether tourism is a net good, and whether the answer is just to live normally and set aside a charity budget, maybe 20%.",
+   "date": "2025-01-31",
+   "place": "Taghazout",
+   "people": [],
+   "tags": [
+    "reflection",
+    "privilege_guilt",
+    "mental_health",
+    "sad"
+   ],
+   "quote": "I guess maybe the answer is  just like a charity budget.",
+   "date_guessed": false
+  }
+ ]
+}

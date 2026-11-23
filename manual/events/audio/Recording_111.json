@@ -1,0 +1,54 @@
+{
+ "file": "clean/diary/audio/Recording_111.wav",
+ "kind": "audio",
+ "language": "en",
+ "verified": true,
+ "note": "Very short",
+ "saved": "2026-11-16T09:12:03",
+ "events": [
+  {
+   "title": "Five rest days in Tarifa",
+   "summary": "Alice and I stayed five days in Tarifa, which gave me a real chance to relax before crossing to Morocco. Afterwards my body felt fresh again.",
+   "date": "2024-12-06",
+   "place": "Tarifa",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "companion",
+    "long_stay"
+   ],
+   "quote": "We ended up staying five days in Tarifa, which was very nice",
+   "date_guessed": true
+  },
+  {
+   "title": "Night at the observatory",
+   "summary": "On our first night in Tarifa, Alice and I slept at the observatory. I recorded my previous diary entry there.",
+   "date": "2024-12-03",
+   "place": "Tarifa",
+   "people": [
+    "Alice"
+   ],
+   "tags": [
+    "lodging"
+   ],
+   "quote": "the first night we stayed at the observatory",
+   "date_guessed": true
+  },
+  {
+   "title": "Couchsurfing with Jersey",
+   "summary": "On our second night in Tarifa, Alice and I stayed with a Couchsurfing host called Jersey.",
+   "date": "2024-12-04",
+   "place": "Tarifa",
+   "people": [
+    "Jersey",
+    "Alice"
+   ],
+   "tags": [
+    "host"
+   ],
+   "quote": "staying  with a couch surfing guy called Jersey",
+   "date_guessed": true
+  }
+ ]
+}

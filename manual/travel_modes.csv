@@ -1,0 +1,824 @@
+id,start,end,mode,note
+8791cfd4,2024-08-31T12:15,2024-08-31T21:15,flight,BR316 Brisbane to Taipei
+4d6302a2,2024-08-31T21:15,2024-09-01T10:00,train,Taoyuan airport to Taipei Main Station (diary)
+ad85cc2d,2024-09-01T10:00,2024-09-01T15:55,train,Taipei back to Taoyuan airport (assumed)
+6725f417,2024-09-01T15:55,2024-09-02T05:35,flight,BR71 Taipei to Munich
+28f5fc72,2024-09-02T05:35,2024-09-02T16:00,cycled,
+51e7652c,2024-09-07T07:00,2024-09-07T07:20,cycled,Munich to Dornach (DE)
+9d901fa6,2024-09-07T17:32,2024-09-08T16:00,cycled,Denklingen (DE) to Kempten (Allgäu)
+178758fa,2024-09-09T07:00,2024-09-09T14:00,cycled,Kempten (Allgäu) to Ebratshofen
+183b2413,2024-09-09T13:44,2024-09-10T03:21,cycled,
+a3ea7228,2024-09-10T02:53,2024-09-10T10:54,cycled,
+dd84120d,2024-09-10T10:54,2024-09-10T11:59,cycled,Thal (CH) to Rorschach (CH)
+1c3ea6f5,2024-09-10T11:59,2024-09-10T12:30,cycled,
+a9f45604,2024-09-10T12:30,2024-09-11T16:00,cycled,Rorschach to Rapperswil
+f229a7ff,2024-09-16T07:00,2024-09-16T08:50,cycled,
+a3db855b,2024-09-16T09:26,2024-09-16T10:05,cycled,Uerikon (CH) to Uetikon (CH)
+9f19d392,2024-09-16T10:11,2024-09-16T12:26,cycled,Uetikon (CH) to Zürich (CH)
+76cd2d0d,2024-09-17T11:41,2024-09-17T12:22,cycled,Leibstadt (CH) to Laufenburg (CH)
+ba732b7b,2024-09-18T10:05,2024-09-18T10:11,cycled,across the Wiese
+6a8e6cc2,2024-09-18T10:11,2024-09-18T10:41,cycled,across the Wiese
+f43946bc,2024-09-18T11:29,2024-09-18T12:22,cycled,Rosenau (FR) to Niffer (FR)
+40df8c41,2024-09-18T13:17,2024-09-18T13:22,cycled,across the Canal d'Écrêtement de l'Ill (en construction)
+bb5192c0,2024-09-18T13:39,2024-09-18T15:26,cycled,across the Canal du Rhône au Rhin - Branche Sud
+15593bbf,2024-09-19T09:07,2024-09-19T09:13,cycled,across the Canal du Rhône au Rhin - Branche Sud
+61f02d70,2024-09-19T10:53,2024-09-19T12:41,cycled,across the Le Doubs
+dcf1eb5e,2024-09-19T13:05,2024-09-19T13:25,cycled,across the Canal du Rhône au Rhin - Branche Sud
+77bbafac,2024-09-20T13:19,2024-09-20T15:01,cycled,across the Canal de Bourgogne
+197c3457,2024-09-20T16:52,2024-09-20T17:24,cycled,across the Canal de Bourgogne
+44fb6fe5,2024-09-20T17:34,2024-09-20T17:39,cycled,across the Canal de Bourgogne
+d80b017f,2024-09-21T11:43,2024-09-21T12:27,cycled,Igornay (FR) to Saint-Forgeot (FR)
+b241f947,2024-10-16T10:39,2024-10-16T11:28,cycled,across the Canal du Nivernais
+195b5050,2024-10-23T13:28,2024-10-25T09:14,cycled,Roannes-Saint-Mary (FR) to Entraygues-sur-Truyère (FR)
+359f5124,2024-10-27T16:19,2024-10-27T16:30,cycled,across the Le Lot
+88c76fb6,2024-10-27T16:35,2024-10-27T16:48,cycled,Cajarc (FR) to Limogne-en-Quercy (FR)
+c9933039,2024-10-28T16:28,2024-10-28T16:38,cycled,across the Canal de Montech
+9539d832,2024-10-29T10:01,2024-10-29T14:48,cycled,Toulouse (FR) to Blagnac (FR)
+19891ed6,2024-10-29T15:46,2024-10-29T17:00,cycled,
+b2f13382,2024-10-30T17:00,2024-10-31T07:37,cycled,
+b2c26aea,2024-10-31T10:12,2024-10-31T11:29,cycled,across the Canal du Midi
+38805b81,2024-10-31T16:02,2024-10-31T16:15,cycled,across the Ariège
+35470e1a,2024-10-31T18:28,2024-11-01T05:57,cycled,Montgaillard (FR) to Saint-Paul-de-Jarrat (FR)
+d3501044,2024-11-01T06:21,2024-11-01T06:51,cycled,Mercus-Garrabet (FR) to Tarascon-sur-Ariège (FR)
+52c4aae8,2024-11-01T09:57,2024-11-01T10:02,cycled,
+df1a9447,2024-11-02T14:21,2024-11-02T14:39,cycled,across the Le Carol
+a279f10d,2024-11-04T12:12,2024-11-04T12:33,cycled,across the el Llobregat
+abe78e80,2024-11-04T12:34,2024-11-04T17:00,hitchhike,Sant Julià de Cerdanyola (ES) to Berga
+d0b2d669,2024-11-05T08:00,2024-11-05T17:00,car,Berga to Barcelona
+228cd94a,2024-11-14T08:00,2024-11-14T12:58,cycled,Barcelona to El Prat de Llobregat (ES)
+5bc02670,2024-11-14T16:57,2024-11-14T17:00,cycled,
+4088428c,2024-11-14T16:57,2024-11-15T08:00,cycled,
+4f3d6320,2024-11-15T08:00,2024-11-15T09:18,cycled,
+c8e684ae,2024-11-15T11:53,2024-11-15T15:28,cycled,Sant Pere de Ribes (ES) to Cunit (ES)
+465606ce,2024-11-15T16:38,2024-11-16T09:12,cycled,Calafell (ES) to Coma-ruga (ES)
+6c4d0dcf,2024-11-17T11:30,2024-11-17T14:45,cycled,El Perelló (ES) to Camarles (ES)
+2efb4170,2024-11-19T13:15,2024-11-19T14:13,cycled,Benicàssim (ES) to El Grao (ES)
+d732c88f,2024-11-19T15:16,2024-11-19T15:56,cycled,across the Séquia del Palau -6-
+cbf215b8,2024-11-22T07:56,2024-11-22T08:07,cycled,across the Riu Magre
+047aa1b9,2024-11-22T08:08,2024-11-22T08:47,cycled,across the Riu Magre
+3c02d92a,2024-11-23T15:32,2024-11-24T02:26,cycled,Valdeganga (ES) to Valdeganga (ES)
+d2baa091,2024-11-29T14:36,2024-11-29T15:24,cycled,Jayena (ES) to Albuñuelas (ES)
+a2348471,2024-11-29T17:34,2024-11-30T07:34,cycled,across the Río Verde
+16ef2788,2024-12-01T12:27,2024-12-01T14:51,cycled,Arroyo de la Miel (ES) to Fuengirola (ES)
+c27236cf,2024-12-01T15:53,2024-12-02T09:46,cycled,Fuengirola (ES) to Marbella (ES)
+16237cd3,2024-12-02T12:12,2024-12-02T12:48,cycled,San Pedro Alcántara (ES) to San Pedro Alcántara (ES)
+1812c68d,2024-12-02T14:13,2024-12-02T14:34,cycled,across the Rio Guadalmansa
+ab17e49e,2024-12-03T13:41,2024-12-03T16:18,cycled,La Línea de la Concepción (ES) to Catalan Bay (GI)
+044b934a,2024-12-04T17:34,2024-12-09T08:00,cycled,Tarifa (ES) to Tarifa
+5fd26242,2024-12-09T08:00,2024-12-09T17:00,ferry,Tarifa to Tangier
+d4d6f605,2024-12-10T08:00,2024-12-10T10:07,cycled,
+09cd5001,2024-12-11T09:04,2024-12-11T12:39,cycled,Tétouan (MA) to Tétouan (MA)
+9285ddbb,2024-12-11T14:25,2024-12-11T16:00,cycled,Zinat (MA) to Zinat (MA)
+49d5c393,2024-12-12T09:53,2024-12-12T17:00,cycled,
+aab7310b,2024-12-14T08:00,2024-12-15T10:56,cycled,
+d843440a,2024-12-18T12:39,2024-12-20T19:36,cycled,Fes (MA) to Fes (MA)
+681c2c1a,2024-12-20T19:36,2024-12-21T09:54,cycled,
+752023ab,2024-12-21T09:54,2024-12-21T14:50,cycled,Fes (MA) to Oulad Tayeb (MA)
+8e5075f0,2024-12-21T14:42,2024-12-22T10:26,cycled,
+d678933c,2024-12-22T11:40,2024-12-22T12:04,cycled,
+536a907b,2024-12-22T12:04,2024-12-22T12:25,cycled,Oulad Tayeb (MA) to Aïn Cheggag (MA)
+b0c4941a,2024-12-22T12:25,2024-12-22T12:53,cycled,
+0d3ed413,2024-12-22T16:05,2024-12-23T07:30,cycled,
+f7b55f6e,2024-12-23T08:01,2024-12-23T08:07,cycled,
+81757b72,2024-12-23T09:13,2024-12-23T11:29,cycled,
+92a36cae,2024-12-23T12:35,2024-12-23T14:28,cycled,
+08ea7f8b,2024-12-23T15:54,2024-12-24T10:38,cycled,Ifrane (MA) to Ifrane (MA)
+cee1ca70,2024-12-24T11:23,2024-12-24T11:59,cycled,Ifrane (MA) to Azrou (MA)
+594303ff,2024-12-24T16:37,2024-12-25T09:57,cycled,across the Oued Guigou
+d9588992,2024-12-25T13:10,2024-12-25T15:06,cycled,Itzer (MA) to Itzer (MA)
+96101122,2024-12-25T15:24,2024-12-27T10:00,cycled,Itzer (MA) to Zayda (MA)
+1a255daa,2024-12-27T11:09,2024-12-27T13:31,cycled,Midelt (MA) to Midelt (MA)
+df70a8d3,2024-12-27T17:08,2024-12-28T08:58,cycled,
+7811a95d,2024-12-28T09:16,2024-12-28T10:19,cycled,Rich (MA) to Rich (MA)
+69e0d441,2024-12-28T12:42,2024-12-28T14:14,cycled,Amouguer (MA) to Amouguer (MA)
+1678c4d1,2024-12-28T16:11,2024-12-28T16:39,cycled,Assoul (MA) to Assoul (MA)
+4cd1e26e,2024-12-29T10:47,2024-12-29T10:53,cycled,
+e622ee5e,2024-12-29T11:03,2024-12-29T11:55,cycled,across the Oued Gheris ⴰⵙⵉⴼ ⵏ ⵖⵔⵉⵙ وادي اغريس
+4c3d8d39,2024-12-29T12:04,2024-12-29T12:15,cycled,across the Oued Gheris ⴰⵙⵉⴼ ⵏ ⵖⵔⵉⵙ وادي اغريس
+2d74ee3c,2024-12-29T14:51,2024-12-30T09:37,cycled,
+43ada6ea,2024-12-30T13:51,2024-12-30T15:35,cycled,Tinghir (MA) to Tinghir (MA)
+133c308a,2024-12-30T17:06,2024-12-31T08:07,cycled,
+29f899a8,2024-12-31T08:07,2024-12-31T08:25,cycled,
+afb1b86c,2024-12-31T08:50,2024-12-31T12:20,cycled,Tinghir (MA) to Tinghir (MA)
+eebcc7eb,2024-12-31T13:35,2025-01-02T08:52,hike,Tinghir (MA) to Tinghir (MA)
+c3c6bd76,2025-01-04T14:53,2025-01-04T15:43,cycled,across the Oued Ait Douchen
+0a9aac2e,2025-01-04T15:46,2025-01-04T16:01,cycled,Taznakht (MA) to Taznakht (MA)
+4d0efe9d,2025-01-04T16:35,2025-01-05T09:58,cycled,
+cea37ce6,2025-01-05T12:02,2025-01-05T17:21,car,Taznakht (MA) to agadir
+37460b4a,2025-01-05T17:21,2025-01-05T17:35,car,
+6ba55224,2025-01-05T17:35,2025-01-07T12:25,car,Agadir (MA) to Agadir (MA)
+17b40ab8,2025-01-07T12:25,2025-01-07T13:18,car,
+130172ae,2025-01-07T13:18,2025-01-08T08:00,hike,
+83b3d266,2025-01-08T17:00,2025-01-09T17:00,car,
+1f927a49,2025-01-12T08:00,2025-01-12T17:00,hike,
+7c47b1dc,2025-01-19T08:00,2025-01-19T17:00,cycled,
+ee50c696,2025-01-20T08:00,2025-01-20T17:00,car,
+2082fa22,2025-01-21T17:52,2025-01-22T08:00,car,
+0db55ac7,2025-01-24T17:00,2025-01-25T17:00,hike,
+f8f65f09,2025-01-26T08:00,2025-01-26T18:09,car,
+bd8b4da2,2025-01-26T18:08,2025-01-27T08:00,car,
+dfe32ef3,2025-01-29T08:00,2025-01-30T13:58,car,
+b19b0a05,2025-02-07T08:00,2025-02-08T19:28,car,
+bcdfbce5,2025-02-12T08:00,2025-02-14T18:59,car,
+2416e117,2025-02-14T19:01,2025-02-14T19:56,car,
+1d7c5fbc,2025-02-14T19:57,2025-02-15T09:32,car,
+61ed47f5,2025-02-15T09:41,2025-02-16T12:24,car,
+2c601f95,2025-02-16T12:24,2025-02-16T16:23,car,Méchouar-Kasba (MA) to Oukaïmedene (MA)
+bf351bee,2025-02-16T16:23,2025-02-17T10:23,hike,
+83f93577,2025-02-17T10:23,2025-02-17T14:20,hike,Komoot hike: toubkal circuit some of day one
+e6e61b56,2025-02-17T14:20,2025-02-18T09:08,hike,
+75f9c0b5,2025-02-18T09:08,2025-02-18T17:38,hike,Komoot hike: toubkal circuit day 2 - big day!
+6ae6ff26,2025-02-19T09:23,2025-02-19T16:43,hike,Komoot hike: Toubkal circuit day 3 - downhill also hurts
+dcf05371,2025-02-21T06:51,2025-02-21T17:00,hike,Komoot hike: Toubkal circuit day 4 - huge day to refuge
+1382d964,2025-02-21T17:00,2025-02-22T04:18,hike,
+8c32380b,2025-02-22T04:18,2025-02-22T04:38,hike,
+a9465a29,2025-02-22T04:38,2025-02-22T14:44,hike,Komoot hike: Toubkal circuit day 5 - summit and descent
+f0161761,2025-02-22T14:44,2025-02-24T18:00,car,
+5f22ddb3,2025-02-27T09:00,2025-02-28T13:34,car,
+e64ad983,2025-02-28T17:12,2025-03-02T13:12,car,Agadir (MA) to Dakhla (EH)
+f4d92611,2025-03-02T13:16,2025-03-02T16:37,cycled,Dakhla (EH) to Dakhla (EH)
+29aadeb4,2025-03-02T19:15,2025-03-03T09:39,cycled,
+d76c2100,2025-03-03T15:40,2025-03-03T19:00,cycled,El Aargub (EH) to El Aargub (EH)
+f822ad0c,2025-03-04T12:39,2025-03-04T13:49,cycled,Imlili (MA) to Imlili (MA)
+ab3f2ada,2025-03-04T14:56,2025-03-04T16:59,cycled,
+f6ad0413,2025-03-05T11:16,2025-03-05T11:36,cycled,Bir Ghandouz (EH) to Bir Ghandouz (EH)
+b3330305,2025-03-05T14:47,2025-03-05T17:01,cycled,
+2fc3bd62,2025-03-05T16:46,2025-03-05T17:01,cycled,
+231e88e9,2025-03-05T18:25,2025-03-05T20:31,cycled,Bir Ghandouz (EH) to Bir Ganduz (EH)
+b4457a6f,2025-03-05T20:36,2025-03-06T10:06,cycled,Bir Ghandouz (EH) to Boulenouar (MR)
+715cbd61,2025-03-06T10:28,2025-03-06T15:10,cycled,Boulenouar (MR) to Boulenouar (MR)
+7857b231,2025-03-08T09:00,2025-03-08T18:00,cycled,
+f81750bd,2025-03-09T09:00,2025-03-09T18:00,cycled,
+702a190e,2025-03-10T09:00,2025-03-10T16:53,cycled,
+6daaefe3,2025-03-10T16:53,2025-03-11T03:00,train,Iron ore train Nouadhibou to Choum
+5efe0719,2025-03-10T19:32,2025-03-11T09:59,train,
+5046f250,2025-03-11T13:49,2025-03-11T16:46,cycled,Atar (MR) to Atar (MR)
+7c5b9fce,2025-03-12T14:15,2025-03-15T08:14,cycled,Atar (MR) to Atar (MR)
+85f259a1,2025-03-17T10:14,2025-03-17T19:16,cycled,Dar Naim (MR) to Ksar (MR)
+a25415f7,2025-03-17T19:37,2025-03-18T09:13,cycled,Nouakchott (MR) to Arafat (MR)
+a66bafa2,2025-03-18T12:47,2025-03-18T12:51,cycled,
+50a680d8,2025-03-18T18:32,2025-03-19T09:33,cycled,
+4f566101,2025-03-19T13:23,2025-03-19T16:11,cycled,Ghouba (MR) to Ghouba (MR)
+86e55dfc,2025-03-19T17:03,2025-03-19T18:10,ferry,across the Sénégal السنغال
+08c6a947,2025-03-22T10:42,2025-03-22T18:56,car,
+7305249b,2025-03-26T09:00,2025-03-26T18:00,hike,
+c6880d52,2025-03-27T18:00,2025-03-28T09:00,hike,
+ac52d115,2025-03-28T18:00,2025-03-28T19:02,car,
+c081c686,2025-03-29T07:28,2025-03-29T11:24,hike,
+63756da7,2025-03-29T11:58,2025-03-30T13:35,car,Ksar (MR) to Rosso (MR)
+81a53d93,2025-03-30T14:57,2025-03-30T17:58,cycled,Rosso (SN) to Ross-Bétio (SN)
+5927d85c,2025-03-30T18:20,2025-03-31T08:33,cycled,Ross-Bétio (SN) to Ross-Bétio (SN)
+ca0d070d,2025-03-31T08:40,2025-03-31T08:45,cycled,
+e01e0616,2025-03-31T12:56,2025-03-31T15:30,cycled,
+b2dd4582,2025-03-31T15:30,2025-03-31T19:33,cycled,Saint-Louis (SN) to Saint-Louis (SN)
+526774b0,2025-03-31T19:33,2025-04-01T10:11,cycled,
+5a8f08a7,2025-04-01T10:11,2025-04-01T11:50,cycled,Saint-Louis (SN) to Saint-Louis (SN)
+e0f697f9,2025-04-01T11:50,2025-04-01T14:18,cycled,
+8946b192,2025-04-01T17:55,2025-04-03T13:00,cycled,Saint-Louis (SN) to Guéoul (SN)
+20009f29,2025-04-03T16:45,2025-04-03T17:09,cycled,Kébémer (SN) to Mboro (SN)
+c95f4763,2025-04-03T20:37,2025-04-04T08:43,cycled,Dougnane (SN) to Kayar (SN)
+1c5f103f,2025-04-04T09:47,2025-04-04T14:26,cycled,Sangalkam (SN) to Pikine (SN)
+c348f6a5,2025-04-04T14:26,2025-04-05T11:43,car,
+be9d1531,2025-04-05T17:57,2025-04-05T18:00,cycled,
+b43689a9,2025-04-06T09:00,2025-04-06T18:00,cycled,
+a6f0cb77,2025-04-07T09:00,2025-04-07T15:09,cycled,
+0242eee0,2025-04-07T16:32,2025-04-07T18:00,cycled,
+f8f1f794,2025-04-08T11:26,2025-04-09T09:41,cycled,Mermoz Boabab (SN) to Yoff (SN)
+311ee083,2025-04-09T10:44,2025-04-12T11:11,cycled,Yoff (SN) to Yoff (SN)
+50a6c225,2025-04-12T18:43,2025-04-12T19:08,cycled,Nguékhokh (SN) to Sali (SN)
+d7b0dfee,2025-04-12T19:31,2025-04-13T09:00,cycled,
+99c59e1b,2025-04-14T11:42,2025-04-14T11:48,cycled,
+141f0765,2025-04-14T11:49,2025-04-14T13:16,cycled,
+438facb1,2025-04-14T13:16,2025-04-14T13:34,cycled,
+2625bb86,2025-04-14T15:18,2025-04-14T16:12,cycled,Mbour (SN) to Warang (SN)
+0bb611b1,2025-04-14T17:36,2025-04-15T14:10,cycled,Joal (SN) to Joal (SN)
+c9767243,2025-04-15T15:56,2025-04-15T16:35,cycled,Keur Babakar Toumbou (SN) to Keur Babakar Toumbou (SN)
+37c3a92d,2025-04-16T09:06,2025-04-16T10:29,cycled,
+78f86cd8,2025-04-16T11:24,2025-04-16T13:58,ferry,Keur Babakar Toumbou (SN) to Keur Babakar Toumbou (SN)
+3db0f941,2025-04-16T13:58,2025-04-16T15:15,ferry,Keur Babakar Toumbou (SN) to Soum (SN)
+f3384738,2025-04-16T15:15,2025-04-16T17:45,ferry,
+39066318,2025-04-16T17:45,2025-04-17T15:19,ferry,Soum (SN) to Soum (SN)
+0802f5bb,2025-04-17T15:19,2025-04-17T15:28,ferry,Soum (SN) to Soum (SN)
+f4d0ced0,2025-04-17T15:28,2025-04-17T16:08,ferry,Soum (SN) to Foundiougne (SN)
+db5568ef,2025-04-17T16:08,2025-04-17T17:03,ferry,
+5d028e14,2025-04-17T18:16,2025-04-17T20:40,cycled,Passy (SN) to Passy (SN)
+84bb118d,2025-04-17T20:40,2025-04-18T12:36,cycled,
+2074dfab,2025-04-18T10:38,2025-04-20T11:51,cycled,Passy (SN) to Sokone (SN)
+81d52aef,2025-04-20T12:57,2025-04-20T15:27,cycled,Sokone (SN) to Karang Poste (SN)
+825062ee,2025-04-20T16:37,2025-04-21T10:45,cycled,
+320e2e0f,2025-04-21T11:27,2025-04-21T11:40,cycled,
+3f3f2bc7,2025-04-21T11:40,2025-04-21T12:13,cycled,Essau (GM) to Barra (GM)
+2bd63369,2025-04-21T12:47,2025-04-21T15:50,cycled,Medina Kanuma (GM) to Chilla (GM)
+0eb03b50,2025-04-21T16:09,2025-04-21T18:04,cycled,Chilla (GM) to Kerewan (GM)
+e193bcc6,2025-04-21T18:04,2025-04-22T09:51,cycled,
+2b3e00b6,2025-04-22T12:24,2025-04-22T13:54,cycled,No Kunda (GM) to Konti Kunda Niji (GM)
+9b37f3ee,2025-04-22T18:57,2025-04-23T08:49,cycled,
+a526b18a,2025-04-23T13:53,2025-04-23T17:17,cycled,
+e4b379bb,2025-04-24T12:26,2025-04-24T18:46,cycled,Wassu (GM) to Kuntaur (GM)
+3226822f,2025-04-24T18:46,2025-04-25T12:32,ferry,across the Gambia River
+f39269d6,2025-04-25T14:24,2025-04-25T18:38,cycled,
+5c2f8c2e,2025-04-25T18:38,2025-04-26T09:19,cycled,
+93e8cb74,2025-04-26T10:17,2025-04-26T10:34,ferry,
+8321d4cd,2025-04-26T11:57,2025-04-26T12:11,ferry,across the Gambia River
+889a6c0a,2025-04-27T18:00,2025-04-28T07:29,cycled,
+923b84db,2025-04-28T09:26,2025-04-28T09:45,cycled,
+cd160a15,2025-04-28T09:45,2025-04-28T10:12,cycled,Mara Magai (GM) to Denton (GM)
+47784bb6,2025-04-28T10:12,2025-04-28T10:30,cycled,
+232758e9,2025-04-28T10:30,2025-04-28T11:27,cycled,Pata (SN) to Pata (SN)
+823b5d2e,2025-04-28T18:00,2025-04-28T18:54,cycled,Kolda (SN) to Kolda (SN)
+0771946f,2025-04-29T08:08,2025-04-29T11:49,cycled,Kolda (SN) to Diana Malari (SN)
+e2059fd5,2025-04-29T16:45,2025-04-29T18:09,cycled,Diana Malari (SN) to Sédhiou (SN)
+ff926c2e,2025-04-30T10:29,2025-04-30T11:09,cycled,Diattakounda (SN) to Diattakounda (SN)
+8e2b8e28,2025-04-30T11:09,2025-04-30T12:40,ferry,Diattakounda (SN) to Diattakounda (SN)
+234993e7,2025-04-30T12:41,2025-04-30T13:41,cycled,Diattakounda (SN) to Diattakounda (SN)
+4943210f,2025-04-30T13:51,2025-04-30T15:49,cycled,
+2e16bb2e,2025-04-30T16:47,2025-05-01T07:54,cycled,Goudomp (SN) to Goudomp (SN)
+54fb2de4,2025-05-01T08:50,2025-05-01T11:53,cycled,Adéane (SN) to Ziguinchor (SN)
+f99364dd,2025-05-02T09:00,2025-05-03T09:00,cycled,
+3cf82211,2025-05-04T09:00,2025-05-04T18:00,cycled,
+0f3f869c,2025-05-05T09:00,2025-05-05T09:59,cycled,
+a42f2fff,2025-05-05T11:47,2025-05-06T14:12,cycled,São Domingos (GW) to Cacheu (GW)
+2a8655be,2025-05-07T16:09,2025-05-07T18:51,cycled,Bula (GW) to Bula (GW)
+dbe69a69,2025-05-08T09:47,2025-05-08T12:37,cycled,Safim (GW) to Pefiné (GW)
+66442672,2025-05-08T18:00,2025-05-09T09:00,cycled,
+a0b31505,2025-05-09T09:00,2025-05-09T12:16,ferry,Bissau to Prábis (GW)
+4f4a1856,2025-05-09T12:16,2025-05-09T14:45,ferry,Prábis (GW) to Bubaque (GW)
+790ba11f,2025-05-09T15:51,2025-05-09T18:00,ferry,
+3ccf3451,2025-05-10T10:11,2025-05-10T18:00,ferry,
+3bcbae7f,2025-05-11T09:00,2025-05-11T18:00,cycled,
+5fb919ba,2025-05-13T09:00,2025-05-13T13:04,cycled,Bubaque to Bubaque (GW)
+96ac7898,2025-05-13T18:11,2025-05-14T13:08,cycled,
+508cbc5d,2025-05-14T13:08,2025-05-14T15:18,ferry,Bubaque (GW) to Pefiné (GW)
+3b5bd10e,2025-05-14T15:18,2025-05-14T18:00,cycled,
+f1ce8034,2025-05-15T10:11,2025-05-15T15:52,cycled,Bubaque (GW) to Bubaque (GW)
+447603df,2025-05-15T15:52,2025-05-15T18:00,cycled,
+5d30976d,2025-05-16T13:26,2025-05-16T13:49,cycled,
+128b877d,2025-05-16T14:06,2025-05-16T14:45,cycled,
+0cd9c10e,2025-05-16T14:45,2025-05-16T17:26,cycled,Bubaque (GW) to Bubaque (GW)
+87804630,2025-05-17T09:30,2025-05-17T10:52,cycled,
+27d08fc9,2025-05-17T10:52,2025-05-17T18:00,ferry,Bubaque (GW) to Bubaque
+3cc44491,2025-05-18T09:00,2025-05-18T18:00,ferry,Bubaque to Pefiné (Bissau)
+a9b117b7,2025-05-19T18:00,2025-05-19T22:10,cycled,Pefiné (Bissau) to Contumo (GW)
+e6df2192,2025-05-19T22:10,2025-05-20T09:00,cycled,Contumo (GW) to Pefiné (Bissau)
+6743997f,2025-05-22T09:00,2025-05-23T09:00,cycled,
+bac6f7bb,2025-05-25T18:00,2025-05-26T18:00,cycled,
+9e5d704d,2025-05-30T09:00,2025-05-30T18:00,cycled,
+1c561d53,2025-05-31T18:00,2025-06-01T09:00,cycled,
+838890df,2025-06-01T11:16,2025-06-01T16:23,cycled,
+96925fcb,2025-06-01T17:00,2025-06-01T18:42,ferry,
+07c1f455,2025-06-01T19:26,2025-06-02T09:12,cycled,
+4a28de7b,2025-06-02T19:03,2025-06-03T09:58,cycled,Bambadinca (GW) to Bambadinca (GW)
+9a896a4d,2025-06-03T10:45,2025-06-03T12:28,cycled,Bambadinca (GW) to Bafatá (GW)
+0c0ee30b,2025-06-03T20:59,2025-06-04T08:15,cycled,Gabú (GW) to Gabú (GW)
+11fd20d9,2025-06-04T10:01,2025-06-04T11:55,cycled,Gabú (GW) to Gabú (GW)
+c3a6bb9a,2025-06-04T16:26,2025-06-04T17:07,ferry,across the Tominé - Rio Corubal
+fa105dca,2025-06-04T19:39,2025-06-04T22:50,cycled,Foula Mori (GN) to Foula Mori (GN)
+cdefe016,2025-06-04T22:50,2025-06-05T01:29,cycled,Foula Mori (GN) to Foula Mori (GN)
+99ec88fa,2025-06-05T01:29,2025-06-05T07:21,cycled,Foula Mori (GN) to Foula Mori (GN)
+cd6924a8,2025-06-05T07:21,2025-06-05T10:07,cycled,Foula Mori (GN) to Foula Mori (GN)
+1b9e2c99,2025-06-05T10:44,2025-06-05T13:35,cycled,Foula Mori (GN) to Foula Mori (GN)
+08b16d9e,2025-06-05T13:35,2025-06-06T18:09,cycled,Foula Mori (GN) to Koumbia (GN)
+c4192d38,2025-06-06T18:09,2025-06-07T02:44,cycled,Koumbia (GN) to Koumbia (GN)
+a5d1570d,2025-06-07T02:44,2025-06-07T15:02,cycled,Koumbia (GN) to Koumbia (GN)
+1b0b857b,2025-06-07T18:13,2025-06-08T09:37,cycled,
+ad91e72d,2025-06-08T11:35,2025-06-08T12:12,cycled,
+449ec5e8,2025-06-08T12:12,2025-06-08T12:56,cycled,Gaoual (GN) to Gaoual (GN)
+6210c938,2025-06-08T12:57,2025-06-08T13:54,cycled,Gaoual (GN) to Gaoual (GN)
+c383db6e,2025-06-09T11:57,2025-06-09T17:32,cycled,
+03833fcb,2025-06-09T18:39,2025-06-09T18:53,cycled,Lélouma (GN) to Lélouma (GN)
+d1c1b7c7,2025-06-10T11:11,2025-06-10T11:25,cycled,Lélouma (GN) to Lélouma (GN)
+7ee259c0,2025-06-10T11:25,2025-06-10T11:38,cycled,Lélouma (GN) to Lélouma (GN)
+454e7ac8,2025-06-10T11:38,2025-06-10T15:06,cycled,Lélouma (GN) to Labé (GN)
+56dd7e16,2025-06-10T15:20,2025-06-14T14:54,cycled,Labé (GN) to Labé (GN)
+de7ab108,2025-06-14T20:06,2025-06-16T14:23,cycled,Lélouma (GN) to Lélouma (GN)
+c3606d6c,2025-06-16T15:08,2025-06-16T17:19,cycled,Pita (GN) to Pita (GN)
+6602c0fa,2025-06-16T20:06,2025-06-17T09:00,hike,
+62b2a126,2025-06-17T11:59,2025-06-17T18:00,hike,
+cde95b65,2025-06-18T09:00,2025-06-19T17:00,hike,
+f70a5758,2025-06-20T10:45,2025-06-20T11:40,hike,
+6cf6ae9a,2025-06-20T11:40,2025-06-20T12:30,hike,Komoot hike: Part of Kawami falls hike
+1f20a77d,2025-06-21T14:33,2025-06-21T18:35,cycled,Pita (GN) to Pita (GN)
+e956166f,2025-06-21T19:16,2025-06-22T09:46,cycled,
+8be1b23c,2025-06-22T13:42,2025-06-24T10:20,cycled,
+c80e3fc2,2025-06-24T11:59,2025-06-24T13:20,cycled,Dalaba (GN) to Dalaba (GN)
+d1888543,2025-06-24T17:14,2025-06-25T09:04,cycled,Mamou (GN) to Mamou (GN)
+bbd48451,2025-06-25T16:17,2025-06-25T17:35,cycled,Kindia (GN) to Kindia (GN)
+2a258b03,2025-06-26T12:25,2025-06-26T17:25,hike,Kindia (GN) to Kindia (GN)
+6fd33b3c,2025-06-26T17:25,2025-06-26T19:18,hike,Komoot hike: Part of Gangan hike
+d0c0b073,2025-06-26T19:18,2025-06-26T19:24,car,1.6 km at 16 km/h on the hike Part of Gangan hike
+76a02bdb,2025-06-26T19:24,2025-06-27T10:53,cycled,Kindia (GN) to Kindia (GN)
+4af9e492,2025-06-27T10:53,2025-06-27T13:28,cycled,Kindia (GN) to Kindia (GN)
+d32dd847,2025-06-27T18:35,2025-06-28T09:27,cycled,
+44c977d8,2025-06-28T12:13,2025-06-28T14:58,cycled,Coyah (GN) to Forécariah (GN)
+c6aea918,2025-06-28T15:44,2025-06-28T16:46,cycled,Forécariah (GN) to Forécariah (GN)
+dfc52030,2025-06-28T16:46,2025-06-28T19:17,cycled,Forécariah (GN) to Kambia (SL)
+262d0306,2025-06-29T12:12,2025-06-29T16:48,cycled,Kambia (SL) to Kambia (SL)
+f28d073f,2025-06-29T18:18,2025-06-30T10:35,cycled,
+44a9480e,2025-06-30T18:09,2025-06-30T18:56,cycled,Pepel (SL) to Pepel (SL)
+10a5be67,2025-07-01T10:33,2025-07-01T14:38,ferry,Masoyila (SL) to Freetown (SL)
+87132e96,2025-07-01T14:59,2025-07-03T10:45,cycled,
+43757649,2025-07-03T10:58,2025-07-03T11:01,cycled,
+4c9c8c62,2025-07-03T11:01,2025-07-03T13:59,cycled,Freetown (SL) to Freetown (SL)
+09cea895,2025-07-03T13:59,2025-07-04T11:07,cycled,Freetown (SL) to Freetown (SL)
+5d5f2bc3,2025-07-04T11:07,2025-07-04T12:24,cycled,Freetown (SL) to Freetown (SL)
+f8b59b9b,2025-07-04T12:24,2025-07-06T18:38,cycled,Freetown (SL) to Freetown (SL)
+bfe221c5,2025-07-06T18:00,2025-07-07T11:32,cycled,
+402c2afc,2025-07-07T12:44,2025-07-08T12:10,cycled,Freetown (SL) to Freetown (SL)
+4e5df45c,2025-07-08T12:10,2025-07-08T13:17,cycled,Freetown (SL) to Freetown (SL)
+ced8a8dd,2025-07-08T13:17,2025-07-11T09:29,cycled,Freetown (SL) to Freetown (SL)
+ecff3222,2025-07-11T09:29,2025-07-12T13:47,cycled,
+05f319da,2025-07-12T13:47,2025-07-13T10:29,cycled,Freetown (SL) to Freetown (SL)
+d083a49d,2025-07-13T10:29,2025-07-13T18:00,cycled,
+c84141b1,2025-07-14T13:56,2025-07-14T14:48,cycled,Freetown (SL) to Freetown (SL)
+3f5b6113,2025-07-14T15:24,2025-07-14T18:30,cycled,Hastings (SL) to Kent (SL)
+b5702dad,2025-07-15T09:00,2025-07-15T10:04,cycled,
+11060199,2025-07-15T18:05,2025-07-16T09:00,cycled,
+0f01854a,2025-07-16T18:30,2025-07-17T11:18,cycled,
+7670b767,2025-07-17T11:21,2025-07-17T11:29,cycled,
+8f2928d6,2025-07-17T17:00,2025-07-17T19:51,cycled,Rotifunk (SL) to Moyamba (SL)
+3706aebd,2025-07-18T09:49,2025-07-18T14:16,cycled,Moyamba (SL) to Moyamba (SL)
+173a8a79,2025-07-18T14:57,2025-07-18T15:58,cycled,Largo (SL) to Njala (SL)
+ea677f94,2025-07-19T13:30,2025-07-19T15:13,cycled,Bumpe (SL) to Bumpe (SL)
+c454b932,2025-07-19T17:08,2025-07-19T19:55,cycled,Bo (SL) to Bo (SL)
+328ae8ab,2025-07-20T09:00,2025-07-20T18:00,cycled,
+2938ee91,2025-07-23T09:00,2025-07-23T18:00,cycled,
+14161a5d,2025-07-24T09:00,2025-07-24T11:02,cycled,Bo to Bo (SL)
+adbc3aae,2025-07-24T11:02,2025-07-24T18:00,cycled,Bo (SL) to Bo
+ac94b0cd,2025-07-25T09:00,2025-07-25T12:47,cycled,
+c4bc2a43,2025-07-25T16:58,2025-07-25T17:18,cycled,Bo (SL) to Bo (SL)
+c2559166,2025-07-25T17:18,2025-07-25T17:35,cycled,
+3e3c4fd4,2025-07-25T17:38,2025-07-25T18:00,cycled,Bo (SL) to Bo
+2954ee03,2025-07-25T18:00,2025-07-25T19:12,car,Bo to Bo (SL)
+6a280d29,2025-07-25T19:12,2025-07-26T09:00,car,Bo (SL) to Bo
+9f42d96d,2025-07-26T09:00,2025-07-27T10:39,cycled,
+9b3e11a6,2025-07-27T17:59,2025-07-27T18:19,cycled,Zimmi (SL) to Zimmi (SL)
+2de851df,2025-07-28T20:28,2025-07-29T12:33,cycled,
+848fc6c5,2025-07-30T17:29,2025-07-31T15:14,hike,Robertsport (LR) to Robertsport (LR)
+c42fe005,2025-07-31T15:14,2025-07-31T16:13,hike,Robertsport (LR) to Robertsport (LR)
+9a1e6fb4,2025-07-31T16:13,2025-07-31T18:00,cycled,
+6bfe0133,2025-08-03T18:00,2025-08-04T09:00,hike,
+64f1e778,2025-08-14T10:09,2025-08-14T12:10,hike,
+957600b8,2025-08-14T13:16,2025-08-14T13:24,cycled,
+a9dd82a0,2025-08-14T19:16,2025-08-15T18:00,car,
+61ea0fca,2025-08-16T09:00,2025-08-16T15:51,cycled,
+920b39fc,2025-08-16T15:52,2025-08-16T18:00,cycled,
+30a9e421,2025-08-17T18:00,2025-08-18T09:00,hike,
+ece16bce,2025-08-19T09:00,2025-08-19T14:48,hike,
+20d85770,2025-08-19T17:26,2025-08-22T11:26,cycled,Monrovia (LR) to Monrovia (LR)
+1da070c1,2025-08-22T12:32,2025-08-22T15:30,cycled,Monrovia (LR) to Monrovia (LR)
+c7dca333,2025-08-22T16:46,2025-08-23T10:01,cycled,Monrovia (LR) to Monrovia (LR)
+b1a125ab,2025-08-24T09:00,2025-08-24T18:00,cycled,
+ce7bf149,2025-08-25T14:26,2025-08-26T09:31,cycled,Gbarnga (LR) to Gbarnga (LR)
+d3f52681,2025-08-28T12:58,2025-08-28T13:06,cycled,
+b8693ebd,2025-08-28T16:12,2025-08-29T09:19,cycled,
+391798ee,2025-08-29T11:57,2025-08-29T18:06,cycled,
+378b16bd,2025-08-30T05:40,2025-08-30T13:04,cycled,Gbétontigouiné (CI) to Logoualé (CI)
+3b712a74,2025-09-02T09:00,2025-09-02T12:42,cycled,
+e635b7d7,2025-09-02T12:58,2025-09-02T13:07,cycled,Duekoué (CI) to Niambli (CI)
+562c9e99,2025-09-02T13:07,2025-09-02T14:37,cycled,Niambli (CI) to Pona-Ouinlo (CI)
+45dd9e11,2025-09-02T14:37,2025-09-02T16:25,cycled,Pona-Ouinlo (CI) to Daoungbeu (CI)
+bb21028d,2025-09-02T16:24,2025-09-02T16:24,cycled,Zakogbeu (CI) to Zakogbeu (CI)
+1de6d071,2025-09-02T17:59,2025-09-02T18:32,cycled,Daoungbeu (CI) to Zoupangbeu (CI)
+cee60291,2025-09-02T18:32,2025-09-02T19:52,cycled,Zoupangbeu (CI) to Gosséa (CI)
+1fae2e03,2025-09-02T19:52,2025-09-02T19:52,cycled,Gosséa (CI) to Doboua (CI)
+920c120e,2025-09-02T19:53,2025-09-03T03:53,cycled,
+7da1d6b3,2025-09-03T09:55,2025-09-03T11:34,cycled,Keibla (CI) to Déraouan (CI)
+1d8c1ca1,2025-09-03T13:58,2025-09-03T15:00,cycled,
+e1fda517,2025-09-03T19:08,2025-09-04T10:25,cycled,
+f5f3c76e,2025-09-04T16:34,2025-09-05T13:11,cycled,Abouakouassikro (CI) to Yamoussoukro (CI)
+9a6f4e69,2025-09-05T13:11,2025-09-05T13:17,cycled,
+5075eca9,2025-09-07T09:00,2025-09-07T12:03,cycled,
+5cfeb5ab,2025-09-07T13:39,2025-09-07T13:41,cycled,
+5de41394,2025-09-08T12:20,2025-09-08T12:28,cycled,
+32179df1,2025-09-09T14:21,2025-09-09T18:00,cycled,Abidjan (CI) to Abidjan
+a74c6d6c,2025-09-12T09:00,2025-09-12T16:32,cycled,
+3ce68af6,2025-09-13T18:00,2025-09-13T19:47,cycled,
+7770120a,2025-09-14T18:00,2025-09-15T09:00,cycled,
+bf2cf742,2025-09-15T09:00,2025-09-15T11:52,cycled,Abidjan to Akouédo (CI)
+afafda75,2025-09-15T11:52,2025-09-15T12:32,cycled,Akouédo (CI) to Marcory (CI)
+cb3b4bbf,2025-09-15T12:33,2025-09-15T14:29,cycled,Marcory (CI) to Koumassi (CI)
+c0592828,2025-09-15T16:04,2025-09-15T18:00,cycled,Koumassi (CI) to Abidjan
+d5b443cc,2025-09-15T18:00,2025-09-15T18:35,cycled,
+906d2881,2025-09-15T18:35,2025-09-16T09:00,cycled,
+fb3b142c,2025-09-17T09:00,2025-09-17T09:49,cycled,
+621fd6cf,2025-09-17T09:49,2025-09-17T10:05,cycled,Gnansohmun (CI) to Akouédo (CI)
+18053a3c,2025-09-17T10:44,2025-09-17T12:49,cycled,
+c87d294a,2025-09-17T12:49,2025-09-17T17:07,cycled,Koumassi (CI) to Koumassi (CI)
+b1809c03,2025-09-17T18:11,2025-09-17T18:13,cycled,
+05ffa516,2025-09-17T18:13,2025-09-17T20:52,cycled,Koumassi (CI) to Marcory (CI)
+27a5cce5,2025-09-17T21:59,2025-09-18T09:00,cycled,
+f19d6d31,2025-09-18T18:00,2025-09-19T10:58,cycled,
+d5d86a61,2025-09-19T14:40,2025-09-19T18:00,cycled,Koumassi (CI) to Abidjan
+c609ae38,2025-09-19T18:00,2025-09-19T19:52,cycled,Abidjan to Koumassi (CI)
+d673b75a,2025-09-19T19:52,2025-09-20T00:26,cycled,Koumassi (CI) to Marcory (CI)
+4587e74d,2025-09-20T01:01,2025-09-20T09:00,cycled,
+10ec4879,2025-09-20T11:44,2025-09-20T13:20,cycled,
+1c385862,2025-09-20T20:35,2025-09-20T23:38,cycled,Koumassi (CI) to Marcory (CI)
+b77a5acd,2025-09-21T09:00,2025-09-21T14:05,cycled,
+bfd47aea,2025-09-21T14:36,2025-09-21T17:19,hike,across the Banco
+5db05521,2025-09-22T17:30,2025-09-22T18:00,cycled,Gnansohmun (CI) to Abidjan
+3936c8d4,2025-09-22T18:00,2025-09-22T18:14,cycled,Abidjan to Gnansohmun (CI)
+997e4de5,2025-09-22T18:14,2025-09-22T19:39,cycled,
+6b5810f7,2025-09-24T09:00,2025-09-24T09:46,cycled,
+482f8f6b,2025-09-24T11:50,2025-09-24T18:00,cycled,Abidjan (CI) to Abidjan
+fcb91575,2025-09-30T09:00,2025-09-30T12:20,cycled,
+de27b237,2025-09-30T12:42,2025-09-30T18:00,cycled,Gnansohmun (CI) to Abidjan
+89a4e893,2025-10-01T09:00,2025-10-01T10:04,cycled,
+efd4c014,2025-10-01T10:58,2025-10-01T12:54,cycled,
+cae8cfd7,2025-10-01T12:54,2025-10-01T13:31,cycled,Abidjan (CI) to Marcory (CI)
+b271eded,2025-10-01T14:07,2025-10-01T17:34,cycled,Koumassi (CI) to Koumassi (CI)
+6b88debe,2025-10-01T17:34,2025-10-01T18:00,cycled,Koumassi (CI) to Abidjan
+1393c923,2025-10-01T18:00,2025-10-02T01:57,cycled,Abidjan to Koumassi (CI)
+bca0cc6d,2025-10-02T18:00,2025-10-02T20:49,cycled,Abidjan to Gnansohmun (CI)
+4a43d1c3,2025-10-02T20:49,2025-10-03T09:00,cycled,Gnansohmun (CI) to Abidjan
+ec34ff4f,2025-10-05T15:33,2025-10-05T18:00,cycled,Akouédo (CI) to Abidjan
+11a48575,2025-10-05T18:00,2025-10-05T18:57,cycled,Abidjan to Akouédo (CI)
+df20a1db,2025-10-05T19:34,2025-10-06T09:00,cycled,
+713c7c96,2025-10-08T09:00,2025-10-08T14:18,cycled,Abidjan to Marcory (CI)
+fd2e4f0d,2025-10-08T14:18,2025-10-08T17:44,cycled,
+c9b6beb7,2025-10-08T17:44,2025-10-08T20:25,cycled,
+78721b58,2025-10-08T20:25,2025-10-09T14:13,cycled,
+715d6163,2025-10-09T14:13,2025-10-09T16:30,cycled,Abidjan (CI) to Marcory (CI)
+ac2f65f9,2025-10-09T16:30,2025-10-09T18:00,cycled,Marcory (CI) to Abidjan
+3d600439,2025-10-09T16:30,2025-10-11T18:00,cycled,
+171ddbfe,2025-10-12T15:13,2025-10-12T18:00,cycled,Marcory (CI) to Abidjan
+670a5943,2025-10-14T18:00,2025-10-14T21:20,cycled,Abidjan to Gnansohmun (CI)
+f2ad7a9d,2025-10-14T21:20,2025-10-15T09:00,cycled,Gnansohmun (CI) to Abidjan
+0557bda1,2025-10-16T09:00,2025-10-16T16:06,cycled,
+6b3e337f,2025-10-20T09:00,2025-10-20T18:00,cycled,
+5b456fff,2025-10-20T18:00,2025-10-20T18:06,cycled,Abidjan to Akouédo (CI)
+1add4888,2025-10-20T18:06,2025-10-20T21:51,cycled,Akouédo (CI) to Akouédo (CI)
+fed611dd,2025-10-20T21:51,2025-10-20T22:07,cycled,
+5b7174e0,2025-10-20T22:07,2025-10-21T09:00,cycled,Akouédo (CI) to Abidjan
+098cb2b1,2025-10-21T11:27,2025-10-21T14:07,cycled,
+67e6ea7b,2025-10-21T14:07,2025-10-21T18:00,cycled,Koumassi (CI) to Abidjan
+212129d9,2025-10-21T18:00,2025-10-21T18:34,cycled,Abidjan to Marcory (CI)
+3d08c1e7,2025-10-21T18:56,2025-10-21T20:37,cycled,Abidjan (CI) to Gnansohmun (CI)
+71b82a57,2025-10-21T20:37,2025-10-22T09:00,cycled,Gnansohmun (CI) to Abidjan
+fbaddbf7,2025-10-22T09:00,2025-10-22T10:05,cycled,Abidjan to Koumassi (CI)
+3cfffedd,2025-10-22T10:05,2025-10-22T17:16,cycled,
+2164eee9,2025-10-22T17:16,2025-10-22T18:00,cycled,Koumassi (CI) to Abidjan
+29c5fbd6,2025-10-22T18:00,2025-10-23T09:00,cycled,
+b4c6a3a3,2025-10-23T18:00,2025-10-23T19:32,cycled,Abidjan to Koumassi (CI)
+42e8343d,2025-10-23T19:32,2025-10-24T09:00,cycled,Koumassi (CI) to Abidjan
+3962e343,2025-10-24T19:11,2025-10-24T19:32,cycled,
+07948819,2025-10-25T09:00,2025-10-25T16:00,cycled,Abidjan to Marcory (CI)
+7f0a6d56,2025-10-25T18:52,2025-10-26T09:00,cycled,
+e6fc605a,2025-10-28T09:00,2025-10-28T13:17,cycled,
+14b08d9f,2025-10-28T13:49,2025-10-28T15:55,cycled,Koumassi (CI) to Marcory (CI)
+7c08bfe6,2025-10-28T15:55,2025-10-28T18:00,cycled,Marcory (CI) to Abidjan
+b32308e1,2025-11-01T10:24,2025-11-01T18:00,cycled,Angorankoua (CI) to Abidjan
+aed18b6c,2025-11-02T21:46,2025-11-03T11:52,cycled,
+26fd4e65,2025-11-03T12:39,2025-11-03T13:00,cycled,Marcory (CI) to Marcory (CI)
+642c4a30,2025-11-03T13:00,2025-11-03T13:07,cycled,
+fff866c8,2025-11-03T13:07,2025-11-03T18:00,cycled,Marcory (CI) to Abidjan
+2e603786,2025-11-04T18:00,2025-11-04T19:36,cycled,
+67c8cff1,2025-11-06T09:00,2025-11-06T14:43,cycled,
+1427ee2d,2025-11-07T09:00,2025-11-07T09:01,cycled,
+a6c85984,2025-11-08T09:00,2025-11-08T14:19,car,Abidjan to Yamoussoukro (CI)
+587cb577,2025-11-09T09:00,2025-11-09T09:35,cycled,Yamoussoukro to Kami (CI)
+8d183e63,2025-11-09T09:35,2025-11-09T09:41,cycled,Kami (CI) to Yamoussoukro (CI)
+173d218e,2025-11-09T09:41,2025-11-09T12:43,cycled,
+7cce6304,2025-11-09T12:43,2025-11-09T18:00,cycled,Yamoussoukro (CI) to Yamoussoukro
+2cfac688,2025-11-10T09:00,2025-11-10T18:00,car,Yamoussoukro to Abidjan
+ccd98fa4,2025-11-12T16:47,2025-11-12T18:00,cycled,Akouédo (CI) to Abidjan
+f41aef0f,2025-11-19T15:16,2025-11-19T17:14,cycled,
+bbb0a353,2025-11-19T17:14,2025-11-19T18:00,cycled,Abidjan (CI) to Abidjan
+3434a15b,2025-11-23T10:13,2025-11-23T14:09,cycled,Abidjan (CI) to Abidjan (CI)
+11e6f503,2025-11-23T14:09,2025-11-23T15:18,car,Abidjan (CI) to Abobo (CI)
+720efd2c,2025-11-23T15:18,2025-11-23T18:00,car,Abobo (CI) to Abidjan
+3d47402d,2025-11-26T15:38,2025-11-26T18:00,cycled,Grand-Bassam (CI) to Abidjan
+56aaa689,2025-11-30T09:00,2025-11-30T13:45,cycled,
+54d29849,2025-11-30T14:11,2025-11-30T18:00,cycled,Akouédo (CI) to Abidjan
+661cac4c,2025-11-30T18:00,2025-11-30T18:18,cycled,Abidjan to Akouédo (CI)
+40b61aff,2025-11-30T18:25,2025-12-01T09:00,cycled,Akouédo (CI) to Abidjan
+2ff69b73,2025-12-03T11:34,2025-12-03T16:16,cycled,Marcory (CI) to Marcory (CI)
+217dceb3,2025-12-03T16:16,2025-12-03T18:00,cycled,Marcory (CI) to Abidjan
+1f406e57,2025-12-05T09:00,2025-12-05T16:43,cycled,Abidjan to Marcory (CI)
+dcde966e,2025-12-05T16:43,2025-12-05T18:00,cycled,Marcory (CI) to Abidjan
+a043ca83,2025-12-05T18:00,2025-12-06T06:48,cycled,Abidjan to Marcory (CI)
+91bf690e,2025-12-06T06:48,2025-12-06T07:15,cycled,
+46fd0408,2025-12-06T08:35,2025-12-06T09:00,cycled,Marcory (CI) to Abidjan
+651b2e90,2025-12-10T09:00,2025-12-10T18:00,cycled,
+03942307,2025-12-11T09:00,2025-12-11T16:04,cycled,Abidjan to Marcory (CI)
+f8c7bb61,2025-12-14T17:12,2025-12-15T09:49,cycled,
+40b9fcd0,2025-12-15T14:50,2025-12-15T20:27,car,Angboudjou (CI) to Eboko (CI)
+d487c2d5,2025-12-15T20:27,2025-12-16T12:29,car,
+b4af19b6,2025-12-16T18:26,2025-12-17T08:42,cycled,
+a952cde9,2025-12-17T16:29,2025-12-17T17:25,cycled,Esim (GH) to Tarkwa (GH)
+10fe664c,2025-12-17T17:25,2025-12-17T20:41,cycled,Tarkwa (GH) to Tarkwa (GH)
+6d23b27a,2025-12-19T07:25,2025-12-19T07:46,cycled,
+69723786,2025-12-19T12:15,2025-12-19T12:33,cycled,
+69c53799,2025-12-21T09:00,2025-12-21T16:06,cycled,kumasi to New Tafo (GH)
+cf6ba654,2025-12-21T16:06,2025-12-21T18:07,cycled,
+fe19e0f5,2025-12-21T18:07,2025-12-21T20:11,cycled,New Tafo (GH) to Kumasi (GH)
+c1ada0a4,2025-12-21T20:11,2025-12-22T09:00,cycled,Kumasi (GH) to kumasi
+9024eabe,2025-12-22T18:00,2025-12-23T10:00,cycled,
+dd83f5d0,2025-12-24T10:01,2025-12-24T10:02,cycled,
+b0802509,2025-12-24T10:02,2025-12-24T11:14,cycled,Medina Estates (GH) to Sakumona (GH)
+78d31e75,2025-12-25T09:00,2025-12-25T18:00,cycled,
+b7b0c448,2025-12-25T18:00,2025-12-25T20:34,cycled,accra to Sakumona (GH)
+3d0aa876,2025-12-25T20:34,2025-12-26T09:00,cycled,Sakumona (GH) to accra
+bf8a1b3d,2025-12-26T11:16,2025-12-26T11:40,cycled,
+f36926a4,2025-12-26T12:31,2025-12-26T12:56,cycled,
+44f1569d,2025-12-26T12:56,2025-12-26T15:24,cycled,Medina Estates (GH) to Taifa (GH)
+2ce4549e,2025-12-26T18:00,2025-12-27T09:00,cycled,
+a97718bd,2025-12-27T18:00,2025-12-27T19:09,cycled,
+3adddd82,2025-12-27T19:09,2025-12-28T09:00,cycled,
+3f4e993e,2025-12-30T09:00,2025-12-30T18:46,cycled,
+4d93776f,2025-12-30T18:46,2025-12-31T12:53,cycled,
+930a8d44,2025-12-31T13:02,2025-12-31T17:50,cycled,
+86373417,2025-12-31T17:51,2025-12-31T18:00,cycled,
+02445031,2025-12-31T18:00,2025-12-31T18:26,cycled,accra to Awoshi (GH)
+9065dc65,2025-12-31T18:26,2026-01-01T00:02,cycled,Awoshi (GH) to Gbawe (GH)
+c2bfd5c8,2026-01-01T00:02,2026-01-01T10:14,cycled,
+1dc8bb88,2026-01-01T10:14,2026-01-01T10:48,cycled,Gbawe (GH) to Gbawe (GH)
+7d769c55,2026-01-01T14:21,2026-01-01T16:43,cycled,Sakumona (GH) to Tema New Town (GH)
+a8405bc0,2026-01-01T17:41,2026-01-01T21:12,cycled,Tema New Town (GH) to Akatsi (GH)
+d6e321ed,2026-01-02T07:35,2026-01-02T11:22,cycled,Akatsi (GH) to Akatsi (GH)
+1188d3e9,2026-01-02T11:22,2026-01-02T11:59,cycled,
+8911b2ec,2026-01-02T11:59,2026-01-02T14:37,cycled,Akatsi (GH) to Aflao (GH)
+4dea13e3,2026-01-02T14:37,2026-01-02T15:49,cycled,Aflao (GH) to Aflao (GH)
+bcec70ff,2026-01-02T15:49,2026-01-02T16:23,cycled,
+51ff61d2,2026-01-02T16:23,2026-01-02T18:00,cycled,Aflao (GH) to Lomé
+271df056,2026-01-04T09:00,2026-01-04T10:55,car,Lomé to Lomé (TG)
+264d08e2,2026-01-04T10:55,2026-01-04T17:05,car,
+a35970dd,2026-01-04T11:11,2026-01-04T17:05,car,
+ed3aad52,2026-01-05T09:00,2026-01-05T09:32,car,Lomé to Kévé (TG)
+427f71b8,2026-01-05T09:32,2026-01-05T14:41,car,Kévé (TG) to Aflao (GH)
+efd2ddb1,2026-01-06T09:00,2026-01-06T10:24,cycled,
+18645342,2026-01-06T10:24,2026-01-06T13:57,cycled,Aflao (GH) to Aného (TG)
+ec654642,2026-01-06T13:57,2026-01-06T20:58,cycled,Aného (TG) to Aného (TG)
+1467e17e,2026-01-06T20:58,2026-01-07T08:00,cycled,Aného (TG) to Aného (TG)
+00909f7c,2026-01-07T09:02,2026-01-07T09:35,cycled,Aného (TG) to Aného (TG)
+3ce5e629,2026-01-07T09:37,2026-01-07T11:02,cycled,Aného (TG) to Agoué (BJ)
+aa1d275c,2026-01-07T13:51,2026-01-07T14:08,ferry,across the Mono
+8c509a52,2026-01-07T17:05,2026-01-08T08:00,cycled,
+2343ca84,2026-01-08T09:58,2026-01-08T13:44,hike,Ouidah (BJ) to Ouidah (BJ)
+28ab0abc,2026-01-08T13:44,2026-01-08T17:00,cycled,Ouidah (BJ) to ouidah
+6a1c204e,2026-01-08T17:00,2026-01-08T22:26,car,ouidah to Ouidah (BJ)
+e92641cf,2026-01-08T22:26,2026-01-09T00:48,hike,
+0561e716,2026-01-09T00:48,2026-01-09T08:00,cycled,Ouidah (BJ) to ouidah
+fa3a4768,2026-01-09T08:00,2026-01-09T16:24,hike,ouidah to Ouidah (BJ)
+56c07573,2026-01-09T16:24,2026-01-09T17:00,hike,Ouidah (BJ) to ouidah
+ab08f3f3,2026-01-09T17:00,2026-01-09T17:48,hike,ouidah to Ouidah (BJ)
+898a0206,2026-01-09T17:48,2026-01-10T08:00,hike,Ouidah (BJ) to ouidah
+38fce869,2026-01-10T17:00,2026-01-10T18:12,car,ouidah to Ouidah (BJ)
+be1892ca,2026-01-10T18:12,2026-01-11T08:00,car,Ouidah (BJ) to ouidah
+7732e29f,2026-01-11T11:18,2026-01-11T14:26,cycled,Ouidah (BJ) to Godomè (BJ)
+074ac9e6,2026-01-11T14:26,2026-01-11T17:00,cycled,Godomè (BJ) to Cotonou
+da255b4a,2026-01-19T08:00,2026-01-19T11:34,cycled,Cotonou to Cotonou (BJ)
+0df98f10,2026-01-19T12:05,2026-01-19T12:45,cycled,Cotonou (BJ) to Cotonou (BJ)
+9a8d8a92,2026-01-19T12:45,2026-01-19T14:38,cycled,
+b4be606d,2026-01-19T14:38,2026-01-19T15:59,cycled,Cotonou (BJ) to Cotonou (BJ)
+131a05e7,2026-01-19T15:59,2026-01-19T17:00,cycled,Cotonou (BJ) to Cotonou
+5e4b9443,2026-01-20T16:23,2026-01-21T15:54,cycled,Porto-Novo (BJ) to Badagry (NG)
+486b7986,2026-01-21T17:15,2026-01-22T09:38,cycled,Badagry (NG) to Igbessa (NG)
+b16cfaea,2026-01-22T10:01,2026-01-22T12:17,cycled,Igbessa (NG) to Alasia (NG)
+55b27676,2026-01-22T16:08,2026-01-22T18:23,cycled,
+47558cca,2026-01-22T18:23,2026-01-22T22:39,car,Lekki (NG) to Obalende (NG)
+7bb2c3ab,2026-01-22T22:39,2026-01-22T23:02,car,Obalende (NG) to Lekki (NG)
+af0fd4cf,2026-01-22T23:02,2026-01-23T07:51,cycled,Lekki (NG) to Lekki (NG)
+1052a743,2026-01-23T07:51,2026-01-23T12:29,cycled,
+ff4a2777,2026-01-23T13:13,2026-01-23T16:18,cycled,Lekki (NG) to Lekki (NG)
+a7d8df23,2026-01-23T16:18,2026-01-23T17:00,cycled,
+6e22ed67,2026-01-24T08:00,2026-01-24T11:08,cycled,
+ac9c550f,2026-01-24T14:10,2026-01-26T08:15,cycled,Lekki (NG) to Akodo (NG)
+0a1baa47,2026-01-26T16:10,2026-01-27T08:43,cycled,
+86f54f53,2026-01-27T18:39,2026-01-28T08:13,cycled,Modakeke (NG) to Modakeke (NG)
+564cec17,2026-01-28T17:41,2026-01-28T21:36,cycled,
+54634014,2026-01-29T06:18,2026-01-29T06:29,cycled,
+d5ef3f73,2026-01-30T08:00,2026-01-30T17:00,cycled,
+d713cae6,2026-01-31T12:58,2026-02-02T06:27,cycled,Ajasse Ipo (NG) to Ajasse Ipo (NG)
+28e7bc1e,2026-02-03T17:09,2026-02-04T08:23,cycled,Lokoja (NG) to Lokoja (NG)
+5cd598ec,2026-02-05T08:10,2026-02-05T08:36,cycled,
+3583897b,2026-02-05T15:18,2026-02-05T17:00,cycled,Abuja (NG) to Abuja
+f26cc6ed,2026-02-05T17:00,2026-02-05T17:08,cycled,Abuja to Abuja (NG)
+dfa93c4d,2026-02-06T08:00,2026-02-06T08:47,cycled,Abuja to Abuja (NG)
+b50fdf19,2026-02-06T09:01,2026-02-06T10:04,car,Abuja (NG) to Abuja (NG)
+536cf524,2026-02-06T10:04,2026-02-06T13:31,car,Abuja (NG) to Abuja (NG)
+2644525c,2026-02-06T13:31,2026-02-06T13:32,car,
+6ae1993a,2026-02-06T13:32,2026-02-06T14:36,car,Abuja (NG) to Abuja (NG)
+91a762c7,2026-02-06T14:36,2026-02-06T17:00,car,Abuja (NG) to Abuja
+f4f2c72b,2026-02-07T10:11,2026-02-07T17:00,cycled,Abuja (NG) to Abuja
+c1c2447f,2026-02-09T08:00,2026-02-09T09:13,cycled,
+01e548ca,2026-02-09T09:13,2026-02-09T13:00,cycled,Abuja (NG) to Abuja (NG)
+09d1983b,2026-02-09T13:00,2026-02-09T17:00,cycled,Abuja (NG) to Abuja
+8234578d,2026-02-09T17:00,2026-02-10T08:00,cycled,
+9d5ca9a5,2026-02-10T08:00,2026-02-10T13:27,cycled,Abuja to Abuja (NG)
+358ee731,2026-02-10T14:04,2026-02-10T15:01,cycled,Abuja (NG) to Abuja (NG)
+aea8a5a6,2026-02-10T15:01,2026-02-10T15:43,cycled,
+a265102c,2026-02-10T15:43,2026-02-10T17:00,cycled,Abuja (NG) to Abuja
+633c4968,2026-02-10T17:00,2026-02-11T10:29,cycled,
+b15bb9b4,2026-02-11T15:45,2026-02-11T16:33,cycled,Abuja (NG) to Abuja (NG)
+cdf3c059,2026-02-11T16:35,2026-02-11T17:13,cycled,
+4869f823,2026-02-12T06:37,2026-02-12T07:08,cycled,
+cd16d0b8,2026-02-13T10:05,2026-02-13T10:59,cycled,
+53b63bf0,2026-02-13T11:23,2026-02-13T16:06,cycled,
+2db0aff8,2026-02-13T16:10,2026-02-13T17:08,cycled,
+ea3c0307,2026-02-14T13:17,2026-02-14T13:52,ferry,across the Katsina Ala
+78777204,2026-02-14T17:01,2026-02-15T08:06,cycled,Zaki Biam (NG) to Zaki Biam (NG)
+984df755,2026-02-17T18:45,2026-02-18T10:45,cycled,Gembu (NG) to Gembu (NG)
+03546abe,2026-02-18T13:28,2026-02-18T14:33,cycled,
+b46a36bd,2026-02-18T17:19,2026-02-19T10:14,cycled,Gembu (NG) to Gembu (NG)
+6f088b32,2026-02-19T17:11,2026-02-19T17:33,cycled,
+97738e1b,2026-02-22T08:00,2026-02-22T11:25,cycled,
+b1193ece,2026-02-23T11:05,2026-02-23T11:10,cycled,
+e0b4f096,2026-02-23T15:32,2026-02-24T09:26,cycled,Tibati (CM) to Tibati (CM)
+4c7359d0,2026-02-25T17:00,2026-02-26T06:29,cycled,
+7f5d6055,2026-02-26T07:01,2026-02-26T07:08,cycled,
+04ef7974,2026-02-26T16:37,2026-02-26T17:33,cycled,Nanga Eboko (CM) to Nanga Eboko (CM)
+9053f7a1,2026-02-26T17:35,2026-02-27T05:59,cycled,Nanga Eboko (CM) to Nanga Eboko (CM)
+4ac0a6cd,2026-02-27T16:21,2026-03-02T13:16,cycled,Okoa (CM) to Yaoundé (CM)
+a64e9ec6,2026-03-03T10:35,2026-03-03T15:16,cycled,Yaoundé (CM) to Yaoundé (CM)
+9fee6dd1,2026-03-03T17:35,2026-03-03T20:54,cycled,
+3625b441,2026-03-04T08:00,2026-03-04T09:04,cycled,
+c8303f44,2026-03-04T12:59,2026-03-04T13:04,cycled,across the Mingoa
+85b751f0,2026-03-04T14:32,2026-03-04T16:42,cycled,
+25dc0bd4,2026-03-05T08:00,2026-03-05T16:29,cycled,Yaoundé to Yaoundé (CM)
+98ac696e,2026-03-05T16:29,2026-03-05T16:34,cycled,
+c87c3182,2026-03-05T16:46,2026-03-05T16:51,cycled,
+4c1fc62c,2026-03-06T08:00,2026-03-06T11:13,cycled,
+5ee0092a,2026-03-06T14:29,2026-03-06T16:54,cycled,across the Mingoa
+877ff69e,2026-03-06T17:58,2026-03-07T09:17,cycled,
+73013778,2026-03-07T09:27,2026-03-07T13:05,cycled,Yaoundé (CM) to Yaoundé (CM)
+64eca9e7,2026-03-07T13:05,2026-03-07T15:28,cycled,
+f63069d2,2026-03-07T17:05,2026-03-07T23:54,cycled,
+2f2f2bf6,2026-03-10T16:38,2026-03-10T18:50,cycled,
+b3f8927a,2026-03-11T09:13,2026-03-11T09:19,cycled,
+6087c917,2026-03-12T09:00,2026-03-12T09:46,cycled,
+1d6d2015,2026-03-12T12:48,2026-03-12T14:47,cycled,
+2475c8a9,2026-03-12T17:44,2026-03-13T07:50,cycled,
+b13ae820,2026-03-13T13:31,2026-03-15T08:53,cycled,across the Limbe River
+5d3e7c5e,2026-03-15T09:06,2026-03-15T17:00,cycled,
+4990bd29,2026-03-16T17:00,2026-03-17T06:41,cycled,
+9de62a0a,2026-03-17T08:46,2026-03-26T08:14,car,Limbe (CM) to Buea (CM)
+e5a0d417,2026-03-26T08:14,2026-03-26T14:53,hike,Komoot hike: Mt Cameroon day 1
+c510a120,2026-03-27T06:16,2026-03-27T15:51,hike,Komoot hike: Mt Cameroon day 2
+eab1404f,2026-03-28T06:49,2026-03-28T12:15,hike,Komoot hike: Mt Cameroon hike day 3
+2acbea17,2026-03-28T12:15,2026-03-28T12:48,car,9.9 km at 18 km/h on the hike Mt Cameroon hike day 3
+d30b9417,2026-03-28T12:48,2026-03-29T15:17,car,Buea (CM) to Limbe (CM)
+f99a9636,2026-03-29T17:07,2026-03-30T07:36,cycled,Tiko (CM) to Malabo (GQ)
+8825f7a7,2026-03-30T12:46,2026-04-01T13:13,ferry,Tiko (CM) to Malabo (GQ)
+0c5ced5a,2026-04-01T14:53,2026-04-01T17:00,cycled,
+24a60774,2026-04-03T08:00,2026-04-03T10:13,cycled,
+1ce0fe40,2026-04-03T10:13,2026-04-03T10:49,cycled,Malabo (GQ) to Malabo (GQ)
+18205a90,2026-04-03T10:49,2026-04-04T08:00,cycled,
+acc33876,2026-04-06T08:00,2026-04-06T15:40,cycled,
+effc0097,2026-04-06T15:40,2026-04-06T17:00,cycled,
+fd282494,2026-04-07T17:00,2026-04-08T13:49,cycled,
+b2828ff8,2026-04-09T08:00,2026-04-09T16:30,cycled,
+08cee375,2026-04-09T18:10,2026-04-11T07:56,ferry,Malabo (GQ) to Bata (GQ)
+8ff32c52,2026-04-11T11:31,2026-04-11T15:54,cycled,Bata (GQ) to Bata (GQ)
+ea283f28,2026-04-11T16:34,2026-04-12T11:41,cycled,Bata (GQ) to Bata (GQ)
+78465ba5,2026-04-14T08:00,2026-04-14T08:50,cycled,
+f83bac38,2026-04-14T13:33,2026-04-14T13:36,cycled,
+abc8d281,2026-04-15T13:07,2026-04-15T15:51,cycled,
+f55afa4d,2026-04-15T17:49,2026-04-16T08:01,cycled,
+e1fa4b12,2026-04-16T13:35,2026-04-16T14:56,cycled,Ciudad de la Paz (GQ) to Evinayong (GQ)
+e734c388,2026-04-16T16:52,2026-04-17T08:38,car,Evinayong (GQ) to Evinayong (GQ)
+93f77d03,2026-04-17T13:25,2026-04-18T06:26,cycled,Evinayong (GQ) to Evinayong (GQ)
+d83eceef,2026-04-20T08:00,2026-04-20T17:00,cycled,
+dd11d967,2026-04-23T08:00,2026-04-23T16:48,ferry,
+3889c8ae,2026-04-23T16:51,2026-04-24T06:28,cycled,Cocobeach (GA) to Cocobeach (GA)
+43f741cc,2026-04-24T12:59,2026-04-24T13:47,cycled,Ntoum (GA) to Ntoum (GA)
+3245c2ef,2026-04-25T08:00,2026-04-25T12:48,cycled,
+10b4d7b7,2026-04-25T12:48,2026-04-25T13:37,cycled,Libreville (GA) to Libreville (GA)
+0c0df8b0,2026-04-25T13:37,2026-04-25T17:00,cycled,Libreville (GA) to libreville
+48f93a6d,2026-04-26T08:00,2026-04-26T09:55,cycled,libreville to Libreville (GA)
+38a7d55f,2026-04-26T09:55,2026-04-26T16:07,cycled,
+9ce1c166,2026-04-26T16:07,2026-04-26T17:00,cycled,
+21b8a252,2026-04-27T08:00,2026-04-27T10:33,cycled,libreville to Libreville (GA)
+0c9e81bb,2026-04-27T10:33,2026-04-27T17:00,cycled,
+9a736ce6,2026-04-28T12:13,2026-04-28T16:19,cycled,
+4f75e553,2026-04-29T07:59,2026-04-29T09:18,cycled,Libreville (GA) to Libreville (GA)
+05213470,2026-04-29T09:55,2026-04-29T13:28,cycled,Libreville (GA) to Ntoum (GA)
+292fce87,2026-04-29T17:06,2026-04-30T08:00,cycled,
+1101b784,2026-04-30T17:00,2026-05-01T17:00,cycled,
+bc84e5c0,2026-05-02T08:00,2026-05-02T17:00,cycled,
+7e80b535,2026-05-04T17:00,2026-05-05T08:00,cycled,
+438c7bcb,2026-05-06T12:47,2026-05-06T12:53,cycled,
+ef0f50f7,2026-05-06T17:07,2026-05-07T07:23,cycled,
+88613dd9,2026-05-08T15:58,2026-05-08T16:19,cycled,
+242c9ab5,2026-05-08T16:19,2026-05-08T18:02,cycled,
+b97820d1,2026-05-08T18:03,2026-05-09T08:37,cycled,
+62189e46,2026-05-09T18:50,2026-05-09T20:38,cycled,
+483dd2e0,2026-05-09T20:38,2026-05-10T19:59,cycled,
+1ecd23a3,2026-05-10T20:00,2026-05-12T08:42,cycled,
+6b71db5b,2026-05-12T11:32,2026-05-12T13:12,cycled,Fougamou (GA) to Fougamou (GA)
+fd1ec5cd,2026-05-12T19:07,2026-05-13T13:30,cycled,across the Ngounié
+7613e40a,2026-05-14T06:38,2026-05-14T06:58,cycled,
+7b2cd649,2026-05-16T08:00,2026-05-16T12:46,cycled,
+0a05d28d,2026-05-17T06:01,2026-05-17T06:25,cycled,
+1d106eab,2026-05-19T06:21,2026-05-19T06:30,cycled,
+3b4b19f6,2026-05-20T16:05,2026-05-20T18:58,cycled,Dolisie (CG) to Dolisie (CG)
+9877caed,2026-05-21T08:00,2026-05-21T09:52,cycled,
+3f5c024a,2026-05-21T10:25,2026-05-21T10:54,cycled,
+5d9b09b2,2026-05-21T13:33,2026-05-23T09:23,car,Dolisie (CG) to Mouyondzi (CG)
+347aad2d,2026-05-23T12:31,2026-05-24T09:54,car,Bouansa (CG) to Dolisie (CG)
+139d4b6a,2026-05-24T13:36,2026-05-24T15:31,cycled,
+7a06696a,2026-05-24T15:32,2026-05-24T16:43,hitchhike,
+848f5cb2,2026-05-24T16:43,2026-05-24T20:46,cycled,
+b689ed9b,2026-05-26T06:58,2026-05-26T15:55,cycled,Nzassi (CG) to Cacongo (AO)
+8726033f,2026-05-27T12:55,2026-05-28T13:55,ferry,Cabinda (AO) to Soyo (AO)
+ab269cd2,2026-05-30T05:47,2026-05-30T05:58,cycled,
+07579628,2026-05-30T14:16,2026-05-30T16:45,cycled,Tabi (AO) to Barra do Dande (AO)
+725499ca,2026-05-30T18:12,2026-05-31T08:06,cycled,
+183ece1d,2026-05-31T15:35,2026-05-31T20:43,cycled,
+828c6965,2026-06-01T08:00,2026-06-01T17:00,cycled,
+0ca9ad6e,2026-06-02T08:00,2026-06-02T17:00,hike,
+126c12b1,2026-06-04T08:00,2026-06-04T17:00,hike,
+1cc95809,2026-06-05T08:00,2026-06-05T15:50,cycled,
+3366b92c,2026-06-05T16:30,2026-06-05T17:00,cycled,
+ab3e5739,2026-06-05T20:37,2026-06-06T07:25,cycled,
+f2051340,2026-06-06T07:25,2026-06-06T23:56,car,
+17a0ff1c,2026-06-06T12:33,2026-06-06T14:12,car,
+46217906,2026-06-07T07:41,2026-06-07T08:50,car,
+5a755c12,2026-06-07T08:50,2026-06-07T16:33,car,
+f226c27f,2026-06-07T16:33,2026-06-08T11:27,car,
+a28cc0a7,2026-06-08T13:09,2026-06-08T14:13,cycled,Talatona (AO) to Benfica (AO)
+6c93aea7,2026-06-08T14:13,2026-06-08T16:01,cycled,Benfica (AO) to Benfica (AO)
+7de5726b,2026-06-09T08:00,2026-06-09T08:31,cycled,
+870e4486,2026-06-09T17:35,2026-06-10T05:55,cycled,across the Cabo Ledo
+f5d83f3c,2026-06-10T11:02,2026-06-10T14:21,cycled,Capolo (AO) to Capolo (AO)
+f6db821c,2026-06-11T16:00,2026-06-12T06:05,cycled,Sumbe (AO) to Quicombo (AO)
+6c4698f5,2026-06-12T16:52,2026-06-15T10:09,cycled,Lobito (AO) to Benguela
+31737e5f,2026-06-15T13:21,2026-06-15T15:50,cycled,Navegantes (AO) to Navegantes (AO)
+118c7288,2026-06-16T12:02,2026-06-16T15:42,cycled,Chongoroi (AO) to Chongoroi (AO)
+f4790fa1,2026-06-16T16:27,2026-06-16T19:30,cycled,Chongoroi (AO) to Chongoroi (AO)
+2c28d637,2026-06-17T09:15,2026-06-17T10:39,cycled,Quilengues (AO) to Quilengues (AO)
+8f07f4be,2026-06-17T14:53,2026-06-17T17:05,cycled,Viti Vivali (AO) to Cacula (AO)
+aad7b7dd,2026-06-17T17:05,2026-06-18T06:54,cycled,Cacula (AO) to Cacula (AO)
+7b34d0fb,2026-06-18T13:19,2026-06-18T13:54,cycled,Lubango (AO) to Lubango (AO)
+9b1a7749,2026-06-18T13:54,2026-06-18T17:00,cycled,
+e7043896,2026-06-20T08:00,2026-06-20T13:26,cycled,Lubango to Lubango (AO)
+c96cac32,2026-06-20T13:26,2026-06-20T17:00,cycled,
+11e239ee,2026-06-22T09:03,2026-06-22T10:58,cycled,Lubango (AO) to Huila (AO)
+b74d6157,2026-06-22T11:10,2026-06-22T15:00,cycled,Chibia (AO) to Chibia (AO)
+9f7692ec,2026-06-23T19:28,2026-06-24T08:21,cycled,
+d1b3cb8d,2026-06-24T08:21,2026-06-24T09:59,cycled,Mucope (AO) to Xangongo (AO)
+93fc51fa,2026-06-24T12:53,2026-06-24T16:08,cycled,Môngua (AO) to Ondjiva (AO)
+1eb1d03e,2026-06-25T07:25,2026-06-25T07:35,cycled,Ondjiva (AO) to Ondjiva (AO)
+f11864f7,2026-06-25T08:19,2026-06-26T07:47,cycled,Ondjiva (AO) to Oshikango (NA)
+c5aa07e9,2026-06-26T12:51,2026-06-26T16:21,cycled,Ondangwa (NA) to Ondangwa East (NA)
+ab7ae45e,2026-06-26T16:21,2026-06-28T08:00,cycled,Ondangwa East (NA) to Oniipa (NA)
+910f54fc,2026-06-28T08:00,2026-06-28T12:59,cycled,
+b0e733ac,2026-06-28T13:55,2026-06-28T14:35,cycled,Oniipa (NA) to Omuthiya (NA)
+abfd3d0d,2026-06-28T16:37,2026-06-29T08:33,cycled,
+2bb2f97b,2026-06-29T08:58,2026-06-29T09:06,cycled,Omuthiya (NA) to Omuthiya (NA)
+cf1c2e58,2026-06-29T16:37,2026-06-30T07:00,cycled,
+a840ba09,2026-06-30T09:21,2026-06-30T12:14,cycled,Oshivelo (NA) to Tsumeb (NA)
+dcc18166,2026-06-30T14:08,2026-07-03T11:10,car,Tsumeb (NA) to Tsumeb (NA)
+ec4fb986,2026-07-03T11:53,2026-07-03T19:22,cycled,Tsumeb (NA) to Tsumeb (NA)
+b27c5da5,2026-07-05T16:00,2026-07-06T12:29,cycled,
+64efcd50,2026-07-06T13:38,2026-07-07T06:37,cycled,Grootfontein (NA) to Grootfontein (NA)
+84810864,2026-07-07T16:11,2026-07-07T16:23,cycled,Okakarara (NA) to Okakarara (NA)
+f8442687,2026-07-07T16:23,2026-07-07T16:44,cycled,Okakarara (NA) to Okakarara (NA)
+01bc2ca7,2026-07-07T18:03,2026-07-08T08:03,cycled,
+f426cfe8,2026-07-08T09:03,2026-07-08T10:59,cycled,Okakarara (NA) to Okakarara (NA)
+654f7265,2026-07-08T11:25,2026-07-08T12:46,cycled,
+6098f1c1,2026-07-08T11:25,2026-07-08T13:12,cycled,
+18aea1c8,2026-07-08T13:12,2026-07-08T13:40,cycled,Okakarara (NA) to Okakarara (NA)
+a68804ec,2026-07-08T13:40,2026-07-08T14:12,cycled,
+5558b524,2026-07-08T16:59,2026-07-09T08:16,cycled,Otjiwarongo (NA) to Otjiwarongo (NA)
+27ad14f4,2026-07-09T09:47,2026-07-09T13:43,cycled,Otjiwarongo (NA) to Osire (NA)
+78cc2af2,2026-07-09T14:53,2026-07-09T19:45,cycled,Osire (NA) to Osire (NA)
+52888712,2026-07-09T19:45,2026-07-10T08:06,cycled,Osire (NA) to Okahandja (NA)
+3420aad6,2026-07-10T08:17,2026-07-10T09:46,cycled,Okahandja (NA) to Okahandja (NA)
+0cac98f0,2026-07-10T16:19,2026-07-10T19:57,cycled,
+0a7aac1f,2026-07-13T07:00,2026-07-13T11:20,cycled,Windhoek to Windhoek (NA)
+5b4a5ed8,2026-07-13T11:20,2026-07-13T13:56,cycled,Windhoek (NA) to Windhoek (NA)
+b1373a83,2026-07-13T13:58,2026-07-13T14:20,cycled,Windhoek (NA) to Windhoek (NA)
+2fe592f1,2026-07-13T14:20,2026-07-13T16:00,cycled,
+a6471b2d,2026-07-14T07:34,2026-07-14T09:11,cycled,Windhoek (NA) to Windhoek (NA)
+5be53c0d,2026-07-14T09:11,2026-07-14T16:00,cycled,Windhoek (NA) to Windhoek
+0e5b9f85,2026-07-15T07:00,2026-07-15T07:49,cycled,Windhoek to Windhoek (NA)
+cb054318,2026-07-15T08:27,2026-07-15T09:11,cycled,Windhoek (NA) to Windhoek (NA)
+d689b778,2026-07-15T16:48,2026-07-16T08:39,cycled,Rehoboth (NA) to Rehoboth (NA)
+63ecc44d,2026-07-16T10:22,2026-07-16T13:42,cycled,Rehoboth (NA) to Schlip (NA)
+a517a734,2026-07-16T15:14,2026-07-17T06:56,cycled,Kalkrand (NA) to Kalkrand (NA)
+3b5cd7b5,2026-07-17T06:56,2026-07-17T12:33,cycled,Kalkrand (NA) to Schlip (NA)
+8001094d,2026-07-17T16:44,2026-07-20T16:32,cycled,across the Tsub
+0747a144,2026-07-20T17:16,2026-07-21T06:59,cycled,Maltahöhe (NA) to Maltahöhe (NA)
+b0d0123b,2026-07-21T06:59,2026-07-21T08:29,cycled,Maltahöhe (NA) to Maltahöhe (NA)
+971016d8,2026-07-21T09:31,2026-07-21T11:56,cycled,Maltahöhe (NA) to Maltahöhe (NA)
+69da653c,2026-07-21T15:47,2026-07-22T07:42,cycled,Bethanie (NA) to Bethanie (NA)
+1d812729,2026-07-22T07:42,2026-07-22T08:20,cycled,Bethanie (NA) to Bethanie (NA)
+cbf36061,2026-07-23T10:28,2026-07-24T11:32,cycled,Aus (NA) to Aus (NA)
+1707c005,2026-07-24T11:42,2026-07-24T11:56,cycled,
+49359767,2026-07-24T11:57,2026-07-24T12:02,cycled,
+8f790ea9,2026-07-26T07:00,2026-07-28T16:00,cycled,
+ff96a27d,2026-08-01T07:00,2026-08-02T16:00,cycled,
+489768bf,2026-08-03T07:00,2026-08-03T16:00,cycled,
+530507cd,2026-08-04T07:00,2026-08-05T16:00,cycled,
+baf3517d,2026-08-06T07:00,2026-08-08T16:00,cycled,
+965df8f1,2026-08-10T07:00,2026-08-10T16:00,cycled,
+1ba87fc4,2026-08-11T07:00,2026-08-11T16:00,cycled,
+d9fa29dd,2026-08-12T07:00,2026-08-12T12:00,cycled,
+d7b27c3d,2026-08-12T12:00,2026-08-12T16:00,car,
+62aec3ca,2026-08-14T07:00,2026-08-14T16:00,car,Cape town to Dwarskersbos
+8c167b72,2026-08-16T07:00,2026-08-17T16:00,car,Dwarskersbos to Cape town
+65a3212f,2026-08-20T07:00,2026-08-20T16:00,car,Cape town to Cape town
+2c2d507a,2026-08-24T07:00,2026-08-24T16:25,car,Cape town to Kuils River (ZA)
+9c3cabea,2026-08-24T16:25,2026-08-25T01:50,flight,EK771 Cape Town to Dubai
+d3bd8417,2026-08-25T06:35,2026-08-25T20:25,flight,EK434 Dubai to Brisbane

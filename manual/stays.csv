@@ -1,0 +1,117 @@
+id,first_night,leaving,town,plus_code,notes,checked,found
+6f9ed64f,2024-09-02,2024-09-07,Munich,8FWH4HPG+X5,,,from the town row in known_places; point: town centre
+44e7e5dd,2024-09-08,2024-09-09,Kempten,8FVGP8G7+MH,overnight,,from the town row in known_places; point: town centre
+ca021c16,2024-09-11,2024-09-16,Rapperswil,8FVC6RF7+CF,,,from the town row in known_places; point: the 09-15 ride's end
+af34d82d,2024-09-22,2024-10-15,Corcelles,8FV623QH+G4,,,from the town row in known_places; point: your point in known_places
+0323e98f,2024-10-17,2024-10-21,Ménétrol (Clermont-Ferrand),8FQ5V49G+XR,,,"4n: ride 2, bridged 2"
+15f7451f,2024-10-29,2024-10-31,Léguevin (Toulouse),8FM3H6VH+4W,,,2n: ride 2
+41d24fa2,2024-11-04,2024-11-05,Berga,8FJ34R3W+PG,overnight,,from the town row in known_places; point: town centre
+c1bf1f00,2024-11-05,2024-11-14,Barcelona,8FH495Q5+GH,,,from the town row in known_places; point: town centre
+98628f26,2024-12-04,2024-12-09,Tarifa,8C8P2CMF+7C,,,from the town row in known_places; point: the 12-04 ride's end
+ed3424e4,2024-12-09,2024-12-10,Tangier,8C7PQ53X+VQ,,,from the town row in known_places; point: the 12-09 ride's end
+d36be483,2024-12-12,2024-12-14,Chefchaouen,8C7P5P9M+79,,,from the town row in known_places; point: the 12-12 ride's end
+dc681583,2024-12-31,2025-01-02,Tinghir,8C3PHCF8+PC,,,2n: ride 2
+648138fc,2025-01-02,2025-01-04,Tabount (Ouarzazate),8C2MW32Q+7P,,,2n: ride 2
+9bdbd8a7,2025-01-05,2025-01-20,Agadir,8C2GCC2Q+48,,,"15n: ride 2, photo 7, day 2, bridged 3; 01-08 at Agadir"
+d04c218f,2025-01-20,2025-01-30,Tamraght (Agadir),8C2GG847+W6,,,from the town row in known_places; point: your point in known_places
+dd9df4c3,2025-01-30,2025-02-07,Taghazout (Agadir),8C2GG879+V4,,,"8n: photo 2, day 3, bridged 3"
+ca6f63b5,2025-02-08,2025-02-12,Essaouira,8C3GG68J+2Q,,,"4n: photo 3, bridged 1"
+d569c9f5,2025-02-19,2025-02-21,Iguidi,8C3J2587+FW,,,2n: ride 2
+75bfb874,2025-02-24,2025-02-27,Taghazout (Agadir),8C2GG879+W5,,,3n: day 3
+9766b376,2025-03-06,2025-03-08,Nouadhibou,7CG4WW6W+58,,,"2n: ride 1, photo 1"
+cafb0ab9,2025-03-08,2025-03-10,Nouadhibou,7CG4WW8X+2F,,,"2n: photo 1, day 1"
+76ef6c31,2025-03-12,2025-03-15,Atar,7CG87W26+9X,,,"3n: photo 2, bridged 1"
+fc105f95,2025-03-19,2025-03-22,Rosso (Richard-Toll),7C86G55Q+J7,,,"3n: ride 1, photo 2"
+7f1aa7fa,2025-03-22,2025-03-29,Tevragh Zeina (Nouakchott),7CC64234+49,,,"7n: ride 2, photo 3; 1n at 7CC64259+PR; 1n at 7CC64232+PR"
+b63c8ea4,2025-04-01,2025-04-03,Saint-Louis,7C75VF7Q+V4,,,"2n: ride 1, photo 1"
+23c3a66f,2025-04-05,2025-04-09,Yoff (Dakar),7C64PGQQ+7P,,,"4n: ride 3, photo 1"
+018e74c6,2025-04-09,2025-04-12,Yoff (Dakar),7C64PGJ5+H4,,,"3n: ride 2, bridged 1"
+2ff85c6c,2025-04-12,2025-04-14,Sali (Mbour),7C65C2P2+Q6,,,2n: ride 2
+722601df,2025-04-26,2025-04-28,Janjanbureh (Bansang),7C57G6RP+PX,,,2n: ride 2
+55a810ea,2025-05-01,2025-05-05,Ziguinchor,7C45HP6M+2Q,,,"4n: ride 2, photo 1, day 1"
+0e6c7873,2025-05-08,2025-05-09,Bissau,7C36VC87+XR,,,
+d63bc942,2025-05-09,2025-05-14,Bubaque,7C368528+FC,,,"5n: ride 1, photo 2; 05-12 at Bubaque; 1n at 7C36852J+CP"
+823417d5,2025-05-14,2025-05-15,Canhabaque,7C3677FP+FQ,village,,
+e64078dd,2025-05-15,2025-05-16,Canhabaque,7C36883J+GM,fishing village at the northern tip,,
+73b36c72,2025-05-16,2025-05-17,Canhabaque,7C3677FP+FQ,village again: dinner with Augustino,,
+ae2bfdf5,2025-05-17,2025-05-18,Bubaque,7C368528+FC,last night before the ferry to Bissau,,
+235a910b,2025-05-18,2025-06-01,Pefiné (Bissau),7C36VC87+WV,,,"14n: photo 6, day 1, bridged 2; 05-19 at Contumo (Bissau); 3n at 7C36VC68+JJ; 1n at 7C36VC55+66"
+a4efc024,2025-06-10,2025-06-13,Labé,7C398P8C+R2,,,"3n: ride 1, photo 1, day 1"
+9ceb8893,2025-06-13,2025-06-14,Labe,7C398P6C+MJ,,,
+2ce2ed04,2025-06-16,2025-06-18,Pita,7C393C9F+GG,,,2n: ride 2
+94e99168,2025-07-03,2025-07-07,Freetown,6CW8FP2X+28,,,"4n: ride 1, photo 1, bridged 1; 1n at 6CW8FPCM+J4"
+92afcb5d,2025-07-12,2025-07-14,Freetown,6CW8FQM7+4W,,,"2n: ride 1, photo 1"
+95f32db5,2025-07-14,2025-07-16,Kent (Waterloo),6CW88XPX+5P,,,2n: ride 2
+ba87a460,2025-07-19,2025-07-27,Bo,6CVCW8W6+35,,,"8n: ride 2, photo 2, day 1, bridged 2; 07-23 at Bo"
+c87e2321,2025-07-29,2025-08-14,Robertsport,6CRCQJ2C+V4,,,"16n: ride 2, photo 10, day 1, bridged 2; 1n at 6CRCQJ5H+5H"
+80235967,2025-08-15,2025-08-17,Monrovia,6CRF68P6+WF,,,
+3aae75fe,2025-08-17,2025-08-22,Monrovia,6CRF68P6+QF,(night of 08-19 near 6CRF76V9+62 {{??}}),,4n: photo 3; 08-19 at Monrovia
+a72a167b,2025-08-22,2025-08-23,Monrovia,6CRF87CQ+7J,{{??}},,
+b8aeec27,2025-08-23,2025-08-25,Kakata,6CRFQW24+8X,,,2n: ride 2
+0b5a1066,2025-08-30,2025-09-02,Duekoué,6CRJPMQ4+CC,,,"3n: photo 1, day 2"
+28124e6c,2025-09-05,2025-09-07,Yamoussoukro,6CRPRPJH+Q4,,,2n: ride 2
+82f235fb,2025-09-09,2025-09-11,Koumassi (Abidjan),6CQR72RC+47,,,2n: photo 2
+43bbe24f,2025-09-11,2025-09-12,Abidjan,6CQR72RC+37,,,
+ff59b5b6,2025-09-12,2025-09-20,Gnansohmun (Abidjan),6CQRC22R+XX,,,"8n: ride 3, photo 4; 1n at 6CQR92XV+37"
+89c9a7e9,2025-09-20,2025-10-06,Abidjan,6CQR925F+M6,,,"16n: ride 8, bridged 6; 09-24 at Abidjan; 10-01 at Koumassi (Abidjan)"
+d855899d,2025-10-11,2025-11-07,Abidjan,6CQR925F+M6,,,"27n: ride 11, photo 5, day 2, bridged 5; 10-14 at Gnansohmun (Abidjan); 10-23 at Koumassi (Abidjan); 11-01 at Angorankoua (Abidjan); 11-03 at Marcory (Abidjan)"
+a4e89c24,2025-11-07,2025-11-08,Abidjan,6CQR82X2+3X,,,
+c99392aa,2025-11-08,2025-11-10,Yamoussoukro,6CRPRP7M+3G,"{{??}} (Baruch's aunt's place; photo 11-08 14:19Z after lunch there, but the diary says the basilica was ~8 km away)",,
+bfd225d4,2025-11-10,2025-12-14,Abidjan,6CQR82X2+3X,,,
+04f21a9a,2025-12-19,2025-12-23,Kumasi,6CRWM8WM+WH,,,"4n: ride 2, bridged 1; 12-21 at Kumasi"
+28bff971,2025-12-24,2025-12-26,Sakumona (Accra),6CQXJWW8+95,,,"2n: ride 1, photo 1"
+671e329a,2025-12-26,2026-01-01,Gbawe (Accra),6CQXJM55+P4,,,"6n: ride 1, photo 4, day 1"
+87a12c71,2026-01-02,2026-01-06,Aflao (Lomé),6FR36544+95,,,4n: photo 3; 01-03 at Lomé
+8049c1db,2026-01-07,2026-01-11,Ouidah,6FR493HJ+XF,,,4n: photo 2; 01-08 at Ouidah; 1n at 6FR4935Q+MP
+a6fd70c1,2026-01-11,2026-01-20,Godomè (Cotonou),6FR499C6+H4,,,"9n: ride 1, photo 4, day 3; 01-18 at Cotonou"
+818e1833,2026-01-20,2026-01-21,porto novo,6FR4FJ8J+97,,,
+1724a4bd,2026-01-22,2026-01-24,Lekki (Lagos),6FR5CGM5+G9,,,2n: ride 2
+0d59af1b,2026-01-24,2026-01-25,Lagos,6FR5CGJ5+VM,"(Lekki, scattered around 6FR5CGJ5+WM / 6FR5CFFM+PQ)",,
+362c900b,2026-01-29,2026-01-31,Ajasse Ipo (Offa),6FW66RX9+2C,,,2n: ride 2
+c6391fdd,2026-01-31,2026-02-02,Ajasse Ipo,6FW66V9W+55,,,"2n: ride 1, photo 1"
+73bf89dc,2026-02-05,2026-02-07,Abuja,6FW9XFHP+MW,,,"2n: ride 1, photo 1"
+c3f80106,2026-02-07,2026-02-11,Abuja,6FW9XF82+37,,,"4n: ride 1, photo 3"
+e1e908ae,2026-02-11,2026-02-12,Abuja,6FX9293V+G4,,,
+aec87028,2026-02-19,2026-02-22,Banyo,6FRHPRX4+RV,,,"3n: ride 2, day 1"
+7c2c4b3f,2026-02-24,2026-02-26,Yoko,6FQJV7WH+MG,,,"2n: ride 1, photo 1"
+90c55876,2026-02-27,2026-03-06,Yaoundé,6FMHVFQ4+5X,,,"7n: ride 4, photo 2, bridged 1"
+9c55167f,2026-03-06,2026-03-07,Yaoundé,6FMHVGG6+37,,,
+714e5fd1,2026-03-07,2026-03-10,Yaoundé,6FMHVGW8+JQ,,,"3n: ride 2, photo 1"
+4fc56d5e,2026-03-13,2026-03-26,Limbé,6FPF2655+Q2,before Mt Cameroon (nights of 03-26 and 03-27 on the mountain),,
+33dca571,2026-03-28,2026-03-29,Limbe,6FPF2664+7C,Final stay,,
+242f489b,2026-03-31,2026-04-10,Malabo,6FMCPQW9+WW,,,"10n: ride 2, photo 5, day 1; 1n at 6FMCPQX8+8M; 1n at 6FMCPQXF+MQ"
+76ee4939,2026-04-12,2026-04-14,Ncue,6FHGR7X3+V9,,,2n: ride 2
+74364830,2026-04-19,2026-04-23,Cogo,6FHF3MPV+68,,,"4n: ride 1, photo 3"
+ae6b68a4,2026-04-24,2026-04-29,Libreville,6FGFCC3X+GR,,,"5n: ride 3, photo 1; 04-25 at Libreville"
+31d16eca,2026-04-29,2026-05-06,Ntoum,6FGF9WF7+45,,,"7n: ride 2, photo 3, bridged 1; 05-01 at Ntoum"
+14bcf977,2026-05-09,2026-05-11,Fougamou,6FCGQHPR+GR,,,"2n: ride 1, photo 1"
+be31e818,2026-05-14,2026-05-16,Ndendé,6F9HH9X5+G9,,,"2n: ride 1, photo 1"
+3a81e93d,2026-05-20,2026-05-21,Dolisie,6F7JRMV5+98,,,
+f06a9c35,2026-05-21,2026-05-23,Mouyondzi,6F7MXWXJ+G7,"night of 05-21 at 6F8M2W2J+FJ, 270 m away",,
+507eb387,2026-05-23,2026-05-24,Dolisie,6F7JRMV5+77,back from Mouyondzi,,
+9654ddcd,2026-05-24,2026-05-26,Pointe-Noire,6F7H5V7J+JG,,,2n: photo 2
+39d25a18,2026-05-31,2026-06-06,Rangel (Luanda),6F3M57G4+6C,,,"8n: ride 1, photo 5; 06-06 at Cacuso; 1n at 6F3M56HR+42"
+e81286f3,2026-06-07,2026-06-08,Luanda,6F3M57G4+3H,Stay 2,,
+b6950b28,2026-06-08,2026-06-09,Luanda,6F3M24RH+J8,(Benfica),,
+91aa0ac2,2026-06-13,2026-06-14,Benguela,5FVMCC95+W3,after Lobito on the 12th,,from the town row in known_places; point: your point in known_places
+c9ddf888,2026-06-18,2026-06-22,Lubango,5FQM3GC2+CC,,,4n: photo 4
+6b4142bb,2026-06-26,2026-06-28,Ondangwa East (Ondangwa),5FJR3299+CJ,,,"2n: ride 1, photo 1"
+0f9068e2,2026-06-29,2026-06-30,Sachsenheim (Oshivelo),5FHV7736+67,guest farm,,
+2309a1d5,2026-06-30,2026-07-01,Tsumeb,5FGVPPWC+C3,guest house before Etosha,,
+bd78f45b,2026-07-01,2026-07-03,Etosha (Namutoni),5FHR5WRR+76,two nights in Etosha,,
+e6a71ab7,2026-07-03,2026-07-04,Tsumeb,5FGVMRPH+6W,"camping outside Tsumeb, after driving back from Etosha",,
+0f28a1ef,2026-07-04,2026-07-06,Grootfontein,5FGWC4M2+JQ,,,"2n: ride 1, photo 1"
+a10b3c62,2026-07-10,2026-07-15,Windhoek,5F9VC3VV+32,one place for all of it,,4n: photo 3; 07-12 at Windhoek
+193dd108,2026-07-18,2026-07-20,Maltahöhe,5F7V52C8+FP,,,2n: photo 2
+491e1a83,2026-07-24,2026-07-26,Aus,5F5R87C4+36,Darnie and Jolene's; left 26th ~1pm,,from the town row in known_places; point: the 07-24 ride's end
+258e3b40,2026-07-28,2026-08-01,Oranjemund,5F3RCCXG+9W,"Op My Stoep, then beach camp; left 1st",,from the town row in known_places; point: town centre
+2fc026a1,2026-08-02,2026-08-03,Port Nolloth,5F2RPVX9+6V,hotel; left 3rd,,from the town row in known_places; point: town centre
+33ec2818,2026-08-03,2026-08-04,Kleinzee,5F2V83FC+49,Blue Diamond; left 4th,,from the town row in known_places; point: town centre
+177b08bf,2026-08-05,2026-08-06,Garies,4FXVCXQQ+4J,motel; breakfast with Wayne on 6th,,from the town row in known_places; point: town centre
+0aabe767,2026-08-08,2026-08-10,Elands Bay,4FVWM8PV+9M,via Doringbaai; rest day 9th,,from the town row in known_places; point: town centre
+68d32ca5,2026-08-10,2026-08-11,Yzerfontein,4FRWM546+6J,via Dwarskersbos and Velddrif; Margaretha,,from the town row in known_places; point: town centre
+bc776931,2026-08-11,2026-08-12,Cape town,4FRW2FC2+26,"(Rondebosch, Ruth's; no track after 07-24)",,
+df030de7,2026-08-12,2026-08-14,Cape town,4FRW5JCM+HW,"(Durbanville, David and Oxana's)",,
+e91bc48f,2026-08-14,2026-08-16,Dwarskersbos,4FVW863H+JV,eFoil with David and Pham,,from the town row in known_places; point: town centre
+5746171b,2026-08-17,2026-08-20,Cape town,4FRW2F92+W6,"(Rondebosch, Ruth's)",,
+00221094,2026-08-20,2026-08-24,Cape town,4FRW5JCP+F2,(Durbanville; known_places says check move date),,
