@@ -1,0 +1,24 @@
+# Build output (make rebuilds it)
+/clean/
+/processing/
+
+# Python virtual environment (make venv)
+/.venv/
+
+# Personal Claude Code settings
+/.claude/settings.local.json
+
+# Undo log of scripts/rename_spaces.py: names from your raw data
+/renames.csv
+
+# Vim undo history
+*.un~
+
+# LibreOffice lock files
+.~lock.*#
+
+# Mount points under raw/, .mounts/ and mounts.toml are local to this machine:
+# scripts/mounts.py lists them in .git/info/exclude
+
+# Python bytecode
+__pycache__/

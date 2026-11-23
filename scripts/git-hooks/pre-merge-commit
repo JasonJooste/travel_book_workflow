@@ -1,0 +1,4 @@
+#!/bin/sh
+# Doc checks (CONTRIBUTING.md, "Automatic checks"). Runs only for merge commits: make hooks turns
+# off fast-forward merges so every merge gets one.
+exec python3 scripts/git-hooks/check_docs.py merge

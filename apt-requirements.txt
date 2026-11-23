@@ -1,0 +1,3 @@
+# System packages, installed by `make apt`. Say which target needs each one
+bindfs                       # make mount: read-only raw data mounts
+python3-venv                 # make venv

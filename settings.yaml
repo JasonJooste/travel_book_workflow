@@ -1,0 +1,8 @@
+# Default settings, read by scripts/settings.py (pydantic-settings), which declares each one's type.
+# Every setting has its default here, with a comment saying what it's for and which target uses it.
+# Override one for a single run with an environment variable: SETTINGS_<NAME>=<value> make <target>.
+# Secrets never go here: they're read from the system keyring (make secret NAME=<name>),
+# or from ~/.secrets/<name> where there's no keyring.
+
+# Example: replace with the project's own settings (and remove the field from scripts/settings.py)
+example_threshold: 0.5

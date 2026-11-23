@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(raw/**)",
+      "Edit(clean/**)",
+      "Edit(.mounts/**)",
+      "Edit(.claude/**)",
+      "Bash(*rename_spaces.py*--apply*)",
+      "Bash(*rename_spaces.py*--undo*)",
+      "Bash(*--no-verify*)",
+      "Bash(*core.hooksPath*)",
+      "Read(~/.secrets/**)",
+      "Bash(*.secrets*)",
+      "Bash(*secret-tool*)",
+      "Bash(*keyring*)",
+      "Bash(*kwallet*)"
+    ]
+  }
+}
