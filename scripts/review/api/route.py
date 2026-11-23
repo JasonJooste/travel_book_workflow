@@ -14,6 +14,7 @@
                              dismissed  you said it looks fine
                              pending    a row it's about changed since make check: rebuild to see
 """
+import bisect
 from datetime import datetime, timedelta, timezone
 
 from common.geo import distance_km
@@ -176,9 +177,16 @@ def changed_spans():
     return spans
 
 
+def near(modes, starts, a, b):
+    """The rows that may cover a to b: those starting before b (rows are sorted by start), and ending after a."""
+    i = bisect.bisect_right(starts, b)
+    return [r for r in modes[:i] if r[1] >= a]
+
+
 def items():
     """Every item with its status now."""
-    modes = mode_rows()
+    modes = sorted(mode_rows())
+    starts = [r[0] for r in modes]
     dismissed = {r["id"] for r in read_rows(DISMISSED_CSV)}
     changed = changed_spans()
     out = []
@@ -188,10 +196,12 @@ def items():
             status = "dismissed"
         elif item["kind"] == "hops":
             parts = [(parse(a), parse(b)) for a, b in item["parts"]]
-            status = "labelled" if all(any(covers(r, (a,), (b,)) for r in modes) for a, b in parts) else "todo"
+            status = ("labelled" if all(any(covers(r, (a,), (b,)) for r in near(modes, starts, a, b)) for a, b in parts)
+                      else "todo")
         elif item["kind"] == "leg":
-            status = "labelled" if any(covers(r, (start,), (end,)) for r in modes) else "todo"
-        elif (item.get("fix") or {}).get("action") == "label" and any(covers(r, (start,), (end,)) for r in modes):
+            status = "labelled" if any(covers(r, (start,), (end,)) for r in near(modes, starts, start, end)) else "todo"
+        elif (item.get("fix") or {}).get("action") == "label" and any(
+                covers(r, (start,), (end,)) for r in near(modes, starts, start, end)):
             status = "labelled"
         elif any(a <= end and start <= b for a, b in changed):
             status = "pending"

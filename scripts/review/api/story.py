@@ -332,7 +332,9 @@ def gather(name, pad):
     for r in rows(ROUTE_DIR / "legs.csv"):
         start, end = utc(r["start_utc"]), utc(r["end_utc"])
         if start < span[1] and end > span[0]:
-            leg = {k: r[k] for k in ("start_utc", "end_utc", "hours", "from", "to", "routed_km", "class", "mode", "notes")}
+            leg = {k: r[k] for k in ("start_utc", "end_utc", "hours", "from", "to", "routed_km", "class", "mode",
+                                     "mode_note", "flags")}
+            leg["notes"] = "; ".join(x for x in (r["mode_note"], r["flags"]) if x)
             at = next((p for p in kept if p[0] >= start), None)
             leg["local_start"] = off.local(start, *(at[1:3] if at else ())).strftime("%Y-%m-%d %H:%M")
             legs.append(leg)

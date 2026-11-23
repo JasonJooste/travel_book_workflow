@@ -13,7 +13,7 @@
                                 the track, the photos with GPS and every night's candidate places over
                                 those local days (and a day either side), for the map
 """
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import parse_qs
 
@@ -25,7 +25,7 @@ from common.tables import read_json, read_rows
 from common.times import parse
 from repo import FOUND_STAYS, INDEX, TRACK_POINTS
 from settings import settings
-from shared import cached, local, towns
+from shared import cached, offsets, towns
 from store import rows
 
 RADIUS = settings.stays.radius_km
@@ -114,18 +114,21 @@ def photo_points():
 
 
 def days(query):
+    """The track, photos and nights over local days first..last, and a day either side. Local days are
+    taken by the nearest UTC offset, without asking a town's time zone: close enough for a map."""
     q = parse_qs(query)
     first = date.fromisoformat(q["first"][0]) - timedelta(days=1)
-    last = date.fromisoformat(q["last"][0]) + timedelta(days=1)
+    last = date.fromisoformat(q["last"][0]) + timedelta(days=2)
+    lo = datetime.combine(first, datetime.min.time(), timezone.utc) - timedelta(hours=14)
+    hi = datetime.combine(last, datetime.min.time(), timezone.utc) + timedelta(hours=14)
+    off = offsets()
 
-    def local_day(t, lat, lon):
-        return local(t, lat, lon)[0].date()
+    def local_text(t):
+        return (t + off.at(t)).strftime("%Y-%m-%dT%H:%M")
 
-    track = [[lat, lon, t.strftime("%Y-%m-%dT%H:%MZ"), local(t)[0].strftime("%Y-%m-%dT%H:%M")]
-             for t, lat, lon in track_points() if first <= local_day(t, lat, lon) <= last]
-    photos = [{"lat": lat, "lon": lon, "utc": t.strftime("%Y-%m-%dT%H:%MZ"), "local": local(t)[0].strftime("%Y-%m-%dT%H:%M"),
-               "file": f, "name": Path(f).name}
-              for t, lat, lon, f in photo_points() if first <= local_day(t, lat, lon) <= last]
+    track = [[lat, lon, t.strftime("%Y-%m-%dT%H:%MZ"), local_text(t)] for t, lat, lon in track_points() if lo <= t < hi]
+    photos = [{"lat": lat, "lon": lon, "utc": t.strftime("%Y-%m-%dT%H:%MZ"), "local": local_text(t), "file": f,
+               "name": Path(f).name} for t, lat, lon, f in photo_points() if lo <= t < hi]
     data = read_json(FOUND_STAYS, {"nights": {}})
     night = {d: c for d, c in data["nights"].items() if first.isoformat() <= d <= last.isoformat()}
     return {"track": track, "photos": photos, "nights": night}
