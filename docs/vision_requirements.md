@@ -1,9 +1,9 @@
 # Software Requirements Specification
 ## For Travel book — Vision
 
-Version 0.1  
-Prepared by {{author}}  
-{{organization}}  
+Version 1.0  
+Prepared by the author, with Claude  
+Personal project  
 2026-11-23
 
 ## Table of Contents
@@ -36,387 +36,459 @@ Prepared by {{author}}
 
 | Name | Date | Reason For Changes | Version |
 |------|------|--------------------|---------|
-|      |      |                    |         |
-|      |      |                    |         |
+| Claude | 2026-11-23 | First version: the refactor of ../travel_book into this template (phase v1) | 1.0 |
 
 ## 1. Introduction
-💬 _Provides an overview of the document and orients the reader to the system being specified._
 
-➥ Briefly summarize the SRS’s purpose, product scope, intended audience, and how the document is organized. Do not include details here; reference the relevant sections instead.
+This SRS says what the travel book project must do: turn the raw record of a two-year bicycle
+trip (rides, photos, a spoken and written diary, blog posts) into a placed, dated, indexed trip
+that the author can check and correct, and from which the book's stories are written and built.
+It covers every phase; §2.6 says which phase each requirement belongs to. How it's built is in
+the vision SDD (`vision_design.md`).
 
 ### 1.1 Document Purpose
-💬 _Clarifies why this SRS exists, what it contains, and who should use it._
 
-➥ State the purpose of the SRS in 2–4 sentences. Name the primary audiences (e.g., product, engineering, QA, security, compliance, operations) and how they use it across the software lifecycle.
-
-💡 Tips:
-- Emphasize that the SRS defines what the system must do, not how it will do it.
-- Mention related documents (vision/scope, architecture, roadmap, contracts) if relevant.
+It is for the author, the only user, and for whoever (Claude included) changes the code: a change
+is right when it keeps these requirements, and the verification in §4 says how to tell. It states
+what the system does, not how; the SDD holds the how and the decisions behind it.
 
 ### 1.2 Product Scope
-💬 _Defines the software product’s purpose, boundaries, and relationship to business goals._
 
-➥ Identify the product by name and version/release. In 3–5 sentences, describe its primary purpose, key capabilities, and intended outcomes. Clearly list inclusions and exclusions when this SRS covers part of a larger system. Focus on the “what” and “why.”
-
-💡 Tips:
-- Connect capabilities to business objectives and reference a separate vision/scope document if relevant.
-- Include a simple diagram if it clarifies boundaries within a larger system.
+The product is a Makefile pipeline with Python scripts, plus a local web app for review. It
+places every ride, photo and diary entry in time and space; builds the whole route, gaps
+included, with how each stretch was travelled; indexes the diary into tagged events; and builds
+the book from the stories. Out of scope: publishing, editing the stories (the author's editor
+does that), and anything run anywhere but the author's machine (bar the optional remote
+transcription worker).
 
 ### 1.3 Definitions, Acronyms, and Abbreviations
-➥ Help readers understand specialized terms and notation by providing a glossary of domain terms, acronyms, and abbreviations used in the SRS.
 
-💡 Tips:
-- Include terms that impact interpretation of requirements (e.g., “user,” “tenant,” “near real-time”).
-- Keep entries alphabetized and consistent across the document set.
-
-| Term | Definition                                                                                                                   |
-|------|------------------------------------------------------------------------------------------------------------------------------|
-| API  | Application Programming Interface - A set of definitions and protocols for building and integrating application software     |
-| SRS  | Software Requirements Specification - A document that describes the intended purpose, requirements, and nature of a software |
-| UI   | User Interface - The visual part of computer application through which a user interacts with a software                      |
+| Term | Definition |
+|------|------------|
+| Anchor | A fixed point the route is drawn through: a recorded point, a photo with GPS, a known place, a stay's night. |
+| Entry | One diary item: a recording, a written diary file, a blog post or a Komoot description. |
+| Event | One thing that happened, as found in an entry: title, summary, date, place, people, tags, quote. |
+| Finding | Something make check says looks wrong in the route, or could be labelled. |
+| Gap leg | A stretch between two anchors further apart than route.gap_km, with no recording: routed or drawn straight. |
+| Known place | A row of manual/known_places.csv: where the author was when no GPS says. |
+| Manual file | A file in manual/: the author's answers, written by hand or by the review app. |
+| Stay | Several nights in one place: a row of manual/stays.csv. |
+| Travel mode row | A row of manual/travel_modes.csv: how a span of time was travelled. |
+| SRS / SDD | Software requirements specification / design description. |
 
 ### 1.4 References
-💬 _Lists external sources that are normative or informative for this SRS._
 
-➥ Cite standards, contracts, policies, interface specs, UX style guides, use-case docs, architectural decisions, or a vision/scope document. For each reference, include title, author/owner, version, date, and location/URL. Indicate whether each reference is normative (binding) or informative (guidance).
-
-💡 Tips:
-- Prefer stable links or repository paths over volatile URLs.
+| Reference | Kind |
+|-----------|------|
+| `CONTRIBUTING.md`: the requirements, design and branch workflow | normative |
+| `vision_design.md`: the vision SDD | normative |
+| `docs/*.md`: how to use the files edited by hand and the review app | informative |
+| `../travel_book`: the project this one was refactored from, kept as an archive | informative |
 
 ### 1.5 Document Overview
-💬 _Brief guide to the structure of the SRS so readers can quickly find what they need._
 
-➥ Summarize what each major section covers (Product Overview, Requirements, Verification, Appendixes), note any document conventions, and mention how updates and revision history are managed.
-
-💡 Tips:
-- Keep to 3–5 sentences focusing on navigation and conventions.
+§2 gives the context, the constraints and which phase each requirement is in; §3 the
+requirements, by area; §4 how each is verified. IDs follow CONTRIBUTING.md (`R-<AREA>-NNN`,
+`R-FUNC-<GROUP>-NNN`) and are never reused.
 
 ## 2. Product Overview
-💬 _Provides background and context influencing the product’s requirements._
 
 ### 2.1 Product Perspective
-💬 _Places the product within a larger ecosystem or lineage._
 
-➥ Describe context and origin of the product, whether this is a new product, replacement, or member of a family. If part of a larger system, briefly explain relationships, external interfaces, and key dependencies. Include details on ownership, service level agreements (SLAs), and support models.
-
-💡 Tips:
-- Highlight upstream/downstream systems and ownership boundaries.
-- A high-level context diagram may help to orient the reader.
+It replaces `../travel_book`, which grew a script per feature until its review pages and
+configuration were hard to use (see the vision SDD, D-001). It is made from the `my-cookiecutter`
+template and keeps its conventions: raw/ → clean/ → processing/, a Makefile entry point,
+pydantic-settings. External services it uses: GeoNames and Geofabrik downloads, Valhalla (local),
+Komoot's API, speech-to-text providers, Claude (`claude -p` or the API), map tiles and Photon place
+search in the browser.
 
 ### 2.2 Product Functions
-💬 _High-level summary of what the product enables users or systems to do._
 
-➥ Provide a concise overview of the major functional areas/features. Defer detailed behaviors, data, and edge cases to Section 3.
-
-💡 Tips:
-- 5–10 bullets are often sufficient at this level, grouping related functions logically.
-- Include a top-level data flow or use case diagram if helpful.
+- Clean the raw data into clean/, and index what each file says about itself.
+- Build the track from the rides, and the stays from rides and photos.
+- Look up the known places, and ask the author where a name is unclear.
+- Build the whole route, gaps routed, each stretch with its travel mode; check it for what looks wrong.
+- Place and date every photo, recording, written entry and blog post.
+- Transcribe the recordings; split every entry into tagged events with Claude.
+- Let the author review and correct all of it in one local app, saving to manual/ with undo.
+- Build the book from the stories, count their words, and track writing progress; later, with the stories' photos and maps.
 
 ### 2.3 Product Constraints
-💬 _Defines contextual limitations or conditions shaping design and implementation._
 
-➥ Describe constraints such as mandated interfaces, technology stacks, regulatory obligations, QoS baselines, hardware limitations, AI/ML model families, and organizational policies.
-
-💡 Tips:
-- State constraints as verifiable "must" statements (e.g., “must use FIPS 140–3 validated crypto modules”).
-- Distinguish external/internal and mandatory/preferred constraints.
-- Avoid design decisions unless truly binding.
-
-📝 Note:
-Requirements (Section 3) defines verifiable system obligations—specific behaviors or qualities the system shall exhibit in order to satisfy limits described in this section.
+- C-1: Raw data must only ever be read, except by the download scripts (Komoot), which write to its source directories.
+- C-2: Everything runs on the author's Linux machine; the review app listens on localhost only.
+- C-3: Secrets must never be on a command line or in the repo.
+- C-4: Paid calls (speech to text, the Claude API) must never repeat work already paid for.
+- C-5: The template's conventions (CLAUDE.md) must hold, or a deviation must be a recorded decision.
 
 ### 2.4 User Characteristics
-💬 _Defines the user groups and the attributes that affect requirements._
 
-➥ Identify user classes, roles, and personas, noting expertise, access levels, frequency of use, accessibility needs, and goals.
-
-💡 Tips:
-- Define user classes by behavior, not just titles.
-- Note localization and accessibility considerations that affect UI/UX requirements.
+One user: the author, a programmer, who works in a terminal and a browser, often for hours of
+review at a time, with the keyboard. Accuracy of the record matters more than speed.
 
 ### 2.5 Assumptions and Dependencies
-💬 _External assumed factors or conditions, as opposed to known facts, that the project relies on._
 
-➥ List assumptions about environment, hardware, usage patterns, third-party components/services, and organizational support. List dependencies on external systems, libraries, or teams. For each, indicate potential impact if proven false.
-
-💡 Tips:
-- Link assumptions to risk register with owner and mitigation when available.
+- The raw data stays where mounts.toml says, readable. If not, make refuses rather than losing clean/ files.
+- GeoNames, Geofabrik, Komoot and the providers keep their formats; if one changes, its step fails loudly.
+- The disk has room for the OSM data (about 25 GB) and the audio.
 
 ### 2.6 Apportioning of Requirements
-💬 _Allocation of requirements across components or increments._
 
-➥ Map major requirements to subsystems, services, or releases/iterations. Use a cross-reference table to show allocation and to clearly identify deferred requirements.
-
-💡 Tips:
-- Note unknown allocations explicitly and track as follow-ups.
+| Requirement | Phase |
+|-------------|-------|
+| R-FUNC-DATA-001 to 004 | v1 |
+| R-FUNC-LOC-001 to 006 | v1 |
+| R-FUNC-DIARY-001 to 003 | v1 |
+| R-FUNC-REV-001 to 010 | v1 |
+| R-FUNC-BOOK-001 to 003 | v1 |
+| R-FUNC-BOOK-004 (photos and maps in the book) | Vision |
+| R-UI-001 to 004, R-INT-001, R-PERF-001 | v1 |
+| R-SEC-001, R-REL-001 to 003, R-MAINT-001 to 003, R-COST-001 | v1 |
 
 ## 3. Requirements
-💬 _This section specifies **verifiable** requirements of the software product to enable design and testing._
-
-➥ State requirements to a level of detail sufficient for design and verification. Use unique identifiers, consistent keywords (shall/should/may), and clear conditions. Describe inputs, processing in response, and outputs where applicable. Reference the relevant 2.3 Product Constraints that the requirement addresses.
-
-📃 Template (applies to **all** requirements):
-```markdown
-- ID: REQ-FUNC-001
-- Title: Short title, representative of the requirement...
-- Statement: The system shall...
-- Rationale: ...
-- Acceptance Criteria: ...
-- Verification Method: Test | Analysis | Inspection | Demonstration | Other
-- More Information: Additional context. Links to related artifacts.
-```
-
-Requirement ID schema and traceability:
-- ID format: REQ-[AREA]-[NNN]-[VER] (optional -[VER] if versioned), where AREA ∈ {FUNC, INT, PERF, SEC, REL, AVAIL, OBS, COMP, INST, BUILD, DIST, MAINT, REUSE, PORT, COST, DEAD, POC, CM, ML}.
-- Uniqueness: IDs must be unique and immutable; changes increment -[VER] and are recorded in Revision History.
-- Traceability: Each test artifact may reference the requirement ID.
-
-💡 Tips:
-- Make each requirement testable and unambiguous, using standard metrics and avoiding vague terms (e.g., “user-friendly,” “fast”).
 
 ### 3.1 External Interfaces
-💬 _Specifies all external inputs and outputs, covering both required and provided interfaces._
-
-➥ Provide interface definitions sufficient for implementation and test.
-
-💡 Tips:
-- Use interface control documents or schemas where appropriate and reference them here.
 
 #### 3.1.1 User Interfaces
-💬 _Describes how users interact with the system at a logical level._
 
-➥ Define UI elements, flows, and standards to be followed (style guides, accessibility guidelines). Include layout constraints, common controls (e.g., help, search), keyboard shortcuts, error/empty-state behavior, and localization. Keep visual designs in a separate UI specification and reference them.
+- ID: R-UI-001
+- Title: One review app, one layout
+- Statement: The review app shall present every kind of review (stays, route, places, diary, tags, story) in one page with the same layout: a list of items to look at, a map or the entry in the middle, and an inspector showing the selected item.
+- Rationale: The old pages each had their own layout, keys and save model.
+- Acceptance Criteria: Each view has the three panes; the same keys work in each (R-UI-002).
+- Verification Method: Demonstration
 
-💡 Tips:
-- Reference accessibility standards (e.g., WCAG) and platform-specific guidelines.
-- Consider organizing into subcategories for clarity: Usability/Accessibility (inputs/outputs and dialogs to fit user abstractions, abilities, and expectations), and Convenience.
+- ID: R-UI-002
+- Title: The same keys everywhere
+- Statement: j/k shall step through the list, Enter take the highlighted action (Ctrl+Enter while typing), u undo the last change, / search the list, Esc cancel, ? show the keys, in every view.
+- Rationale: Hours of review by keyboard.
+- Acceptance Criteria: Each key does its job in each view.
+- Verification Method: Demonstration
+
+- ID: R-UI-003
+- Title: Facts as fields
+- Statement: The app shall show the numbers and names behind an item (distance, time, speed, the limit, places, modes) as labelled fields with units, never inside a sentence.
+- Rationale: The old pages packed findings into text blobs.
+- Acceptance Criteria: No finding, stay or entry is described by a generated sentence alone.
+- Verification Method: Inspection
+
+- ID: R-UI-004
+- Title: Local time, UTC on hover
+- Statement: Times shall be shown in the local time of where the author was, with the UTC offset, and the UTC time on hover.
+- Rationale: The files keep UTC or local times as suits each; the author thinks in local time.
+- Verification Method: Inspection
 
 #### 3.1.2 Hardware Interfaces
-💬 _Details interactions with physical devices and platforms._
 
-➥ Specify (un)supported device types, data/control signals, electrical or mechanical characteristics if relevant, and communication protocols. Include timing, throughput, and reliability expectations.
-
-💡 Tips:
-- Reference applicable hardware specs and certification requirements.
+None.
 
 #### 3.1.3 Software Interfaces
-💬 _Defines integrations with other software components and services._
 
-➥ List connected systems (name and version), required or provided services/APIs, data items/messages exchanged, communication styles/protocols, and limit/error/timeout semantics. Identify shared data and ownership.
-
-💡 Tips:
-- Capture versioning and backward compatibility policies.
-- Define authentication/authorization expectations for each integration.
+- ID: R-INT-001
+- Title: Settings in one place
+- Statement: Every tunable value (thresholds, dates, models, regions, ports) shall be a typed field in scripts/settings.py with its default in settings.yaml, overridable for one run with SETTINGS_<NAME>.
+- Rationale: The old project kept config in the Makefile, config.toml and constants in a dozen scripts.
+- Acceptance Criteria: No script has its own tunable constant; a bad key or type in settings.yaml fails at start.
+- Verification Method: Inspection, Test
 
 ### 3.2 Functional
-💬 _Specifies the externally observable behaviors and functions the software shall provide._
 
-➥ Organize functional requirements by feature, use case, or service. For each, describe triggers/inputs, processing/logic (at a black-box level), outputs, and error conditions. For AI behaviors, define determinism bounds (e.g., temperature), refusal criteria, safety rules, and human review points.
+- ID: R-FUNC-DATA-001
+- Title: Clean data
+- Statement: make clean-data shall build clean/ from raw/: rides split where left recording overnight, stories without front matter or {{notes}}, photo sidecars left out, everything else linked; names with whitespace given _ instead.
+- Verification Method: Test
 
-💡 Tips:
-- Include edge cases and negative scenarios for completeness.
-- For AI features, include fallback behaviors and thresholds for abstention.
+- ID: R-FUNC-DATA-002
+- Title: Index
+- Statement: make index shall record what each clean file says about itself (EXIF times and GPS, recording times and lengths, dates in names, rides), reusing rows of unchanged files.
+- Verification Method: Test
+
+- ID: R-FUNC-DATA-003
+- Title: Answers in manual/
+- Statement: The author's answers shall live in manual/, tracked in git; no make target shall remove them.
+- Verification Method: Inspection
+
+- ID: R-FUNC-DATA-004
+- Title: Downloads
+- Statement: make fetch-komoot and fetch-meta shall download the recorded Komoot tours, their sports, times and descriptions into the raw data's directories, skipping what's unchanged.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-LOC-001
+- Title: Track
+- Statement: make track shall merge the rides into one track of at most one point a minute within the trip, with the phone's UTC offset at each ride's start.
+- Verification Method: Test (identical to the old output)
+
+- ID: R-FUNC-LOC-002
+- Title: Known places
+- Statement: make places shall look up each known place in GeoNames; where a town matches several places or none, it shall leave the question for the review app rather than ask in the terminal.
+- Verification Method: Test
+
+- ID: R-FUNC-LOC-003
+- Title: Stays found
+- Statement: make stays shall find the stays of two or more nights from rides and photos, each with its evidence night by night.
+- Verification Method: Test (identical stays to the old find_stays.py)
+
+- ID: R-FUNC-LOC-004
+- Title: Route
+- Statement: make route shall build the whole trip as one route through every anchor, routing gaps along OSM roads by their travel mode, with each point naming the row it came from.
+- Verification Method: Test (the old route, but for the differences recorded in D-006, D-017, D-018)
+
+- ID: R-FUNC-LOC-005
+- Title: Checks
+- Statement: make check shall list what looks wrong in the route, river crossings with no bridge and suggested modes, as findings with their facts as fields, leaving out those the author dismissed.
+- Verification Method: Test
+
+- ID: R-FUNC-LOC-006
+- Title: Locate
+- Statement: make locate shall give every photo, recording, written entry and blog post a UTC time, a local date and a place, best source first.
+- Verification Method: Test (identical to the old index)
+
+- ID: R-FUNC-DIARY-001
+- Title: Transcripts
+- Statement: make transcripts shall transcribe each recording once with the chosen provider, with nearby towns and the glossary as vocabulary; and the remote worker shall do the same on another machine.
+- Verification Method: Test (dry run), Demonstration
+
+- ID: R-FUNC-DIARY-002
+- Title: Events
+- Statement: make events shall ask Claude once per entry for its tagged events, keep the answer, and use the author's reviewed version of an entry in place of Claude's.
+- Verification Method: Test
+
+- ID: R-FUNC-DIARY-003
+- Title: Tags
+- Statement: The tag list shall be manual/tags.csv; a tag on events the author reviewed can't be removed from it.
+- Verification Method: Test
+
+- ID: R-FUNC-REV-001
+- Title: Saves are immediate and undoable
+- Statement: Every change in the review app shall save to manual/ at once, keep the version it replaced, and be undoable as one step.
+- Verification Method: Test
+
+- ID: R-FUNC-REV-002
+- Title: Conflicts are refused
+- Statement: A change to a row that changed since the app loaded it shall be refused, saying so, rather than overwrite it.
+- Verification Method: Test
+
+- ID: R-FUNC-REV-003
+- Title: Stale outputs are shown and rebuilt
+- Statement: When an output shown was built before the author's latest answers, the app shall say so and offer to rebuild it, showing the rebuild's progress.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-004
+- Title: Stays review
+- Statement: The app shall show each stay beside the one found over its nights, its differences, its evidence night by night, and let the author confirm, correct, add, remove or dismiss stays.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-005
+- Title: Route review
+- Statement: The app shall list findings, gap legs and hops with their status, and let the author label a span with a travel mode, delete or keep rows, move points onto the route, and dismiss findings; and select any stretch on the map to label it.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-006
+- Title: Places review
+- Statement: The app shall show each unsettled known place with its options on a map, the days with nothing to place the author, and every known place, and let the author pick, add, edit and delete them.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-007
+- Title: Diary review
+- Statement: The app shall play an entry's audio with its transcript following along, its quotes highlighted, and let the author edit, add, reorder and delete its events, and mark it verified.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-008
+- Title: Tags review
+- Statement: The app shall show every tag with its use, the tags Claude suggests, and which tags overlap, and let the author add, describe and delete tags.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-009
+- Title: Story dashboard
+- Statement: The app shall show a story, read-only and following edits, beside the route, days, photos, events and entries of its days, and Claude's suggestions from comparing them.
+- Verification Method: Demonstration
+
+- ID: R-FUNC-REV-010
+- Title: No hidden state
+- Statement: Where the author is in a view shall be in the URL, not in browser storage; the app shall have no offline mode.
+- Verification Method: Inspection
+
+- ID: R-FUNC-BOOK-001
+- Title: Book
+- Statement: make book shall build book.pdf from book.tex and the cleaned stories.
+- Verification Method: Test
+
+- ID: R-FUNC-BOOK-002
+- Title: Word counts
+- Statement: make counts shall write each story's words into its row of story_plans/*.csv.
+- Verification Method: Test
+
+- ID: R-FUNC-BOOK-003
+- Title: Progress
+- Statement: make progress shall replay the stories' edit logs into words written and deleted, notes added and resolved, and the time to finish.
+- Verification Method: Test (identical figures to the old words_written.py)
+
+- ID: R-FUNC-BOOK-004
+- Title: Photos and maps in the book
+- Statement: The book should be able to place a story's photos and a map of its route.
+- Verification Method: Demonstration
 
 ### 3.3 Quality of Service
-💬 _Quality attributes that constrain or qualify functional behavior._
-
-➥ Use specific metrics, ranges, and conditions.
-
-💡 Tips:
-- When a quality applies only to a subset of functions, reference the related requirement IDs.
-- Provide rationale when targets cut across functions to aid trade-off decisions.
 
 #### 3.3.1 Performance
-💬 _Response time, throughput, and resource usage expectations._
 
-➥ Specify timing relationships, peak/steady-state loads, and performance targets under expected conditions. Include measurement methods, environments, and acceptance thresholds. Note any real-time constraints.
-
-💡 Tips:
-- Include scalability targets and capacity planning assumptions.
-- Consider organizing into subcategories for clarity: Time (latency, throughput, etc.) and Space (memory, storage, bandwidth, etc.).
+- ID: R-PERF-001
+- Title: Responsive review
+- Statement: Once warm, each review app request should answer within a second; the first may take longer while it reads the outputs.
+- Verification Method: Test
 
 #### 3.3.2 Security
-💬 _Defines the protection of data, identities, and operations._
 
-➥ Define authentication, authorization, data protection (in transit/at rest), auditing, and privacy requirements. Address abuse/misuse and external attacks (e.g., injection, data exfiltration, or service compromise), and include secure defaults and incident response requirements.
-
-💡 Tips:
-- Distinguish mandatory controls vs. recommended practices.
-- Consider organizing into subcategories for clarity: Safety (harmful external outcomes), Confidentiality (disclose data to unauthorized parties), Privacy (private data disclosed without consent), Integrity (data modified without authorization), and Availability (authorized data or resources made available when requested).
-
-📝 Note:
-Place generic security controls here (3.3.2), and cross-reference from supported controls as necessary:
-- Use 3.1 External Interfaces for interface-level validation and secure protocols.
-- Use 3.4 Compliance for regulatory/contractual obligations and audit evidence.
-- Use 3.6 AI/ML for model-specific runtime protections and data governance.
+- ID: R-SEC-001
+- Title: Secrets and exposure
+- Statement: Secrets shall come from the system keyring or ~/.secrets, never the command line or the repo; the review app shall listen on 127.0.0.1 only and serve only clean/, processing/audio and its own files.
+- Verification Method: Inspection
 
 #### 3.3.3 Reliability
-💬 _Ability to consistently perform as specified._
 
-➥ Specify reliability metrics and techniques (e.g., MTBF, error budgets, retry/backoff, idempotency, redundancy). Define conditions under which reliability is assessed and any failover behaviors. Define graceful degradation (e.g., fallback components, cached results, AI/ML deterministic heuristics), timeout/abstain policies, and rollback to previous versions.
+- ID: R-REL-001
+- Title: No half-written outputs
+- Statement: Every output shall be written under a temporary name and renamed into place.
+- Verification Method: Inspection
+
+- ID: R-REL-002
+- Title: Resumable long steps
+- Statement: Transcription, events and OSM shall skip what's done, so an interrupted run can simply be rerun.
+- Verification Method: Test
+
+- ID: R-REL-003
+- Title: Nothing lost to a mount being down
+- Statement: make clean-data shall refuse to run while a mount is down.
+- Verification Method: Inspection
 
 #### 3.3.4 Availability
-💬 _System uptime and readiness to deliver service._
 
-➥ Define availability targets, maintenance windows, and mechanisms like checkpointing, recovery, and restart. Include geographical/zone redundancy if applicable.
-
-💡 Tips:
-- Express availability in terms meaningful to users (e.g., downtime per month) and tie to SLAs/SLOs.
-- Capture scale-out/in behavior affecting availability (e.g., max failover time, quorum constraints).
+Not applicable: run on demand on one machine.
 
 #### 3.3.5 Observability
-💬 _Ability to understand system state and behavior in production through telemetry._
 
-➥ Define requirements for logs, metrics, traces, and profiling: events/fields, cardinality limits, sampling, retention, and privacy/PII handling in telemetry. Specify standard labels (e.g., service, version, tenant), correlation/trace IDs propagation, and redaction policies. State SLO-aligned alert rules, dashboards, and ownership.
-
-💡 Tips:
-- Avoid maintenance-process details (keep runbooks and on-call policies in 3.5.4 Maintainability).
+Each step prints what it did and counts; the review app prints each change it saves.
 
 ### 3.4 Compliance
-💬 _Requirements derived to satisfy external standards, regulations, or contracts._
 
-➥ Specify mandated formats, naming conventions, accounting procedures, provider/user rights and agreements, licensing agreements, audit tracing, records retention, and reporting. For each compliance item, reference 2.3 Product Constraints if applicable, or cite the authoritative source directly.
+None beyond the map tiles' and Photon's usage terms (attribution, light use).
 
 ### 3.5 Design and Implementation
-💬 _Constraints or mandates affecting how the solution is designed, deployed, and maintained._
 
 #### 3.5.1 Installation
-💬 _Ensures the software runs smoothly in its target environments._
 
-➥ Define (un)supported platforms/environments, prerequisites, installation methods, environment configuration (e.g., env vars, secrets), and rollback/uninstall procedures.
-
-💡 Tips:
-- Detail automation expectations (e.g., IaC, installer scripts, container images).
-- Keep scaling mechanics (topology, multi-region) in 3.5.3 Distribution; keep scaling targets in 3.3 QoS.
+make apt, make venv, make mounts, then make secret NAME=<name> for each secret a target needs.
 
 #### 3.5.2 Build and Delivery
-💬 _Defines the controls for building, packaging, and delivering software artifacts to ensure integrity, traceability, and reproducibility._
 
-➥ Define how source code is transformed into deployable artifacts and moved through environments. Describe expectations for build reproducibility, dependency management, licensing, configuration management, artifact verification, and release promotion.
-
-💡 Tips:
-- Cross-reference 3.5.1 Installation and 3.5.10 Change Management for environment setup, versioning, and release traceability.
-- Avoid operational topology details (those belong in 3.5.3 Distribution).
+Python packages pinned in requirements.txt; system packages in apt-requirements.txt.
 
 #### 3.5.3 Distribution
-💬 _Addresses geographically or organizationally distributed deployments, data, and devices._
 
-➥ Specify deployment topologies, component and data distribution/replication approaches and scale-out runbooks, and constraints imposed by organizational or network structure.
+One machine; the optional Whisper worker on an ssh host.
 
 #### 3.5.4 Maintainability
-💬 _Attributes that make the software easier to modify, fix, and evolve._
 
-➥ Define expectations for modularity, code complexity, interfaces, coding standards, developer oriented observability, documentation, software delivery performance, and technical debt management.
+- ID: R-MAINT-001
+- Title: One script per step
+- Statement: Each make target shall run one script, each with a docstring and Usage line; helpers shared by scripts shall live once, in scripts/common/.
+- Verification Method: Inspection
+
+- ID: R-MAINT-002
+- Title: The Makefile header is the map
+- Statement: The Makefile's header comment shall list every output, what it's made from and its target.
+- Verification Method: Inspection
+
+- ID: R-MAINT-003
+- Title: Behaviour kept in the refactor
+- Statement: The refactor shall keep the old outputs, changed only where a recorded decision says so.
+- Verification Method: Test (§4)
 
 #### 3.5.5 Reusability
-💬 _Encourages leveraging components across products or contexts when appropriate._
 
-➥ Identify components intended for reuse and any constraints on their dependencies or technology choices. Specify modularization, API stability, packaging, and documentation to enable reuse.
+The review app's store, status and shared parts are project-specific; nothing is meant for reuse.
 
 #### 3.5.6 Portability
-💬 _Ability to run on multiple platforms or environments with minimal changes._
 
-➥ Specify (un)supported operating systems, hardware architectures, cloud providers, or container runtimes. Define abstraction layers, configuration policies, and externalization of environment-specific settings.
+Linux only (bindfs, the apt packages).
 
 #### 3.5.7 Cost
-💬 _Financial considerations or cost targets._
 
-➥ State budgetary limits, cost-per-transaction targets, licensing constraints, or cloud spend envelopes that influence design decisions.
-
-💡 Tips:
-- Keep costs high-level unless contractually defined.
-- Link to a cost model or TCO assumptions where available.
-- Note variable vs. fixed cost expectations impacting scaling strategies.
+- ID: R-COST-001
+- Title: Paid work done once
+- Statement: A transcript or Claude answer once paid for shall be kept (processing/ in KEEP) and reused; a dry run shall say the cost of a paid run before it starts.
+- Verification Method: Test
 
 #### 3.5.8 Deadline
-💬 _Schedule expectations that affect scope and prioritization._
 
-➥ Specify key milestones, delivery dates, or phases/increments. Indicate dependencies between milestones and required readiness criteria.
-
-💡 Tips:
-- Use deadlines to guide apportioning of requirements (Section 2.6).
+None.
 
 #### 3.5.9 Proof of Concept
-💬 _Validates feasibility and de-risks critical assumptions before full-scale delivery._
 
-➥ Define the objectives, scope, success criteria, and timebox for any POCs. Describe what will be validated (technical, usability, performance) and how results will influence requirements or design.
-
-💡 Tips:
-- Keep POCs narrowly focused and measurable. Focus on validation goals, not implementation details.
+None.
 
 #### 3.5.10 Change Management
-💬 _Controls how changes are introduced and communicated._
 
-➥ Define change categories (breaking, additive, bugfix), approval workflow, and required artifacts (changelogs, evaluation summaries, migration guides, release notes). Specify backward/forward compatibility guarantees, client communication plans, deprecation timelines, and rollout/rollback procedures.
+Per CONTRIBUTING.md: a branch per phase, its documents updated with the code.
 
 ### 3.6 AI/ML
-💬 _This section defines requirements unique to systems incorporating machine learning or data-driven components at their core. These requirements complement functional, quality, and design aspects in preceding sections but address ML-specific lifecycle, data, and ethical considerations._
 
 #### 3.6.1 Model Specification
-💬 _Defines what each model is intended to do and the measurable criteria for acceptable performance._
 
-➥ Describe model(s) purpose, scope, expected behavior, key inputs and outputs, and measurable performance objectives. Note any validation datasets, benchmarks, or versioning practices used to ensure reproducibility.
-
-💡 Tips:
-- Distinguish baseline targets from aspirational improvements and define acceptable tolerance for drift.
+Claude splits entries into events (events.py) and checks stories against sources (the Story view); Whisper or a provider transcribes. Models are settings (events.*, transcribe.*).
 
 #### 3.6.2 Data Management
-💬 _Ensures integrity, traceability, and ethical lifecycle of data used in model training, validation, and operation._
 
-➥ Specify dataset origin, ownership, consent conditions; labeling processes and quality controls; data lineage, versioning, and reproducibility (training → validation → inference); storage, access controls, and anonymization/pseudonymization standards; handling of missing, synthetic, or augmented data.
+The author's own diary only. Transcripts and answers are kept in processing/asr and processing/events; the prompt's hash marks answers made with an older prompt, tag list or glossary as stale.
 
 #### 3.6.3 Guardrails
-💬 _Ensure that the AI system operates safely, predictably, and within approved boundaries._
 
-➥ Specify how the system validates inputs, filters or constrains outputs, and limits available actions to prevent harm, misuse, or unintended consequences. Include mechanisms to detect and respond to malicious inputs or unsafe operational conditions.
-
-💡 Tips:
-- Treat “guardrails” across input, output, and action layers.
-- Define escalation, logging, and rollback procedures when safety constraints are triggered.
-- Cross-reference 3.3.2 Security for system-level protections and 3.6.4 Ethics for normative expectations.
+Answers are checked against a JSON schema; tags not in the list or proposed are refused; dates are validated.
 
 #### 3.6.4 Ethics
-💬 _Addresses fairness, transparency, and accountability in model behavior and outcomes._
 
-➥ Define how ethical considerations will be identified, measured, and managed throughout development and operation. Include fairness objectives, explainability expectations, and documentation or review requirements.
-
-💡 Tips:
-- Use fairness metrics appropriate to context (e.g., demographic parity, equal opportunity).
-- Consider organizing into subcategories for clarity: Fairness (societal bias in outcomes), Interpretability (can inspect the model and understand outputs), and Explainability (can explain an output for a given input).
-- Coordinate with 3.6.3 Guardrails for enforcement mechanisms and 3.6.5 Human-in-the-Loop for human oversight.
+Personal data stays local, sent only to the chosen provider or Claude.
 
 #### 3.6.5 Human-in-the-Loop
-💬 _Specifies the role of human oversight in decisions influenced or made by machine learning models._
 
-➥ Describe where and how human review, approval, or intervention is required. Clarify review latency or throughput expectations, escalation paths, feedback mechanisms, traceability, and auditability of human actions.
-
-💡 Tips:
-- Link to applicable roles defined in 2.4 User Characteristics.
+Every event can be reviewed and corrected in the Diary view; a reviewed entry is never sent again.
 
 #### 3.6.6 Model Lifecycle and Operations
-💬 _Defines requirements for deploying, monitoring, retraining, and retiring models in production._
 
-➥ Outline how models transition from development to production, how their performance and data quality are monitored, and how retraining or rollback is triggered and managed. Include expectations for versioning and archival.
+A model or prompt change makes answers stale; make events ARGS=--redo-stale redoes them.
 
 ## 4. Verification
-💬 _Describes how each requirement will be verified to provide objective evidence of compliance._
 
-➥ Outline verification methods (test, canary metrics, analysis, inspection, demonstration) and test evidence preferably in a matrix paralleling Section 3. Consider adding environment details, tools, and test data requirements.
-
-| Requirement ID | Verification Method | Test/Artifact Link | Status | Evidence           |
-|----------------|---------------------|--------------------|--------|--------------------|
-| REQ-FUNC-001   | test                | tests/UC01.md      | Passed | reports/tuc01.html |
-| REQ-SEC-003    | analysis            | threat-model.md    | WIP    |                    |
-
-💡 Tips:
-- Include both positive and negative tests and include non-functional verification (performance, security, reliability).
-- Verification artifacts may be versioned and linked to CI/CD.
-- For AI, reference Model Cards and track eval datasets’ versions and ensure reproducibility of results.
+| Requirement ID | Verification Method | Test/Artifact Link | Status | Evidence |
+|----------------|---------------------|--------------------|--------|----------|
+| R-UI-001, 002 | demonstration | each view in a browser | Passed | docs/branches/v1_requirements.md §4 |
+| R-UI-003, 004 | inspection | each view's inspector | Passed | v1 §4 |
+| R-INT-001 | test | settings load; a bad key or type fails | Passed | v1 §4 |
+| R-FUNC-DATA-001, 002 | test | make clean-data, make index; the located outputs match the old index | Passed | v1 §4 |
+| R-FUNC-DATA-003 | inspection | manual/ in git; clean and purge don't touch it (Makefile) | Passed | |
+| R-FUNC-DATA-004 | demonstration | make fetch-komoot, fetch-meta | WIP | needs the Komoot secrets |
+| R-FUNC-LOC-001, 003, 004, 006 | test | diff against ../travel_book/processing | Passed | v1 §4: identical but for the differences D-006, D-011, D-017 and D-018 record |
+| R-FUNC-LOC-002 | test | make places against the old places.csv | Passed | v1 §4: identical, no questions |
+| R-FUNC-LOC-005 | test | findings counts against the old checks, crossings and suggestions | Passed | v1 §4 |
+| R-FUNC-DIARY-001 | test | transcribe.py run --dry-run sees the migrated transcripts | Passed | v1 §4 |
+| R-FUNC-DIARY-002 | test | events.py --dry-run and --limit 0 against the old | Passed | v1 §4: same counts and hash, identical events.csv |
+| R-FUNC-DIARY-003 | test | /api/change refuses removing a tag on reviewed events | Passed | store.py |
+| R-FUNC-REV-001, 002 | test | /api/change and /api/undo round trip | Passed | v1 §4 |
+| R-FUNC-REV-003 | demonstration | the banner, and Rebuild running make places | Passed | v1 §4 |
+| R-FUNC-REV-004 to 009 | demonstration | each view in a browser | Passed | v1 §4 |
+| R-FUNC-REV-010 | inspection | static/: the URL holds the view and item; localStorage holds only the map's tiles, which isn't where you are | Passed | |
+| R-FUNC-BOOK-001 | test | make book | WIP | needs the TeX packages and disk space |
+| R-FUNC-BOOK-002 | test | make counts | Passed | |
+| R-FUNC-BOOK-003 | test | progress.py --period all against words_written.py | Passed | v1 §4 |
+| R-FUNC-BOOK-004 | demonstration | | Not started | Vision |
+| R-PERF-001 | test | request times against the warm server | Passed | v1 §4 |
+| R-SEC-001 | inspection | settings.py, server.py (127.0.0.1, served paths) | Passed | |
+| R-REL-001 | inspection | common/tables.py write_text; each step writes through it | Passed | |
+| R-REL-002 | test | rerunning transcribe, events, osm does nothing new | Passed | v1 §4 |
+| R-REL-003 | inspection | build_clean.py checks the mounts | Passed | |
+| R-MAINT-001 to 003 | inspection, test | scripts/, the Makefile header, v1 §4 | Passed | |
+| R-COST-001 | test | dry runs print the cost; caches in KEEP | Passed | |
 
 ## 5. Appendixes
-💬 _Optional supporting material that aids understanding without being normative._
 
-➥ Include glossaries, data dictionaries, models/diagrams, sample datasets, or change-impact analyses that support the main sections. Reference rather than duplicate content when possible.
-
-💡 Tips:
-- Keep appendixes organized and referenced from the main text.
+The old scripts and what replaced them are listed in the vision SDD, Appendix A.

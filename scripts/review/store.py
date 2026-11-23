@@ -131,7 +131,12 @@ def apply(op, tables, entries):
         if name not in TABLES:
             raise Refused(400, f"no table {name}")
         _, fields, key, check = TABLES[name]
-        table = tables.setdefault(name, rows(name))
+        if name not in tables:
+            tables[name] = rows(name)
+            if key == "id":  # rows added by hand get their ids with the next change to the file
+                for r in tables[name]:
+                    r["id"] = r["id"] or secrets.token_hex(4)
+        table = tables[name]
         kind = op.get("op")
         if kind == "add":
             row = {k: str(op["row"].get(k, "") or "").strip() for k in fields}

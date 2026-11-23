@@ -146,4 +146,8 @@ docstring of `scripts/git-hooks/llm.py` has examples.
 
 ## Project-specific rules
 
-None yet.
+- Phases are named `v1`, `v2`, ...; v1 is the refactor of `../travel_book`.
+- A change to a location step, the events or the transcription keeps its outputs as they were (checked
+  against the last ones) unless a decision in the vision SDD says why they change.
+- The review app's views follow one layout and one set of keys (vision SRS R-UI-001, R-UI-002): a new
+  view is built from the shared parts in `scripts/review/static/lib.js`.

@@ -1,13 +1,16 @@
 # Travel book
 
-A book of stories from a two-year bike trip, and the pipeline that places every ride, photo and diary entry on the route
+A book of stories from a two-year bike trip, and the pipeline that places every ride, photo and diary entry on the route.
+It was refactored from `../travel_book` (kept as an archive): `docs/vision_design.md` Appendix A maps the old scripts to the new.
 
 ## Layout
 - `raw/`: source data, only ever read. Small files are tracked in git; the rest are bind-mounted read-only from outside the repo (`scripts/mounts.py`): each mount point is a symlink to the mount in `.mounts/`. Never write, move or delete anything in it.
-- `clean/`: built by `make clean-data`, never edited by hand. It mirrors `raw/`: a file claimed by a cleaner in `scripts/clean/` is rewritten, everything else is a symlink back to `raw/`. `clean/.sources.csv` maps each file to its raw source.
-- `processing/`: every other generated output, one directory per step. `processing/index/` describes everything in `clean/`.
-- `scripts/`: one script per step, each run by a make target. Docstring first, with a `Usage:` line.
-- `scripts/clean/`, `scripts/index/`: cleaners and indexers, picked up by file name (see the docstrings of `build_clean.py` and `build_index.py`; `_example*.py` show the shape).
+- `clean/`: built by `make clean-data`, never edited by hand. It mirrors `raw/`: a file claimed by a cleaner in `scripts/cleaners/` is rewritten, everything else is a symlink back to `raw/`, and whitespace in names becomes `_`. `clean/.sources.csv` maps each file to its raw source.
+- `manual/`: the user's answers, tracked in git: stays, travel modes, known places, place picks, dismissed findings, ignored photos, reviewed diary entries (`events/`), the tag list, the glossary. Written by hand or by the review app (through `scripts/review/store.py`, which keeps every old version in `manual/.history/` for Undo). Each row of stays, travel_modes, known_places and dismissed has an `id`. No make target removes it.
+- `processing/`: every other generated output, one directory per step. `processing/index/` holds what each file in `clean/` says about itself; `processing/located/` when and where each was made.
+- `scripts/`: one script per step, each run by a make target. Docstring first, with a `Usage:` line. Helpers shared by several live once, in `scripts/common/` (geo, times, tables, track, towns, photos, llm, asr). Paths are constants in `scripts/repo.py`.
+- `scripts/cleaners/`, `scripts/index/`: cleaners and indexers, picked up by file name (see the docstrings of `build_clean.py` and `build_index.py`). The cleaners aren't in `scripts/clean/`, as the template has them, because `.claude/settings.json` denies `Edit(clean/**)`, which also matches that directory.
+- `scripts/review/`: the review app (`make review`): `server.py`, the API modules in `api/`, the store and status, and the page in `static/` (Preact and htm, Leaflet, marked: vendored in `static/vendor/`, no build step).
 - `settings.yaml`: the default settings, read by `scripts/settings.py` (see Conventions).
 - `docs/`: the vision SRS and SDD (`vision_requirements.md`, `vision_design.md`), one requirements and design pair per phase in `docs/branches/` (`<phase>_requirements.md`, `<phase>_design.md`), the vendored templates in `docs/des_req_templates/`, and how to use the files the user edits by hand: input formats, review tools.
 
@@ -24,4 +27,6 @@ A book of stories from a two-year bike trip, and the pipeline that places every 
 - Settings are managed with pydantic-settings in `scripts/settings.py`: each one is a typed field there, and its default is in `settings.yaml`, with a comment saying what it's for. Scripts read them with `from settings import settings`, never with their own constants, `argparse` defaults, `os.environ` or config files. To add one, add the field and its default in the same commit. `SETTINGS_<NAME>=<value>` overrides one for a run.
 - Secrets never go on a command line (visible in `ps`), in the repo or in `settings.yaml`. Each one is a `SecretStr | None = None` field in `scripts/settings.py`, which reads it from the system keyring (service `secrets`, the field name as the username), or from `~/.secrets/<field>` where there's no keyring. The user stores one with `make secret NAME=<field>`; never read, print or log a secret's value yourself, and don't try to get around the deny rules that block it.
 - Hidden files are ignored throughout.
-- No whitespace in file or directory names anywhere, `raw/` included: make can't handle it. `make clean-data` stops on any it finds in `raw/` and prints the `scripts/rename_spaces.py` command to fix it at the source. That renames the original data (with an undo log), so the user runs it, never Claude.
+- No whitespace in file or directory names outside `raw/`: make can't handle it. In `raw/` there are hundreds, which `make clean-data` maps to `_` in `clean/` (vision SDD D-011); `scripts/rename_spaces.py` can still rename them at the source, but that renames the original data, so the user runs it, never Claude.
+- The review app changes `manual/` only through `store.change()`: operations on rows by id, checked, with a base to refuse stale edits. Show values as labelled fields, never inside a generated sentence; times in local time with UTC on hover.
+- The outputs of the location steps, `events.csv` and the transcripts are checked against `../travel_book/processing`: a change that alters them needs a recorded decision.
