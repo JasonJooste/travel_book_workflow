@@ -56,7 +56,10 @@ from datetime import datetime, timedelta, timezone
 from common.geo import Flat, distance_km
 from common.tables import read_rows as rows, write_json
 from common.times import parse as when, stamp
-from repo import DISMISSED_CSV, FINDINGS, KOMOOT_TOURS, MODES_CSV, PLACES_CSV, ROUTE, TRACK_POINTS, WATERWAYS
+from repo import (DISMISSED_CSV, FINDINGS, KNOWN_PLACES_CSV, KOMOOT_TOURS, MODES_CSV, PLACES_CSV, ROUTE, TRACK_POINTS,
+                  WATERWAYS)
+
+BUILT_WITH = ROUTE / "findings_built_with.json"
 from route import CLASSES, GAP_KM, covers, inside_ride, read_modes
 from settings import settings
 
@@ -757,6 +760,11 @@ def main():
             f["dismissed"] = by["id"]
     found.sort(key=lambda f: (f["start_utc"], f["end_utc"], f["check"]))
     write_json(FINDINGS, found, indent=None)
+    # The rows these findings were made with, so the review app can tell which findings rows changed
+    # since bear on: those wait for the next make check
+    write_json(BUILT_WITH, {"travel_modes": {r["id"]: [r["start"], r["end"], r["mode"], r["note"]] for r in rows(MODES_CSV)},
+                            "known_places": {r["id"]: [r["start_date"], r["end_date"], r["time"], r["lat"], r["lon"]]
+                                             for r in rows(KNOWN_PLACES_CSV)}}, indent=None)
     counts = Counter(f["check"] for f in found if "dismissed" not in f)
     print(f"route.gpx: {len(tracks)} tracks, {sum(len(p) for _, p in tracks)} points")
     for check in TITLES:
