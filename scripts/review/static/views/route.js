@@ -162,7 +162,7 @@ function RowInspector({ row, local }) {
       <label>End (UTC)</label><input value=${edit.end} placeholder="empty: the start's day or minute"
         onInput=${x => setEdit({ ...edit, end: x.target.value })} />
       <label>Mode</label><select value=${edit.mode} onChange=${x => setEdit({ ...edit, mode: x.target.value })}>
-        ${Object.keys(SETTINGS.modes).map(m => html`<option>${m}</option>`)}</select>
+        ${Object.keys(SETTINGS.modes).map(m => html`<option value=${m} selected=${m === edit.mode}>${m}</option>`)}</select>
       <label>Note</label><input value=${edit.note} onInput=${x => setEdit({ ...edit, note: x.target.value })} /></div>
     <p class="muted small">YYYY-MM-DD for a whole day, or YYYY-MM-DDTHH:MM, in UTC as the file keeps them.</p>
     <div class="actions"><${Action} main label="Save" disabled=${!dirty} onClick=${save} keyName="Enter" why="Saved to travel_modes.csv." />
@@ -230,18 +230,22 @@ export function RouteView({ rest }) {
   useKeys({ j: next, k: () => { const n = step(list.map(i => i.key), selected, -1); if (n) select(n); },
     Escape: () => { setSel({ start: null, end: null }); setAnchor(null); setMoved(null); } });
 
-  // The route: one line per run of a class
+  // The route: one line per run of a class. A point's class is that of the stretch arriving at it
+  // (route.csv), so the segment from P[i-1] to P[i] takes P[i]'s
   useLayer(map, g => {
-    if (!P) return;
-    let run = [[P[0][0] / 1e5, P[0][1] / 1e5]];
-    for (let i = 1; i <= P.length; i++) {
-      if (i < P.length && P[i][3] === P[i - 1][3]) { run.push([P[i][0] / 1e5, P[i][1] / 1e5]); continue; }
-      const cls = line.data.classes[P[i - 1][3]];
-      if (i < P.length) run.push([P[i][0] / 1e5, P[i][1] / 1e5]);
+    if (!P || P.length < 2) return;
+    const ll = p => [p[0] / 1e5, p[1] / 1e5];
+    const draw = (run, c) => {
+      const cls = line.data.classes[c];
       L.polyline(run, { color: colour(cls), weight: cls === "cycled" ? 2 : 3, dashArray: cls === "predicted" ? "6 5" : null,
                         interactive: false }).addTo(g);
-      if (i < P.length) run = [[P[i][0] / 1e5, P[i][1] / 1e5]];
+    };
+    let run = [ll(P[0]), ll(P[1])], c = P[1][3];
+    for (let i = 2; i < P.length; i++) {
+      if (P[i][3] !== c) { draw(run, c); run = [ll(P[i - 1])]; c = P[i][3]; }
+      run.push(ll(P[i]));
     }
+    draw(run, c);
   }, [P]);
   useEffect(() => { if (map && P && !selected) map.fitBounds(L.latLngBounds(P.map(p => [p[0] / 1e5, p[1] / 1e5])), { padding: [20, 20] }); }, [map, P]);
   // Photos, known places and stays the route goes through: shown when zoomed in

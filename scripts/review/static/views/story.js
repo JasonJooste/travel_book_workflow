@@ -64,7 +64,7 @@ function Suggestions({ name, pad }) {
   const c = check.data;
   const list = c ? c.suggestions.filter(s => shown === "all" || !s.dismissed) : [];
   return html`<div style="padding:14px 20px">
-    <div class="row"><select value=${model} onChange=${e => setModel(e.target.value)}>${["opus", "sonnet", "haiku"].map(m => html`<option>${m}</option>`)}</select>
+    <div class="row"><select value=${model} onChange=${e => setModel(e.target.value)}>${["opus", "sonnet", "haiku"].map(m => html`<option value=${m} selected=${m === model}>${m}</option>`)}</select>
       <button class="primary" disabled=${running} onClick=${run}>${running ? "Claude is reading…" : c ? "Check again" : "Ask Claude to check the story"}</button>
       <span class="muted small grow">${c ? `Last checked ${c.at.replace("T", " ")} by ${c.model}, in ${c.seconds} s` : "It compares the story with the sources of its days."}</span>
       ${c && html`<div class="tabs"><button class=${shown === "open" ? "on" : ""} onClick=${() => setShown("open")}>Open</button>

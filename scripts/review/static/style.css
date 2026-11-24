@@ -156,3 +156,6 @@ table.grid td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .photos figcaption { font-size: 11px; color: var(--muted); }
 .lightbox img { max-width: 100%; max-height: 70vh; display: block; margin: 0 auto 8px; }
 .profile { width: 100%; height: 140px; display: block; }
+.dayinput { gap: 4px; align-items: center; }
+.dayinput input { width: 7.5em; }
+.dayinput input.bad { border-color: #d62728; }

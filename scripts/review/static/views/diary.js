@@ -3,7 +3,7 @@
 // gave them or as you left them. Every edit saves as you go (to manual/events/), and make events then
 // keeps your version and never asks Claude about the entry again. Mark verified when it's right.
 import {
-  Action, Facts, Pill, Queue, change, fmtDay, go, html, plain, step, useData, useEffect, useKeys, useMemo,
+  Action, DayInput, Facts, Pill, Queue, change, fmtDay, go, html, plain, step, useData, useEffect, useKeys, useMemo,
   useRef, useState,
 } from "../lib.js";
 
@@ -85,7 +85,7 @@ function EventCard({ ev, n, count, tags, suggested, onChange, onMove, onDelete, 
       <button class="danger" onClick=${onDelete} title="Delete this event">✕</button></div>
     <div class="form">
       <label>Summary</label><textarea rows="3" value=${ev.summary} onInput=${e => set("summary", e.target.value)} />
-      <label>Date</label><div class="row"><input type="date" value=${ev.date} onInput=${e => set("date", e.target.value)} />
+      <label>Date</label><div class="row"><${DayInput} value=${ev.date} onChange=${v => set("date", v)} />
         <label class="small"><input type="checkbox" checked=${ev.date_guessed} onChange=${e => set("date_guessed", e.target.checked)} /> a guess</label></div>
       <label>Place</label><input value=${ev.place} onInput=${e => set("place", e.target.value)} />
       <label>People</label><${ListInput} values=${ev.people} onChange=${v => set("people", v)} placeholder="add a name" />

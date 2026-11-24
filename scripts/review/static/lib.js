@@ -90,6 +90,18 @@ export function fmtDay(iso, { year = true, weekday = true } = {}) {
   const p = parts(iso);
   return `${weekday ? DAYS[p.wd] + " " : ""}${p.day} ${MONTHS[p.m - 1]}${year ? " " + p.y : ""}`;
 }
+// A day field that doesn't follow the browser's locale: yyyy-mm-dd typed, ‹ › to step a day, the day spelt out beside
+const isDay = t => /^\d{4}-\d{2}-\d{2}$/.test(t) && !isNaN(new Date(t + "T12:00:00Z"));
+export function DayInput({ value, onChange }) {
+  const [text, setText] = useState(value || "");
+  useEffect(() => setText(value || ""), [value]);
+  const set = t => { setText(t); if (t === "" || isDay(t)) onChange(t); };
+  return html`<div class="row dayinput">
+    <button title="A day earlier" disabled=${!isDay(text)} onClick=${() => set(addDays(text, -1))}>‹</button>
+    <input value=${text} size="10" placeholder="yyyy-mm-dd" class=${text && !isDay(text) ? "bad" : ""} onInput=${e => set(e.target.value.trim())} />
+    <button title="A day later" disabled=${!isDay(text)} onClick=${() => set(addDays(text, 1))}>›</button>
+    <span class="muted small">${isDay(text) ? fmtDay(text) : text ? "yyyy-mm-dd" : ""}</span></div>`;
+}
 export function fmtOffset(min) {
   const s = min < 0 ? "−" : "+", a = Math.abs(min);
   return `UTC${s}${Math.floor(a / 60)}${a % 60 ? ":" + String(a % 60).padStart(2, "0") : ""}`;

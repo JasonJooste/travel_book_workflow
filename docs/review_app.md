@@ -75,10 +75,11 @@ find and edit.
 - **To settle**: a known place whose town matched several places, or none. The options are on the
   map beside where you were before and after; pick one (number keys), click the map, or search.
   Saved to `manual/place_picks.csv`; rebuild to use it.
-- **Gaps**: days with nothing to place you (no ride, photo with GPS, known place or stay), with their
-  photos and diary entries (or those of ±1 or ±2 days around them), and where you were last and
-  next seen as grey dots on the map. Click the map where you were (Enter saves it), or name the
-  town, to add a known place; its From and To dates start as the gap's and can be changed.
+- **Gaps** and **Filled**: days with no ride, photo with GPS or stay, with their photos and diary
+  entries (or those of ±1 or ±2 days around them), and where you were last and next seen as grey
+  dots on the map. Click the map where you were (Enter saves it), or name the town, to add a known
+  place; its From and To dates (yyyy-mm-dd, ‹ › to step a day) start as the days still open. Once
+  every day has a known place the gap moves to Filled, where it lists what you said, on the map too.
 - **Known places**: every row of `manual/known_places.csv`, to edit or delete.
 
 ## Diary

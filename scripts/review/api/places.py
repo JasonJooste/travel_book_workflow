@@ -4,7 +4,9 @@
                                places match, none does, or the country isn't known), the options with
                                their distance from the GPS points around its dates, and those points
                     gaps       each run of days with nothing to say where you were: no ride, no photo
-                               with GPS, no known place and no stay. With the photos and diary entries
+                               with GPS and no stay. With the known places you've given for its days
+                               (so a filled gap stays in the list, marked), the days still open, the
+                               photos and diary entries
                                of those days and the two either side (each with its day), which may
                                say, and the last position before it and the first after
                     known      every row of manual/known_places.csv, with its looked-up position
@@ -20,27 +22,25 @@ from shared import cached
 from store import rows
 
 
+def day_range(first, last):
+    """Each ISO day from first to last (or first alone): none if either isn't a date."""
+    try:
+        d, end = date.fromisoformat(first), date.fromisoformat(last or first)
+    except ValueError:
+        return []
+    return [(d + timedelta(days=i)).isoformat() for i in range((end - d).days + 1)]
+
+
 def covered_days():
-    """Local days something says where you were (UTC days for the track, which is close enough)."""
+    """Local days a ride, a GPS photo or a stay says where you were (UTC days for the track, close enough).
+    Known places aren't counted: a gap they fill stays a gap, shown as filled."""
     def load():
         days = {r["utc"][:10] for r in read_rows(TRACK_POINTS)}
         days |= {r["local_date"] for r in read_rows(LOCATED / "photos.csv") if r["position_source"] == "photo_gps"}
         return days
     days = set(cached([TRACK_POINTS, LOCATED / "photos.csv"], load))
-    for r in read_rows(PLACES_CSV):
-        if r["lat"]:
-            d, last = date.fromisoformat(r["start_date"]), date.fromisoformat(r["end_date"] or r["start_date"])
-            while d <= last:
-                days.add(d.isoformat())
-                d += timedelta(days=1)
     for s in rows("stays"):
-        try:
-            d, last = date.fromisoformat(s["first_night"]), date.fromisoformat(s["leaving"])
-        except ValueError:
-            continue
-        while d <= last:
-            days.add(d.isoformat())
-            d += timedelta(days=1)
+        days.update(day_range(s["first_night"], s["leaving"]))
     return days
 
 
@@ -62,6 +62,15 @@ AROUND = 2   # days either side of a gap whose photos and entries come with it
 
 def gaps():
     covered = covered_days()
+    looked_up = {r["id"]: r for r in read_rows(PLACES_CSV)}
+    mine = []
+    for r in rows("known_places"):
+        f = looked_up.get(r["id"], {})
+        lat, lon = (r["lat"], r["lon"]) if r["lat"] else (f.get("lat", ""), f.get("lon", ""))
+        mine.append({"id": r["id"], "days": set(day_range(r["start_date"], r["end_date"])),
+                     "start_date": r["start_date"], "end_date": r["end_date"], "town": r["town"], "country": r["country"],
+                     "note": r["note"], "lat": float(lat) if lat else None, "lon": float(lon) if lon else None,
+                     "how": "your point" if r["lat"] else "looked up" if lat else "looked up on rebuild"})
     known = positions()
     days_of = [p[0] for p in known]
     entries = {}
@@ -88,8 +97,12 @@ def gaps():
         days = [(first + timedelta(days=i)).isoformat() for i in range(-AROUND, (last - first).days + 1 + AROUND)]
         i, j = bisect_left(days_of, first.isoformat()), bisect_right(days_of, last.isoformat())
         side = lambda p: {"day": p[0], "lat": p[1], "lon": p[2], "what": p[3]} if p else None
+        own = set(day_range(first.isoformat(), last.isoformat()))
+        filled = [{k: v for k, v in m.items() if k != "days"} for m in mine if m["days"] & own]
+        open_days = sorted(own - set().union(*(m["days"] for m in mine if m["days"] & own)))
         out.append({"key": f"gap:{first}", "first": first.isoformat(), "last": last.isoformat(),
-                    "days": (last - first).days + 1,
+                    "days": len(own), "known": filled, "open": open_days,
+                    "status": "filled" if not open_days else "partly" if filled else "open",
                     "entries": [e for d in days for e in entries.get(d, [])],
                     "photos": [p for d in days for p in photos.get(d, [])][:120],
                     "before": side(known[i - 1] if i else None), "after": side(known[j] if j < len(known) else None)})
