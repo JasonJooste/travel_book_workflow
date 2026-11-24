@@ -2,7 +2,8 @@
 //   Questions   a known place whose town matched several places, or none: pick one on the map, or click
 //               where it was. Saved in manual/place_picks.csv; make places uses it
 //   Gaps        runs of days with no ride, no photo with GPS, no known place and no stay: their photos and
-//               diary entries may say where you were. Click the map to add a known place for them
+//               diary entries, and those of a day or two either side, may say where you were. Click the
+//               map, or name the town, to add a known place for the days you choose
 //   Known       every known place: edit or delete it
 import {
   Action, Facts, MapView, PlaceSearch, Pill, Queue, change, dot, fmtDay, go, html, plain, step, thumbUrl, useData,
@@ -38,29 +39,51 @@ function QuestionInspector({ q, clicked, next }) {
   </div>`;
 }
 
-function GapInspector({ gap, clicked }) {
+// A day n days from an ISO date
+function shift(iso, n) { const d = new Date(iso + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+
+function GapInspector({ gap, clicked, around, setAround }) {
   const [town, setTown] = useState(""), [country, setCountry] = useState(""), [note, setNote] = useState("");
+  const [from, setFrom] = useState(gap.first), [to, setTo] = useState(gap.last);
+  const lo = shift(gap.first, -around), hi = shift(gap.last, around);
+  const inWindow = x => x.day >= lo && x.day <= hi;
+  const outside = x => x.day < gap.first || x.day > gap.last;
+  const entries = gap.entries.filter(inWindow), photos = gap.photos.filter(inWindow);
+  const span = from && to && to >= from;
   const add = (row, why) => change(why, [{ table: "known_places", op: "add", row: {
-    start_date: gap.first, end_date: gap.last !== gap.first ? gap.last : "", note, ...row } }]);
+    start_date: from, end_date: to !== from ? to : "", note, ...row } }]);
+  const range = from === to ? fmtDay(from) : `${fmtDay(from)} → ${fmtDay(to)}`;
+  const addClicked = () => clicked && span && add({ lat: String(clicked[0]), lon: String(clicked[1]) }, `Known place for ${from}`);
+  useKeys({ Enter: clicked ? addClicked : undefined });
   return html`<div><${Pill} status="gap" label="no position" />
     <h2>${gap.days} day${gap.days > 1 ? "s" : ""} with nothing to place you</h2>
     <div class="when">${fmtDay(gap.first)}${gap.days > 1 ? " → " + fmtDay(gap.last) : ""}</div>
-    <h3>Diary entries of those days</h3>
-    ${gap.entries.length ? html`<table class="grid">${gap.entries.map(e => html`<tr class="click"
-        onClick=${() => go("diary", e.kind, e.stem)}><td>${e.kind}</td><td>${e.stem}</td><td class="num">${e.words} words</td></tr>`)}</table>`
+    <${Facts} facts=${{ "last seen": gap.before ? `${fmtDay(gap.before.day)} (${gap.before.what})` : "none",
+                        "next seen": gap.after ? `${fmtDay(gap.after.day)} (${gap.after.what})` : "none" }} />
+    <div class="row" style="margin-top:8px"><span class="muted small">Entries and photos from</span>
+      <div class="tabs">${[0, 1, 2].map(n => html`<button class=${n === around ? "on" : ""} onClick=${() => setAround(n)}>
+        ${n ? `±${n} day${n > 1 ? "s" : ""}` : "the gap"}</button>`)}</div></div>
+    <h3>Diary entries</h3>
+    ${entries.length ? html`<table class="grid">${entries.map(e => html`<tr class=${"click" + (outside(e) ? " muted" : "")}
+        onClick=${() => go("diary", e.kind, e.stem)}><td>${fmtDay(e.day, { year: false })}</td><td>${e.kind}</td><td>${e.stem}</td>
+        <td class="num">${e.words} words</td></tr>`)}</table>`
       : html`<p class="muted">None.</p>`}
-    <h3>Photos of those days (no GPS)</h3>
-    ${gap.photos.length ? html`<div class="photos" style="padding:0">${gap.photos.slice(0, 24).map(p => html`<figure>
-        <img loading="lazy" src=${thumbUrl(p.file)} title=${p.name} /></figure>`)}</div>` : html`<p class="muted">None.</p>`}
+    <h3>Photos</h3>
+    ${photos.length ? html`<div class="photos" style="padding:0">${photos.slice(0, 48).map(p => html`<figure style=${outside(p) ? "opacity:.55" : ""}>
+        <img loading="lazy" src=${thumbUrl(p.file)} title=${`${p.name} · ${fmtDay(p.day)}${p.lat ? " · " + p.position : ""}`} /></figure>`)}</div>`
+      : html`<p class="muted">None.</p>`}
     <h3>Say where you were</h3>
-    <div class="form"><label>Note</label><input value=${note} onInput=${e => setNote(e.target.value)} placeholder="optional" /></div>
+    <div class="form"><label>From</label><input type="date" value=${from} onInput=${e => setFrom(e.target.value)} />
+      <label>To</label><input type="date" value=${to} onInput=${e => setTo(e.target.value)} />
+      <label>Note</label><input value=${note} onInput=${e => setNote(e.target.value)} placeholder="optional" /></div>
     <div class="actions" style="margin-top:8px">
-      ${clicked ? html`<${Action} main label="A known place at the point you clicked" why=${`${clicked[0].toFixed(5)}, ${clicked[1].toFixed(5)}, every day of the gap`}
-          onClick=${() => add({ lat: String(clicked[0]), lon: String(clicked[1]) }, `Known place for ${gap.first}`)} />`
-        : html`<p class="muted">Click the map where you were, or name the town:</p>`}
+      ${clicked ? html`<${Action} main label="A known place at the point you clicked" keyName="Enter"
+          why=${`${clicked[0].toFixed(5)}, ${clicked[1].toFixed(5)} · ${range}`} disabled=${!span}
+          onClick=${addClicked} />`
+        : html`<p class="muted"><b>Click the map</b> where you were (the grey dots are where you were last seen and next seen), or name the town:</p>`}
       <div class="action"><input placeholder="Town" value=${town} onInput=${e => setTown(e.target.value)} size="12" />
         <input placeholder="Country" value=${country} onInput=${e => setCountry(e.target.value)} size="10" />
-        <button disabled=${!town || !country} onClick=${() => add({ town, country }, `Known place ${town} for ${gap.first}`)}>Add</button>
+        <button disabled=${!town || !country || !span} onClick=${() => add({ town, country }, `Known place ${town} for ${from}`)}>Add</button>
         <span class="why">Looked up in GeoNames by make places.</span></div></div>
   </div>`;
 }
@@ -88,7 +111,7 @@ function KnownInspector({ row }) {
 export function PlacesView({ rest }) {
   const state = useData("places");
   const [tab, setTab] = useState("questions"), [search, setSearch] = useState("");
-  const [map, setMap] = useState(null), [clicked, setClicked] = useState(null);
+  const [map, setMap] = useState(null), [clicked, setClicked] = useState(null), [around, setAround] = useState(0);
   const d = state.data || { questions: [], gaps: [], known: [] };
   const all = [
     ...d.questions.map(q => ({ ...q, key: "q:" + q.row.id, kind: "question", sort: q.row.start_date })),
@@ -124,11 +147,16 @@ export function PlacesView({ rest }) {
       const p = item.lat ? [+item.lat, +item.lon] : [+item.found.lat, +item.found.lon];
       L.marker(p).addTo(g); pts.push(p);
     } else if (item && item.kind === "gap") {
-      for (const p of item.photos) if (p.lat) { dot(+p.lat, +p.lon, { colour: "#ff7f0e", radius: 4 }).bindTooltip(`guessed for ${p.name}`).addTo(g); pts.push([+p.lat, +p.lon]); }
+      for (const [side, label] of [[item.before, "last seen"], [item.after, "next seen"]]) if (side) {
+        dot(side.lat, side.lon, { colour: "#888", radius: 6 }).bindTooltip(`${label} ${fmtDay(side.day)} (${side.what})`, { permanent: true }).addTo(g);
+        pts.push([side.lat, side.lon]);
+      }
+      const lo = shift(item.first, -around), hi = shift(item.last, around);
+      for (const p of item.photos) if (p.lat && p.day >= lo && p.day <= hi) { dot(+p.lat, +p.lon, { colour: "#ff7f0e", radius: 4 }).bindTooltip(`guessed for ${p.name}`).addTo(g); pts.push([+p.lat, +p.lon]); }
     }
     if (clicked) dot(clicked[0], clicked[1], { colour: "#d00", radius: 7 }).addTo(g);
     if (pts.length && !clicked) map.fitBounds(L.latLngBounds(pts), { padding: [60, 60], maxZoom: 13 });
-  }, [map, selected, clicked, state.data]);
+  }, [map, selected, clicked, state.data, around]);
   useEffect(() => {
     if (!map) return;
     const f = e => setClicked([e.latlng.lat, e.latlng.lng]);
@@ -138,14 +166,14 @@ export function PlacesView({ rest }) {
 
   let inspector = html`<div class="empty">Pick something from the list.</div>`;
   if (item && item.kind === "question") inspector = html`<${QuestionInspector} q=${item} clicked=${clicked} next=${next} />`;
-  if (item && item.kind === "gap") inspector = html`<${GapInspector} gap=${item} clicked=${clicked} key=${item.key} />`;
+  if (item && item.kind === "gap") inspector = html`<${GapInspector} gap=${item} clicked=${clicked} around=${around} setAround=${setAround} key=${item.key} />`;
   if (item && item.kind === "known") inspector = html`<${KnownInspector} row=${item} key=${item.key} />`;
   return html`<div class="view">
     <${Queue} items=${list} selected=${selected} onSelect=${select} tabs=${tabs} tab=${tab} setTab=${setTab}
       search=${search} setSearch=${setSearch} empty=${tab === "questions" ? "Every known place is settled." : "None."}
       row=${i => i.kind === "gap" ? html`<div class="t"><b>${fmtDay(i.first)}${i.days > 1 ? " → " + fmtDay(i.last, { year: false }) : ""}</b>
           <span class="pill gap">${i.days} day${i.days > 1 ? "s" : ""}</span></div>
-          <div class="s">${i.entries.length} entries · ${i.photos.length} photos</div>`
+          <div class="s">${i.entries.filter(x => x.day >= i.first && x.day <= i.last).length} entries · ${i.photos.filter(x => x.day >= i.first && x.day <= i.last).length} photos</div>`
         : i.kind === "question" ? html`<div class="t"><b>${i.row.town}, ${i.row.country}</b><span class="pill question">${i.options.length} options</span></div>
           <div class="s">${dates(i.row)}</div>`
         : html`<div class="t"><b>${i.town || i.note || "your point"}</b>${i.lat ? html`<span class="pill">point</span>` : ""}</div>

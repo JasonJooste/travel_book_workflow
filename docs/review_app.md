@@ -76,7 +76,9 @@ find and edit.
   map beside where you were before and after; pick one (number keys), click the map, or search.
   Saved to `manual/place_picks.csv`; rebuild to use it.
 - **Gaps**: days with nothing to place you (no ride, photo with GPS, known place or stay), with their
-  photos and diary entries. Click the map where you were, or name the town, to add a known place.
+  photos and diary entries (or those of ±1 or ±2 days around them), and where you were last and
+  next seen as grey dots on the map. Click the map where you were (Enter saves it), or name the
+  town, to add a known place; its From and To dates start as the gap's and can be changed.
 - **Known places**: every row of `manual/known_places.csv`, to edit or delete.
 
 ## Diary
